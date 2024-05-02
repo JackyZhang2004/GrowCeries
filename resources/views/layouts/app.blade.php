@@ -13,6 +13,7 @@
    
     {{-- Navbar --}}
     <link rel="stylesheet" href="{{ asset('css/layouts/nav.css') }}">
+    
     @livewireStyles
 </head>
 <body>

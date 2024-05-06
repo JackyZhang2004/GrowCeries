@@ -57,7 +57,10 @@
 
     <div class="backgroundSearch">
       <div class = "kiri">
-        <h1>apanih</h1>
+        <p class="mainText">Order Your Daily Growceries</p>
+        <div class="searchbar mt-4">
+          @include('widgets.searchBar')
+        </div>
       </div>
       {{-- <div class="kanan"> --}}
         <div id="carouselExampleFade" class="carousel slide carousel-fade" data-ride="carousel">

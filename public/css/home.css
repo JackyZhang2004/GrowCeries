@@ -132,6 +132,25 @@ html{
     animation: floating 6s ease-in-out infinite;
 }
 
+.backgroundSearch{
+    height: auto;
+    width: 100vw;
+    display: flex;
+}
+.kiri{
+    height: 100%;
+    width: 40%;
+}
+.carouselExampleFade{
+    height: 100%;
+    width: 60%;
+}
+#gambarCarousel{
+    clip-path: polygon(34% 0, 100% 0, 100% 100%, 0 100%);
+    height: 100%;
+    width: 100%;
+    overflow: hidden;
+}
 
 .card-img-top{
     padding: 15px;

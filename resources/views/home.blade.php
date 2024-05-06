@@ -20,7 +20,7 @@
         <img src="image/selada.png" alt="" class="imagejumbotron imageselada">
         <img src="image/pisang.png" alt="" class="imagejumbotron imagepisang">
 
-        <a href="#carouselExampleControls" id="clicktocontinue">
+        <a href="#searchJumbotron" id="clicktocontinue">
             <p>Click here to continue</p>
             <img src="image/Arrow.png" alt="" class="imagejumbotron arrow1">
             <img src="image/Arrow.png" alt="" class="imagejumbotron arrow2">
@@ -29,7 +29,7 @@
     {{-- untuk navbarnya udah ada dari layouts.app, jadi langsung ngoding bagian home yang jumbotron --}}
     {{-- kalo mau ngoding dimulai dari sini --}}
  
-    <section class="bg-center bg-no-repeat bg-[url('image/backgroundCarousel.png')] bg-gray-700">
+    <section class="bg-center bg-no-repeat bg-[url('image/backgroundCarousel.png')]" id="searchJumbotron">
       <div class="px-4 mx-auto text-center">
           <h1 class="mb-4 text-4xl font-extrabold tracking-tight leading-none text-white md:text-5xl lg:text-6xl">We invest in the world’s potential</h1>
           <p class="mb-8 text-lg font-normal text-gray-300 lg:text-xl sm:px-16 lg:px-48">Here at Flowbite we focus on markets where technology, innovation, and capital can unlock long-term value and drive economic growth.</p>
@@ -50,45 +50,52 @@
     {{-- Recommended Section --}}
     <div class="recommendedSection">
       <p class="h3 my-3" style="text-align: center"> <strong>Recommendation</strong></p>
-      <div class="row row-cols-1 row-cols-sm-3 row-cols-md-4">
-        <div class="col-6">
+      <div class="row row-cols-1 row-cols-sm-3 row-cols-md-4 mx-3">
+        <div class="col-lg-3 col-md-4 col-sm-6 col-xs-6 col-6 d-flex align-items-stretch mt-3">
           <div class="card">
-            <img src="..." class="card-img-top" alt="...">
+            <img src="image/gambarRectangle.png" class="card-img-top" alt="...">
             <div class="card-body">
-              <h5 class="card-title">Card title</h5>
-              <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+              <h5 class="card-title h5">Bocconcini Cheese Greenfields</h5>
+              <p class="text-muted card-text varianttext">300 gr</p>
+              <p class="card-text">Rp 109.900</p>
+              <button type="button" class="btn addbutton">ADD</button>
             </div>
           </div>
         </div>
-        <div class="col-6">
+        <div class="col-lg-3 col-md-4 col-sm-6 col-xs-6 col-6 d-flex align-items-stretch mt-3">
           <div class="card">
-            <img src="..." class="card-img-top" alt="...">
+            <img src="image/gambarRectangle.png" class="card-img-top" alt="...">
             <div class="card-body">
-              <h5 class="card-title">Card title</h5>
-              <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+              <h5 class="card-title h5">Bocconcini Cheese Greenfields</h5>
+              <p class="text-muted card-text varianttext">300 gr</p>
+              <p class="card-text">Rp 109.900</p>
+              <button type="button" class="btn addbutton">ADD</button>
             </div>
           </div>
         </div>
-        <div class="col-6">
+        <div class="col-lg-3 col-md-4 col-sm-6 col-xs-6 col-6 d-flex align-items-stretch mt-3">
           <div class="card">
-            <img src="..." class="card-img-top" alt="...">
+            <img src="image/gambarRectangle.png" class="card-img-top" alt="...">
             <div class="card-body">
-              <h5 class="card-title">Card title</h5>
-              <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content.</p>
+              <h5 class="card-title h5">Bocconcini Cheese Greenfields</h5>
+              <p class="text-muted card-text varianttext">300 gr</p>
+              <p class="card-text">Rp 109.900</p>
+              <button type="button" class="btn addbutton">ADD</button>
             </div>
           </div>
         </div>
-        <div class="col-6">
+        <div class="col-lg-3 col-md-4 col-sm-6 col-xs-6 col-6 d-flex align-items-stretch mt-3">
           <div class="card">
-            <img src="..." class="card-img-top" alt="...">
+            <img src="image/gambarRectangle.png" class="card-img-top" alt="...">
             <div class="card-body">
-              <h5 class="card-title">Card title</h5>
-              <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+              <h5 class="card-title h5">Bocconcini Cheese Greenfields</h5>
+              <p class="text-muted card-text varianttext">300 gr</p>
+              <p class="card-text">Rp 109.900</p>
+              <button type="button" class="btn addbutton">ADD</button>
             </div>
           </div>
         </div>
       </div>
-      
     </div>
 
     {{-- Carousel --}}

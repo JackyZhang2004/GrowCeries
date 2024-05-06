@@ -32,7 +32,7 @@ html{
 
 .jumbotron{
     background-color: #D6F6DD;
-    height: 521px;
+    height: calc(100vh - 64px);
     border-radius: 0%;
     position: relative;
 }
@@ -130,4 +130,43 @@ html{
     right: 43%;
     top: 122%;
     animation: floating 6s ease-in-out infinite;
+}
+
+
+.card-img-top{
+    padding: 15px;
+}
+
+.card{
+    border-color: white;
+    border-radius: 18px;
+    -webkit-box-shadow: 1px 2px 3px 0px rgba(0,0,0,0.3);
+    -moz-box-shadow: 1px 2px 3px 0px rgba(0,0,0,0.3);
+    box-shadow: 1px 2px 3px 0px rgba(0,0,0,0.3);
+}
+
+.card-title{
+    margin-bottom: 0px;
+}
+
+.varianttext{
+    margin-top: -0.15rem;
+}
+
+.card-text{
+    margin-top: 0.3rem;
+}
+
+.addbutton{
+    width: 100%;
+    background-color: #3F945A;
+    margin-top: 2rem;
+    border-radius: 18px;
+    color: white;
+    font-weight: bold;
+}
+
+.addbutton:hover{
+    background-color: #2A633C;
+    color: white;
 }

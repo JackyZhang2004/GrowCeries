@@ -1,0 +1,133 @@
+html{
+    scroll-behavior: smooth;
+}
+.floating {  
+    animation-name: floating;
+    animation-duration: 3s;
+    animation-iteration-count: infinite;
+    animation-timing-function: ease-in-out;
+    margin-left: 30px;
+    margin-top: 5px;
+}
+ 
+@keyframes floating {
+    0% { transform: translate(0,  0px); }
+    50%  { transform: translate(0, 15px); }
+    100%   { transform: translate(0, -0px); }    
+}
+.floating {  
+    animation-name: floating2;
+    animation-duration: 3s;
+    animation-iteration-count: infinite;
+    animation-timing-function: ease-in-out;
+    margin-left: 30px;
+    margin-top: 5px;
+}
+ 
+@keyframes floating2 {
+    0% { transform: translate(0,  15px); }
+    50%  { transform: translate(0, 0px); }
+    100%   { transform: translate(0, 15px); }    
+}
+
+.jumbotron{
+    background-color: #D6F6DD;
+    height: 521px;
+    border-radius: 0%;
+    position: relative;
+}
+
+.imagejumbotron{
+    position: absolute;
+}
+
+.imagebrokoli {
+    top: 3%;
+    left: -4%;
+    font-size: 50%;
+    width: 13%;
+    animation: floating 3s ease-in-out infinite;
+}
+
+.imageapel{
+    right: 73%;
+    width: 9%;
+    z-index: 0;
+    top: -3%;
+    animation: floating2 3s ease-in-out infinite;
+}
+
+.imageanggur{
+    top: 31%;
+    width: 8%;
+    right: 59%;
+    animation: floating 3s ease-in-out infinite;
+}
+
+.imagelogo{
+    top: 39%;
+    right: 37%;
+    width: 23%;
+}
+
+.imagewortel{
+    top: 58%;
+    right: 77%;
+    width: 9%;  
+    animation: floating 3s ease-in-out infinite;
+}
+
+.imagebluberi{
+    right: 93%;
+    top: 70%;
+    width: 12%;
+    animation: floating2 3s ease-in-out infinite;
+}
+
+.imagepaprika{
+    right: 23%;
+    top: 1%;
+    width: 9%;
+    animation: floating2 3s ease-in-out infinite;
+}
+
+.imagekubis{
+    right: 0%;
+    top: 7%;
+    width: 13%;
+    animation: floating2 3s ease-in-out infinite;
+}
+.imageselada {
+    right: 16%;
+    top: 34%;
+    width: 18%;
+    animation: floating 3s ease-in-out infinite;
+}
+.imagepisang {
+    right: 2%;
+    top: 63%;
+    width: 14%;
+    animation: floating 3s ease-in-out infinite;
+}
+
+#clicktocontinue{
+    position: absolute;
+    right: 43.5%;
+    top: 84%;
+}
+
+.arrow1{
+    height: 91%;
+    position: absolute;
+    right: 43%;
+    top: 91%;
+    animation: floating 6s ease-in-out infinite;
+}
+
+.arrow2{
+    height: 91%;
+    position: absolute;
+    right: 43%;
+    top: 122%;
+    animation: floating 6s ease-in-out infinite;
+}

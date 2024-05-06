@@ -1,3 +1,5 @@
+@extends('layouts.app')
+
 @push('head')
     <link rel="stylesheet" href="/css/about.css">
 @endpush

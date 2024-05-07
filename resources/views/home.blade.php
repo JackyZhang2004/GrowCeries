@@ -91,7 +91,21 @@
     <div class="recommendedSection">
       <p class="h3 my-3" style="text-align: center"> <strong>Recommendation</strong></p>
       <div class="row row-cols-1 row-cols-sm-3 row-cols-md-4 mx-3">
+        @foreach ($products as $product)
         <div class="col-lg-3 col-md-4 col-sm-6 col-xs-6 col-6 d-flex align-items-stretch mt-3">
+          <div class="card">
+            <img src="image/gambarRectangle.png" class="card-img-top" alt="...">
+            <div class="card-body">
+              <h5 class="card-title h5">{{$product->productName}}</h5>
+              <p class="text-muted card-text varianttext">{{$product->productVariant}}</p>
+              <p class="card-text">Rp {{$product->productPrice}}</p>
+              <button type="button" class="btn addbutton">ADD</button>
+            </div>
+          </div>
+        </div>
+            
+        @endforeach
+        {{-- <div class="col-lg-3 col-md-4 col-sm-6 col-xs-6 col-6 d-flex align-items-stretch mt-3">
           <div class="card">
             <img src="image/gambarRectangle.png" class="card-img-top" alt="...">
             <div class="card-body">
@@ -124,18 +138,7 @@
             </div>
           </div>
         </div>
-        <div class="col-lg-3 col-md-4 col-sm-6 col-xs-6 col-6 d-flex align-items-stretch mt-3">
-          <div class="card">
-            <img src="image/gambarRectangle.png" class="card-img-top" alt="...">
-            <div class="card-body">
-              <h5 class="card-title h5">Bocconcini Cheese Greenfields</h5>
-              <p class="text-muted card-text varianttext">300 gr</p>
-              <p class="card-text">Rp 109.900</p>
-              <button type="button" class="btn addbutton">ADD</button>
-            </div>
-          </div>
-        </div>
-      </div>
+      </div> --}}
     </div>
 
     {{-- Carousel --}}

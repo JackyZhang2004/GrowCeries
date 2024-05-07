@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @push('head')
-    <link rel="stylesheet" href="/css/about.css">
+    <link rel="stylesheet" href="{{ asset('css/home.css') }}">
 @endpush
 
 @section('title', 'About Us')

@@ -30,11 +30,17 @@ html{
     100%   { transform: translate(0, 15px); }    
 }
 
+@keyframes fadeIn {
+    0% { opacity: 0; }
+    100% { opacity: 1; }
+  }
+
 .jumbotron{
     background-color: #D6F6DD;
     height: calc(100vh - 64px);
     border-radius: 0%;
     position: relative;
+    animation: fadeIn 5s;
 }
 
 .imagejumbotron{
@@ -60,7 +66,7 @@ html{
 .imageanggur{
     top: 31%;
     width: 8%;
-    right: 59%;
+    right: 62%;
     animation: floating 3s ease-in-out infinite;
 }
 
@@ -68,6 +74,7 @@ html{
     top: 39%;
     right: 37%;
     width: 23%;
+    animation: fadeIn 8s;
 }
 
 .imagewortel{
@@ -109,11 +116,43 @@ html{
     width: 14%;
     animation: floating 3s ease-in-out infinite;
 }
+.imagestroberi {
+    right: 50%;
+    top: 8%;
+    width: 10%;
+    animation: floating 3s ease-in-out infinite;
+}
+.imagecabai {
+    right: 40%;
+    top: 10%;
+    width: 8%;
+    animation: floating 3s ease-in-out infinite;
+}
+.imagesemangka {
+    right: 60%;
+    top: 65%;
+    width: 12%;
+    animation: floating 3s ease-in-out infinite;
+}
+.imagenanas {
+    right: 75%;
+    top: 22%;
+    width: 15%;
+    animation: floating 3s ease-in-out infinite;
+}
+.imagedaunbawang {
+    right: 45%;
+    top: 55%;
+    width: 12%;
+    animation: floating 3s ease-in-out infinite;
+}
 
 #clicktocontinue{
     position: absolute;
     right: 43.5%;
     top: 84%;
+    text-decoration: none;
+    border: none;
 }
 
 .arrow1{
@@ -134,7 +173,6 @@ html{
 
 .backgroundSearch{
     height: auto;
-    /* width: 100vw; */
     display: flex;
     position: relative;
     background: rgb(255,255,255);
@@ -158,15 +196,14 @@ html{
 .mainText{
     z-index: 1;
     position: absolute;
-    font-size: 5vw;
-    top: 3%;
+    font-size: 60px;
+    top: 8%;
     width: 42%;
-    right: 56%;
+    right: 52%;
 }
 
 .searchbar{
-    
-    right: 52%;
+    right: 48%;
     top: 45%;
     position: absolute;
 }
@@ -176,6 +213,15 @@ html{
     padding: 0;
 }
 
+.recommendedSection{
+    width: 100vw;
+    margin-top: 15vh;
+}
+
+.recommendationTitle{
+    font-size: 40px;
+    margin-bottom: 50px;
+}
 
 .card-img-top{
     padding: 15px;

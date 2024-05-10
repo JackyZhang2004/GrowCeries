@@ -22,12 +22,17 @@
         <img src="image/kubis.png" alt="" class="imagejumbotron imagekubis">
         <img src="image/selada.png" alt="" class="imagejumbotron imageselada">
         <img src="image/pisang.png" alt="" class="imagejumbotron imagepisang">
+        <img src="image/stroberi.png" alt="" class="imagejumbotron imagestroberi">
+        <img src="image/cabai.png" alt="" class="imagejumbotron imagecabai">
+        <img src="image/nanas.png" alt="" class="imagejumbotron imagenanas">
+        <img src="image/semangka.png" alt="" class="imagejumbotron imagesemangka">
+        <img src="image/daunbawang.png" alt="" class="imagejumbotron imagedaunbawang">
 
-        <a href="#searchJumbotron" id="clicktocontinue">
+        <button id="clicktocontinue" onclick=scrollbottom()>
             <p>Click here to continue</p>
             <img src="image/Arrow.png" alt="" class="imagejumbotron arrow1">
             <img src="image/Arrow.png" alt="" class="imagejumbotron arrow2">
-        </a>
+        </button>
     </div>
     {{-- untuk navbarnya udah ada dari layouts.app, jadi langsung ngoding bagian home yang jumbotron --}}
     {{-- kalo mau ngoding dimulai dari sini --}}
@@ -92,7 +97,7 @@
 
     {{-- Recommended Section --}}
     <div class="recommendedSection">
-      <p class="h3 my-3" style="text-align: center"> <strong>Recommendation</strong></p>
+      <p class="recommendationTitle" style="text-align: center"> <strong>Recommendation</strong></p>
       <div class="row row-cols-1 row-cols-sm-3 row-cols-md-4 mx-3">
         @foreach ($products as $product)
         <div class="col-lg-3 col-md-4 col-sm-6 col-xs-6 col-6 d-flex align-items-stretch mt-3">

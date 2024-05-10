@@ -8,6 +8,9 @@
 @section('title', 'Home')
 
 @section('content')
+    <div class="successMessage">
+      @include('widgets.successMessage')
+    </div>
     <div class="jumbotron">
         <img src="image/brokolisvg.png" alt="" class="imagejumbotron imagebrokoli">
         <img src="image/apel.png" alt="" class="imagejumbotron imageapel">
@@ -55,8 +58,8 @@
       </div>
     </div> --}}
 
-    <div class="backgroundSearch">
-      <div class = "kiri">
+    <div class="backgroundSearch" id="searchJumbotron">
+      <div class="kiri">
         <p class="mainText">Order Your Daily Growceries</p>
         <div class="searchbar mt-4">
           @include('widgets.searchBar')
@@ -94,11 +97,19 @@
         @foreach ($products as $product)
         <div class="col-lg-3 col-md-4 col-sm-6 col-xs-6 col-6 d-flex align-items-stretch mt-3">
           <div class="card">
-            <img src="image/gambarRectangle.png" class="card-img-top" alt="...">
+            <a href="{{route('productDetail', ['id'=>$product->productId])}}" class="productDetailButton">
+              <img src="image/gambarRectangle.png" class="card-img-top" alt="...">
+            </a>
             <div class="card-body">
-              <h5 class="card-title h5">{{$product->productName}}</h5>
-              <p class="text-muted card-text varianttext">{{$product->productVariant}}</p>
-              <p class="card-text">Rp {{$product->productPrice}}</p>
+              <a href="{{route('productDetail', ['id'=>$product->productId])}}" class="productDetailButton">
+                <p class="card-title h5">{{$product->productDetail->productName}}</p>
+              </a>
+              <a href="{{route('productDetail', ['id'=>$product->productId])}}" class="productDetailButton">
+                <p class="text-muted card-text varianttext">{{$product->variant}}</p>
+              </a>
+              <a href="{{route('productDetail', ['id'=>$product->productId])}}" class="productDetailButton">
+                <p class="card-text">Rp {{$product->productPrice}}</p>
+              </a>
               <button type="button" class="btn addbutton">ADD</button>
             </div>
           </div>
@@ -137,8 +148,8 @@
               <button type="button" class="btn addbutton">ADD</button>
             </div>
           </div>
-        </div>
-      </div> --}}
+        {{-- </div> --}}
+      </div>  
     </div>
 
     {{-- Carousel --}}

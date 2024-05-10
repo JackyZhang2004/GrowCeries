@@ -20,13 +20,36 @@
     {{-- Link Awesome Font --}}
     <script src="https://kit.fontawesome.com/54958872eb.js" crossorigin="anonymous"></script>
 
+    {{-- Link Font Itim --}}
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Itim&display=swap" rel="stylesheet">
+
     @stack('head') {{-- untuk nge push head nanti bisa di css in kayak di home.blade.php --}}
 
     @livewireStyles
 </head>
 <body>
-    <livewire:nav>
-    @yield('content') 
+    @if (request()->is('login') || request()->is('register'))
+       <livewire:nav-login-register>
+    @else
+        <livewire:nav>   
+    @endif
+
+
+    @if (Route::currentRouteName() == 'register')
+        <div class="registerContainer">
+            @yield('register')
+        </div>
+    @elseif (Route::currentRouteName() == 'login')
+        <div class="loginContainer">
+            @yield('success')
+            @yield('login')
+        </div>
+    @else
+        @yield('content') 
+    @endif
+
     <livewire:footer>
     @livewireScripts 
     

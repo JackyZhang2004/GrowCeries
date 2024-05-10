@@ -214,3 +214,8 @@ html{
     background-color: #2A633C;
     color: white;
 }
+
+.productDetailButton:hover{
+    text-decoration: none;
+    color: black;
+}

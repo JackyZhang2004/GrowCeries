@@ -44,3 +44,27 @@
     text-decoration: none;
     color: black;
 }
+
+.result_box{
+    padding: 0px 23vw;
+}
+.result_box ul{
+    /* padding: 0px 4vw; */
+    /* max-lines: 3; */
+    height: 28.5vh;
+    overflow: auto ;
+
+}
+
+.result_box ul li{
+    list-style : none;
+    border-radius: 5px;
+    padding: 10px;
+    cursor: pointer;
+    border-bottom: 2px solid #d6d4d4;
+
+
+}
+.result_box ul li:hover{
+    background-color: #d5f6cf;
+}

@@ -8,6 +8,23 @@
 @section('title', 'Discover')
 
 @section('content')
+<p class="h1 centerText">These are the items you may need...</p>
+@include('widgets.searchBar')
+<div class="result_box">
+    {{-- <ul>
+        <li>
+                <i class="fa fa-search"></i>
+                test
+            </li>
+            <li>
+                <i class="fa fa-search"></i>
+                test2
+            </li>
+        </ul> --}}
+
+
+    </div>
+
 
 <div class="recommendedSection">
     <p class="h3 my-3" style="text-align: center"> <strong>Recommendation</strong></p>
@@ -36,5 +53,5 @@
         @endforeach
     </div>
 </div>
-
+    <script src="js/discover.js"></script>
 @endsection

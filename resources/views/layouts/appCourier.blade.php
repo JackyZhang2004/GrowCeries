@@ -30,25 +30,13 @@
     @livewireStyles
 </head>
 <body>
-    @if (request()->is('login') || request()->is('register'))
-       <livewire:nav-login-register>
-    @else
-        <livewire:nav>   
-    @endif
+    <livewire:courier.nav>   
 
 
-    @if (Route::currentRouteName() == 'register')
-        <div class="registerContainer">
-            @yield('register')
-        </div>
-    @elseif (Route::currentRouteName() == 'login')
-        <div class="loginContainer">
-            @yield('success')
-            @yield('login')
-        </div>
-    @elseif(Route::currentRouteName() == 'admin.login')
-            @yield('success')
-            @yield('login')
+    @if (Route::currentRouteName() == 'courier.login')
+        @yield('error')
+        @yield('success')
+        @yield('login')
     @else
         @yield('content') 
     @endif

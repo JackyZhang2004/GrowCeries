@@ -1,5 +1,5 @@
 <!-- Footer -->
-<footer class="text-center text-lg-start bg-body-tertiary text-muted mt-3">
+<footer class="text-center text-lg-start bg-body-tertiary mt-4">
     <!-- Section: Social media -->
     <section class="d-flex justify-content-center justify-content-lg-between p-4 border-bottom">
       <!-- Left -->
@@ -42,12 +42,10 @@
           <div class="col-md-3 col-lg-4 col-xl-3 mx-auto mb-4">
             <!-- Content -->
             <h6 class="text-uppercase fw-bold mb-4">
-              <img src="image/logoGrowceries.png" alt="" id="logoFooter">
+              <img src="{{ asset('image/logoGrowceries.png') }}" alt="" id="logoFooter">
             </h6>
             <p>
-              Here you can use rows and columns to organize your footer content. Lorem ipsum
-              dolor sit amet, consectetur adipisicing elit.
-            </p>
+              Growceries is an application that provides online fruit and vegetable shopping services. Designed to make it easier for users to meet their daily needs in a practical and efficient way, Growceries is the main choice for lovers of healthy living and a modern lifestyle.            </p>
           </div>
           <!-- Grid column -->
   
@@ -97,13 +95,13 @@
           <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mb-md-0 mb-4">
             <!-- Links -->
             <h6 class="text-uppercase fw-bold mb-4">Contact</h6>
-            <p><i class="fas fa-home me-3"></i> New York, NY 10012, US</p>
+            <p><i class="fas fa-home me-3"></i> Sentul City, Jl. Pakuan No.3, Sumur Batu, Babakan Madang, Bogor Regency, West Java 16810</p>
             <p>
               <i class="fas fa-envelope me-3"></i>
-              info@example.com
+              GrowCeries@ceries.com
             </p>
-            <p><i class="fas fa-phone me-3"></i> + 01 234 567 88</p>
-            <p><i class="fas fa-print me-3"></i> + 01 234 567 89</p>
+            <p><i class="fas fa-phone me-3"></i> + 0123-4567-8888</p>
+            <p><i class="fas fa-print me-3"></i> + 0123-4567-8999</p>
           </div>
           <!-- Grid column -->
         </div>

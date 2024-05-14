@@ -34,6 +34,7 @@
             <img src="image/Arrow.png" alt="" class="imagejumbotron arrow2">
         </button>
     </div>
+
     {{-- untuk navbarnya udah ada dari layouts.app, jadi langsung ngoding bagian home yang jumbotron --}}
     {{-- kalo mau ngoding dimulai dari sini --}}
  

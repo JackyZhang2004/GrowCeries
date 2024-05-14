@@ -1,5 +1,6 @@
 html{
     scroll-behavior: smooth;
+    overflow-x: overlay;
 }
 .floating {  
     animation-name: floating;
@@ -214,7 +215,7 @@ html{
 }
 
 .recommendedSection{
-    width: 100vw;
+    width: calc(100vw - 34px);
     margin-top: 15vh;
 }
 
@@ -235,6 +236,13 @@ html{
     box-shadow: 1px 2px 3px 0px rgba(0,0,0,0.3);
 }
 
+.card:hover{
+    box-shadow: 0px 0px 25px 0px rgba(0,0,0,0.36);
+    -webkit-box-shadow: 0px 0px 25px 0px rgba(0,0,0,0.36);
+    -moz-box-shadow: 0px 0px 25px 0px rgba(0,0,0,0.36);
+    transition: box-shadow .3s ;
+}
+
 .card-title{
     margin-bottom: 0px;
 }
@@ -249,15 +257,18 @@ html{
 
 .addbutton{
     width: 100%;
-    background-color: #3F945A;
+    /* background-color: #3F945A; */
     margin-top: 2rem;
     border-radius: 18px;
-    color: white;
+    /* color: white; */
     font-weight: bold;
+    color: rgb(63, 148, 90);
+    background-color: white;
+    border-color: #ffb524;
 }
 
 .addbutton:hover{
-    background-color: #2A633C;
+    background-color: #ffb524;
     color: white;
 }
 
@@ -265,3 +276,15 @@ html{
     text-decoration: none;
     color: black;
 }
+
+.productDetailButton {
+    overflow: hidden; 
+  }
+  
+.productDetailButton img {
+    transition: transform .5s ease;
+  }
+  
+.productDetailButton:hover img {
+    transform: scale(1.25);
+  }

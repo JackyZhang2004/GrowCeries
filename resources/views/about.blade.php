@@ -7,6 +7,7 @@
 @section('title', 'About Us')
 
 @section('content')
+
     <div class="aboutus">
         <div class="aboutunit">
             <img src= "https://drive.google.com/thumbnail?id=1VY_8ILTsP8iz2cjjcae2CGFvSLHeR3Ah" alt="" width="300px">

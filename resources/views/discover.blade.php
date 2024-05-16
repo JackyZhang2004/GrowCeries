@@ -9,32 +9,36 @@
 
 @section('content')
 
-<div class="recommendedSection">
-    <p class="h3 my-3" style="text-align: center"> <strong>Recommendation</strong></p>
-    <div class="row row-cols-1 row-cols-sm-3 row-cols-md-4 mx-3">
-        @foreach ($products as $product)
-        <div class="col-lg-3 col-md-4 col-sm-6 col-xs-6 col-6 d-flex align-items-stretch mt-3">
-            <div class="card">
-                <a href="{{route('productDetail', ['id'=>$product->productId])}}" class="productDetailButton">
-                    <img src="image/gambarRectangle.png" class="card-img-top" alt="...">
-                </a>
-                <div class="card-body">
-                    <a href="{{route('productDetail', ['id'=>$product->productId])}}" class="productDetailButton">
-                        <p class="card-title h5">{{$product->productDetail->productName}}</p>
-                    </a>
-                    <a href="{{route('productDetail', ['id'=>$product->productId])}}" class="productDetailButton">
-                        <p class="text-muted card-text varianttext">{{$product->variant}}</p>
-                    </a>
-                    <a href="{{route('productDetail', ['id'=>$product->productId])}}" class="productDetailButton">
-                        <p class="card-text">Rp {{$product->productPrice}}</p>
-                    </a>
-                    <button type="button" class="btn addbutton">ADD</button>
-                </div>
+<h1>Our Product</h1>
+<div class="main">
+    
+</div>
+
+
+@endsection
+
+{{--
+<div class="filters">
+    <div class="container">
+        <div class="sidebar">
+            <input type="text" id="txtSearch" placeholder="Search Product..."/>
+            <h3>Category</h3>
+            <ul>
+                <!-- category list shows from javascript code -->
+            </ul>
+            <h3>Price Range</h3>
+            <div class="price">
+                <input type="range" id="priceRange"/>
+                <span class="priceValue">500</span>
             </div>
         </div>
 
-        @endforeach
-    </div>
-</div>
 
-@endsection
+
+        <div class="content">
+            <div class="products">
+                <!--products list dshows from javascript code-->
+            </div>
+        </div>
+    </div>
+</div> --}}

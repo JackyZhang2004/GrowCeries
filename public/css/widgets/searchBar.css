@@ -1,45 +1,106 @@
 
-.searchForm{
-    margin: auto;
-    padding: 10px;
-    border-radius: 100px;
+.input-group
+{
+    /* background-color: aqua; */
+    display: flex;
+    /* align-items: center;  */
+    justify-content: center;
+    flex-direction: row;
+    height: 6vh;
 }
-
-.search {
-    position: relative;
+.search_container{
+    width: 53%;
+    /* background-color: aquamarine; */
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    height: 100%;
+    align-items: center;
+    border: 1.5px black solid;
+    border-radius: 28px;
 }
-
-.search input {
-    height: 60px;
-    text-indent: 20px;
-    border: 2px solid #d6d4d4;
-    border-radius: 100px;
+#myInput{
+    width: 65%;
+    height: 100%;
+    border: none;
+    font-size: 25px;
 }
-
-
-.search input:focus {
+input:focus{
+    outline: none;
     box-shadow: none;
-    border: 2px solid blue;
 }
+i{
+  margin-right: 2vw;
+  font-size: 30px;
+}
+.search_button{
+    background-color: green;
+    color: aliceblue;
+    width: 15%;
+    height: 85%;
+    margin-left: 4vw;
+    border-radius: 22px;
+    font-size: 25px;
+}
+.result_box{
+    width: 100vw;
+    /* background-color: bisque; */
+    /* height: 20vh; */
+    display: flex;
+    justify-content: center;
+    position: relative;
+    /* z-index: 0; */
+}
+#dropdown_m0{
+    width: 88%;
 
-.search .fa-search {
+}
+.dropdown-content{
+    width: 100%;
+    height: 100%;
+    background-color: blueviolet;
     position: absolute;
-    top: 20px;
-    left: 16px;
+    z-index: 2;
+    /* background-color: aliceblue; */
+    /* position: absolute; */
+    /* z-index: 2; */
+}
+.percontent{
+    display: flex;
+    align-items: center;
+    /* border-radius: 15px; */
+    /* background-color: aquamarine; */
+    font-size: 24px;
+    /* height: 5vh; */
+    /* margin-bottom: 1vh; */
+    cursor: pointer;
+}
+.percontent:hover{
+    background-color: rgb(158, 222, 158);
+}
+.ml-23{
+    /* padding-left: 2vw; */
+
+}
+#magnifying2{
+padding-left: 1vw;
 }
 
-.search button {
-    position: absolute;
-    top: 5px;
-    right: 5px;
-    height: 50px;
-    width: 110px;
-    background: #88943F;
-    border-radius: 100px;
-    border-color: white;
+.result_field{
+    /* padding-top: 1.3vh; */
+    background-color: rgb(255, 255, 255);
+    border-radius: 0px 0px 24px 24px;
+    border-bottom: 1px black solid;
+    border-left: 1px black solid;
+    border-right: 1px black solid;
+    padding-top: 1vh;
+    overflow: hidden;
+}
+.dropdown-content{
+    display: none;
+}
+.result_box{
+    padding: 0px 23vw;
 }
 
-.search button:hover{
-    background-color: #778237;
-    border-color: white;
-}
+

@@ -24,9 +24,6 @@ class discoverController extends Controller
         $products = $productsQuery->get();
 
         return view('discover', [
-            'products' => $products,
-            'productDetail' => $productDetail
-        ]);
     }
 }
 

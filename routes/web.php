@@ -72,6 +72,7 @@ Route::group(['prefix' => 'admin'], function(){
         Route::get('product/{product}', [adminProductController::class, 'show'])->name('admin.showProduct');
         Route::get('product/{product}/edit', [adminProductController::class, 'edit'])->name('admin.editProduct');
         Route::put('product/{product}', [adminProductController::class, 'update'])->name('admin.updateProduct');
+        
     });
 
 });

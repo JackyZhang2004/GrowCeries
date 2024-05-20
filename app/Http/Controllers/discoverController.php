@@ -12,7 +12,9 @@ class discoverController extends Controller
 
         return view('discover', [
             'products' => $products
-        ]);   
+        ]);
+
+        // $category = category::OrderBy()
     }
 
 }

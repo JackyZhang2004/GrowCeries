@@ -312,7 +312,7 @@ input:focus{
     border: none;
     font-size: 25px;
 }
-i{
+.bi-search{
     margin-right: 1vw;
     margin-left: 1vw;
     font-size: 30px;

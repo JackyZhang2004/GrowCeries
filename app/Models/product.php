@@ -22,4 +22,12 @@ class product extends Model
     public function productDetail(){
         return $this->hasOne(productDetail::class, 'productDetailId', 'productDetailId');
     }
+
+    public function cartList(){
+        return $this->hasMany(cartList::class, 'productId');
+    }
+    public function orderList()
+    {
+        return $this->hasMany(orderList::class, 'productId');
+    }
 }

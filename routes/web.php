@@ -6,6 +6,7 @@ use App\Http\Controllers\courier\loginController as courierLoginController;
 use App\Http\Controllers\courier\homeController as courierHomeController;
 use App\Http\Controllers\homeController;
 use App\Http\Controllers\aboutController;
+use App\Http\Controllers\addressController;
 use App\Http\Controllers\admin\homeController as adminHomeController;
 use App\Http\Controllers\admin\productController as adminProductController;
 use App\Http\Controllers\authController;
@@ -14,14 +15,6 @@ use App\Http\Controllers\discoverController;
 use App\Http\Controllers\orderController;
 use App\Http\Controllers\productController;
 use Illuminate\Support\Facades\Route;
-
-// Route::get('/', function () {
-//     return view('welcome');
-// });
-
-// Route::get('/about', function () {
-//     return view('about');
-// });
 
 
 // USER HERE
@@ -46,6 +39,30 @@ Route::get('discover', [discoverController::class, 'index'])->name('discover');
 Route::get('order', [orderController::class, 'index'])->name('order');
 
 Route::get('cart', [cartController::class, 'index'])->name('cart');
+Route::get('add-cart/{id}', [cartController::class, 'addCart'])->name('cart.add');
+Route::post('/cart/increment/{id}', [cartController::class, 'incrementCart'])->name('cart.increment');
+Route::post('/cart/decrement/{id}', [cartController::class, 'decrementCart'])->name('cart.decrement');
+
+Route::get('checkout', [CartController::class, 'checkout'])->name('checkout');
+
+Route::get('/addresses', [addressController::class, 'chooseAddress'])->name('address.chooseAddress');
+
+Route::get('/address/{id}/edit', [addressController::class, 'edit'])->name('address.edit');
+Route::put('/address/{id}/update', [addressController::class, 'update'])->name('address.update');
+
+Route::post('/order/make', [orderController::class, 'makeOrder'])->name('order.make');
+
+
+
+
+// Route::middleware('auth')->group(function () {
+//     Route::get('/addresses', [addressController::class, 'index'])->name('addresses.index');
+//     Route::get('/addresses/create', [addressController::class, 'create'])->name('addresses.create');
+//     Route::post('/addresses', [addressController::class, 'store'])->name('addresses.store');
+//     Route::get('/addresses/{address}/edit', [addressController::class, 'edit'])->name('addresses.edit');
+//     Route::put('/addresses/{address}', [addressController::class, 'update'])->name('addresses.update');
+//     Route::delete('/addresses/{address}', [addressController::class, 'destroy'])->name('addresses.destroy');
+// });
 
 
 

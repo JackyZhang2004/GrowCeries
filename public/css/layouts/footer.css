@@ -24,3 +24,8 @@ footer{
 .fullFooter{
     margin-bottom: 40px;
 }
+
+.me-4 .text-reset{
+    width: 100vw;
+    background-color: black;
+}

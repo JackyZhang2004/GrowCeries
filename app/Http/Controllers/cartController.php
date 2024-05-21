@@ -137,24 +137,16 @@ class cartController extends Controller
 
         }
     }
-
+    
     public function checkout(Request $request)
     {
         $user = Auth::user();
 
-        $selectedItems = $request->input('selectedItems');
         $addressId = $request->input('addressId');
-
-        if (is_null($selectedItems) || count($selectedItems) === 0) {
-            return redirect()->back()->with('error', 'Please select at least one item to proceed to checkout.');
-        }
 
         $addresses = $user->addresses;
         $firstAddress = address::find($addressId) ?? $addresses->first();
 
-        $cartItems = CartList::whereIn('productId', $selectedItems)->get();
-        
-        return view('checkout', compact('cartItems', 'addresses', 'firstAddress'));
+        return view('checkout', compact('addresses', 'firstAddress'));
     }
-    
 }

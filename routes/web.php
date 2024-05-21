@@ -50,7 +50,6 @@ Route::get('/addresses', [addressController::class, 'chooseAddress'])->name('add
 Route::get('/address/{id}/edit', [addressController::class, 'edit'])->name('address.edit');
 Route::put('/address/{id}/update', [addressController::class, 'update'])->name('address.update');
 
-Route::post('/order/make', [orderController::class, 'makeOrder'])->name('order.make');
 
 
 

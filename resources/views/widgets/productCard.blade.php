@@ -28,12 +28,12 @@
       @else
       <!-- Increment and Decrement Buttons -->
       <div class="quantityControl">
-        <form action="{{ route('cart.decrement', $product->productId) }}" method="POST" class="d-inline">
+        <form action="{{ route('cart.decrement', $product->productId) }}" method="POST" class="d-inline plesMines">
           @csrf
           <button type="submit" class="btn btn-outline-secondary quantity-btn">-</button>
         </form>
         <span class="quantity mx-2">{{ $cartItem->quantity }}</span>
-        <form action="{{ route('cart.increment', $product->productId) }}" method="POST" class="d-inline">
+        <form action="{{ route('cart.increment', $product->productId) }}" method="POST" class="d-inline plesMines">
           @csrf
           <button type="submit" class="btn btn-outline-success quantity-btn">+</button>
         </form>

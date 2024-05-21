@@ -18,31 +18,5 @@
         <p>No address found. Please add an address in your profile.</p>
         {{-- <a href="{{ route('address.create') }}" class="btn btn-primary">Add New Address</a> --}}
     @endif
-
-    <div>
-        <?php
-        $value = 0;
-        ?>
-        <p class="h3">Ordered Products</p>
-        @foreach ($cartItems as $item)
-        <div class="checkout-item">
-            <span>{{ $item->product->productDetail->productName }}</span>
-            <span>{{ $item->quantity }}</span>
-            <span>Rp {{ $item->product->productPrice * $item->quantity }}</span>
-        </div>
-        <?php
-        $value = $value + ($item->product->productPrice * $item->quantity);
-        ?>
-        @endforeach
-        <br><br>
-        <p class="h3"> Total Price : {{$value}}</p>
-
-        <form action="{{ route('order.make') }}" method="POST">
-            @csrf
-            <input type="hidden" name="selectedItems" value="{{ implode(',', request()->input('selectedItems', [])) }}">
-            <input type="hidden" name="addressId" value="{{ $firstAddress->addressId }}">
-            <button type="submit" class="btn btn-primary">Place Order</button>
-        </form>
-    </div>
 </div>
 @endsection

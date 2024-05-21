@@ -13,10 +13,11 @@
         <p>{{ $firstAddress->receiverName }} <br>
             {{ $firstAddress->phoneNumber }} <br>
             {{ $firstAddress->addressName }}, {{ $firstAddress->addressDetail }}</p>
-        <a href="{{ route('address.chooseAddress', ['selectedItems' => request()->input('selectedItems')]) }}" class="btn btn-secondary">Edit Address</a>
+            <input type="hidden" name="redirect_to" value="{{ url()->current() }}">
+        <a href="{{ route('address.chooseAddress') }}" class="btn btn-secondary">Edit Address</a>
     @else
         <p>No address found. Please add an address in your profile.</p>
-        {{-- <a href="{{ route('address.create') }}" class="btn btn-primary">Add New Address</a> --}}
-    @endif
+        <a href="{{ route('address.create') }}" class="btn btn-primary">Add New Address</a>
+    @endif  
 </div>
 @endsection

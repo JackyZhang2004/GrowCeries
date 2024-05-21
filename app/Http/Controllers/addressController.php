@@ -5,16 +5,18 @@ namespace App\Http\Controllers;
 use App\Models\address;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Validator;
+use Symfony\Component\Console\Input\Input;
 
 class addressController extends Controller
 {
-    // public function index()
-    // {
-    //     $user = Auth::user();
-    //     $addresses = $user->addresses;
+    public function index()
+    {
+        $user = Auth::user();
+        $addresses = $user->addresses;
 
-    //     return view('addresses.index', compact('addresses'));
-    // }
+        return view('addresses.index', compact('addresses'));
+    }
 
     public function create()
     {
@@ -23,27 +25,38 @@ class addressController extends Controller
 
     public function store(Request $request)
     {
-        $request->validate([
-            'receiverName' => 'required|string|max:255',
-            'phoneNumber' => 'required|numeric|min:12|max:12',
-            'addressName' => 'required|string|max:255',
-            'addressDetail' => 'required|string|max:255',
-        ]);
+        $validator = Validator::make($request->all(),
+            [
+                'receiverName' => 'required|string|max:255',
+                'phoneNumber' => 'required|numeric|min_digits:12|max_digits:12',
+                'addressName' => 'required|string|max:255',
+                'addressDetail' => 'required|string|max:255',
+            ]
+        );
+
+        if ($validator->fails()) {
+            return back()->withErrors($validator)->withInput();
+        }
 
         $user = Auth::user();
-        $user->addresses->create($request->all());
 
-        return redirect()->route('addresses.index')->with('success', 'Address added successfully.');
+        address::create([
+            'userId' => $user->id,
+            'receiverName' => $request->receiverName,
+            'phoneNumber' => $request->phoneNumber,
+            'addressName' => $request->addressName,
+            'addressDetail' => $request->addressDetail,
+        ]);
+
+        return redirect()->route('address.index')->with('success', 'Address added successfully.');
     }
 
-    // public function destroy(Address $address)
-    // {
-    //     $this->authorize('delete', $address);
+    public function destroy(Address $address)
+    {
+        $address->delete();
 
-    //     $address->delete();
-
-    //     return redirect()->route('addresses.index')->with('success', 'Address deleted successfully.');
-    // }
+        return redirect()->route('address.index')->with('success', 'Address deleted successfully.');
+    }
 
     public function chooseAddress()
     {
@@ -57,9 +70,9 @@ class addressController extends Controller
     {
         $address = address::findOrFail($id);
 
-        // if ($address->user_id != Auth::id()) {
-        //     // return redirect()->route('checkout')->withErrors('You are not authorized to edit this address');
-        // }
+        if ($address->user_id != Auth::id()) {
+            // return redirect()->route('checkout')->withErrors('You are not authorized to edit this address');
+        }
 
         return view('addresses.edit', compact('address'));
     }
@@ -74,12 +87,19 @@ class addressController extends Controller
         ]);
         
         $address = Address::findOrFail($id);
-        
-        // if ($address->user_id != Auth::id()) {
-        //     return redirect()->route('checkout')->withErrors('You are not authorized to update this address');
-        // }
 
+        if ($address->userId != Auth::id()) {
+            return redirect()->route('checkout')->with('error', 'You are not authorized to update this address');
+        }
         $address->update($request->all());
-        return redirect()->route('cart')->with('success', 'Address updated successfully');
+        $previousPage = $request->input('previous_page');
+        if ($previousPage == route('address.index')) {
+            return redirect()->route('address.index')->with('success', 'Address updated successfully');
+        } elseif ($previousPage == route('checkout')) {
+            return redirect()->route('checkout')->with('success', 'Address updated successfully');
+        } else {
+            return redirect()->route('home');
+        }
+    
     }
 }

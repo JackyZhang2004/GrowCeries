@@ -45,7 +45,7 @@ Route::post('/cart/decrement/{id}', [cartController::class, 'decrementCart'])->n
 
 Route::get('checkout', [CartController::class, 'checkout'])->name('checkout');
 
-Route::get('/addresses', [addressController::class, 'chooseAddress'])->name('address.chooseAddress');
+Route::get('/choose-address', [addressController::class, 'chooseAddress'])->name('address.chooseAddress');
 
 Route::get('/address/{id}/edit', [addressController::class, 'edit'])->name('address.edit');
 Route::put('/address/{id}/update', [addressController::class, 'update'])->name('address.update');
@@ -55,12 +55,12 @@ Route::put('/address/{id}/update', [addressController::class, 'update'])->name('
 
 
 // Route::middleware('auth')->group(function () {
-//     Route::get('/addresses', [addressController::class, 'index'])->name('addresses.index');
-//     Route::get('/addresses/create', [addressController::class, 'create'])->name('addresses.create');
-//     Route::post('/addresses', [addressController::class, 'store'])->name('addresses.store');
+    Route::get('/addresses', [addressController::class, 'index'])->name('address.index');
+    Route::get('/addresses/create', [addressController::class, 'create'])->name('address.create');
+    Route::post('/addresses/create', [addressController::class, 'store']);
 //     Route::get('/addresses/{address}/edit', [addressController::class, 'edit'])->name('addresses.edit');
 //     Route::put('/addresses/{address}', [addressController::class, 'update'])->name('addresses.update');
-//     Route::delete('/addresses/{address}', [addressController::class, 'destroy'])->name('addresses.destroy');
+    Route::delete('/addresses/{address}', [addressController::class, 'destroy'])->name('address.destroy');
 // });
 
 

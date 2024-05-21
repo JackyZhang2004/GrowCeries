@@ -16,9 +16,9 @@
                     {{ $address->addressName }}, {{ $address->addressDetail }}
                 </p>
                 <form method="GET" action="{{ route('checkout') }}">
-                    @foreach (request()->input('selectedItems', []) as $item)
+                    {{-- @foreach (request()->input('selectedItems', []) as $item)
                         <input type="hidden" name="selectedItems[]" value="{{ $item }}">
-                    @endforeach
+                    @endforeach --}}
                     <input type="hidden" name="addressId" value="{{ $address->addressId }}">
                     <button type="submit" class="btn btn-primary">Use this address</button>
                 </form>

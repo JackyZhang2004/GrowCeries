@@ -69,8 +69,7 @@
                 d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .491.592l-1.5 8A.5.5 0 0 1 13 12H4a.5.5 0 0 1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0 1-.5-.5M3.102 4l1.313 7h8.17l1.313-7zM5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4m7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4m-7 1a1 1 0 1 1 0 2 1 1 0 0 1 0-2m7 0a1 1 0 1 1 0 2 1 1 0 0 1 0-2" />
             </svg>
             @if ($count > 10)
-                <p>ini lebih besar dari 10</p>
-                {{-- jangan lupa kalo spannya udah lebih dari 10 ganti font size nya yang di nav.css bagian icon-cart .span  --}}
+                <span class="moreThan10">{{$count ?? 0}}</span>
             @else
                 <span>{{$count ?? 0}}</span>
                 
@@ -86,7 +85,7 @@
                 id="user-menu-button" aria-expanded="false" aria-haspopup="true">
                 <span class="absolute -inset-1.5"></span>
                 <img class="h-8 w-8 rounded-full"
-                  src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
+                  src="{{ Auth::user()->image() }}"
                   alt="">
                 <span class="username rounded-md px-2 pt-1 text-sm font-medium">{{ Auth::user()->name }}</span>
               </button>
@@ -108,8 +107,8 @@
             <!-- Active: "bg-gray-100", Not Active: "" -->
             <a href="#" class="block px-4 py-2 text-sm text-gray-700" role="menuitem" tabindex="-1"
               id="user-menu-item-0">Your Profile</a>
-            <a href="#" class="block px-4 py-2 text-sm text-gray-700" role="menuitem" tabindex="-1"
-              id="user-menu-item-1">Settings</a>
+            <a href="{{ route('address.index') }}" class="block px-4 py-2 text-sm text-gray-700" role="menuitem" tabindex="-1"
+              id="user-menu-item-1">My Address</a>
             <form action="{{ route('logout') }}" method="POST" class="block px-4 py-2 text-sm text-gray-700"
               role="menuitem" tabindex="-1" id="user-menu-item-2">
               @csrf

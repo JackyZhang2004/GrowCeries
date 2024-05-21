@@ -8,10 +8,10 @@
         <div class="input-group">
             <div class="search_container">
                 <i class="bi bi-search" id="magnifying" style="color: #050505 solid"></i>
-                <input name="search_Input" type="text" autocomplete="off" placeholder="Search your daily Growceries" id="myInput" oninput="filterFunction()"
+                <input name="searchInput" type="text" autocomplete="off" placeholder="Search your daily Growceries" id="myInput" oninput="filterFunction()"
                 class="form-control">
 
-                <button class="search_button">Search</button>
+                <button class="searchButton">Search</button>
             </div>
         </div>
         <div class="result_box">

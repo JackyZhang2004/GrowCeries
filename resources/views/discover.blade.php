@@ -8,7 +8,7 @@
 @section('title', 'Discover')
 
 @section('content')
-<p class="h1 centerText">These are the items you may need...</p>
+<p class="h1centerText">These are the items you may need...</p>
 @include('widgets.searchBar')
 <div class="result_box">
     {{-- <ul>
@@ -74,7 +74,6 @@
 </div>
 
     <div class="recommendedSection">
-        <p class="recommendationTitle" style="text-align: center"> <strong>Recommendation</strong></p>
         <div class="row row-cols-1 row-cols-sm-3 row-cols-md-4 mx-3">
           @foreach ($products as $product)
             @include('widgets.productCard')

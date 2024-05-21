@@ -46,3 +46,7 @@ html, body{
     background-color: rgb(148 163 184);
     /* color: white; */
 }
+
+.moreThan10{
+    font-size: 13px;
+}

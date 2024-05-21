@@ -11,32 +11,30 @@
 @section('title', 'Home')
 
 @section('content')
-    <div class="successMessage">
-      @include('widgets.successMessage')
-    </div>
-    <div class="jumbotron">
-        <img src="image/brokolisvg.png" alt="" class="imagejumbotron imagebrokoli">
-        <img src="image/apel.png" alt="" class="imagejumbotron imageapel">
-        <img src="image/anggur.png" alt="" class="imagejumbotron imageanggur">
-        <img src="image/logoGrowceries.png" alt="" class="imagejumbotron imagelogo">
-        <img src="image/wortel.png" alt="" class="imagejumbotron imagewortel">
-        <img src="image/bluberi.png" alt="" class="imagejumbotron imagebluberi">
-        <img src="image/paprika.png" alt="" class="imagejumbotron imagepaprika">
-        <img src="image/kubis.png" alt="" class="imagejumbotron imagekubis">
-        <img src="image/selada.png" alt="" class="imagejumbotron imageselada">
-        <img src="image/pisang.png" alt="" class="imagejumbotron imagepisang">
-        <img src="image/stroberi.png" alt="" class="imagejumbotron imagestroberi">
-        <img src="image/cabai.png" alt="" class="imagejumbotron imagecabai">
-        <img src="image/nanas.png" alt="" class="imagejumbotron imagenanas">
-        <img src="image/semangka.png" alt="" class="imagejumbotron imagesemangka">
-        <img src="image/daunbawang.png" alt="" class="imagejumbotron imagedaunbawang">
 
-        <button id="clicktocontinue" onclick=scrollbottom()>
-            <p>Click here to continue</p>
-            <img src="image/Arrow.png" alt="" class="imagejumbotron arrow1">
-            <img src="image/Arrow.png" alt="" class="imagejumbotron arrow2">
-        </button>
-    </div>
+<div class="jumbotron">
+  <img src="image/brokolisvg.png" alt="" class="imagejumbotron imagebrokoli">
+  <img src="image/apel.png" alt="" class="imagejumbotron imageapel">
+  {{-- <img src="image/anggur.png" alt="" class="imagejumbotron imageanggur"> --}}
+  <img src="{{ asset('image/GrowceriesLogo.svg') }}" alt="" class="imagejumbotron imagelogo">
+  <img src="image/wortel.png" alt="" class="imagejumbotron imagewortel">
+  <img src="image/bluberi.png" alt="" class="imagejumbotron imagebluberi">
+  <img src="image/paprika.png" alt="" class="imagejumbotron imagepaprika">
+  <img src="image/kubis.png" alt="" class="imagejumbotron imagekubis">
+  <img src="image/selada.png" alt="" class="imagejumbotron imageselada">
+  <img src="image/pisang.png" alt="" class="imagejumbotron imagepisang">
+  <img src="image/stroberi.png" alt="" class="imagejumbotron imagestroberi">
+  {{-- <img src="image/cabai.png" alt="" class="imagejumbotron imagecabai"> --}}
+  {{-- <img src="image/nanas.png" alt="" class="imagejumbotron imagenanas"> --}}
+  <img src="image/semangka.png" alt="" class="imagejumbotron imagesemangka">
+  <img src="image/daunbawang.png" alt="" class="imagejumbotron imagedaunbawang">
+
+  <button id="clicktocontinue" onclick=scrollbottom()>
+    <p>Click here to continue</p>
+    <img src="image/Arrow.png" alt="" class="imagejumbotron arrow1">
+    <img src="image/Arrow.png" alt="" class="imagejumbotron arrow2">
+  </button>
+</div>
 
     {{-- untuk navbarnya udah ada dari layouts.app, jadi langsung ngoding bagian home yang jumbotron --}}
     {{-- kalo mau ngoding dimulai dari sini --}}

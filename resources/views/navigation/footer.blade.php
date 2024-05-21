@@ -1,4 +1,3 @@
-<!-- Footer -->
 <footer class="text-center text-lg-start bg-body-tertiary mt-4">
     <!-- Section: Social media -->
     <section class="d-flex justify-content-center justify-content-lg-between p-4 border-bottom">
@@ -34,7 +33,7 @@
     <!-- Section: Social media -->
   
     <!-- Section: Links  -->
-    <section class="">
+    <section class="fullFooter">
       <div class="container text-center text-md-start mt-5">
         <!-- Grid row -->
         <div class="row mt-3">
@@ -42,15 +41,15 @@
           <div class="col-md-3 col-lg-4 col-xl-3 mx-auto mb-4">
             <!-- Content -->
             <h6 class="text-uppercase fw-bold mb-4">
-              <img src="{{ asset('image/logoGrowceries.png') }}" alt="" id="logoFooter">
+              <img src="{{ asset('image/GrowceriesLogo.svg') }}" alt="" id="logoFooter">
             </h6>
-            <p>
-              Growceries is an application that provides online fruit and vegetable shopping services. Designed to make it easier for users to meet their daily needs in a practical and efficient way, Growceries is the main choice for lovers of healthy living and a modern lifestyle.            </p>
+            <p class="growceriesDesc">
+              Growceries is an application that provides online fruit and vegetable shopping services</p>
           </div>
           <!-- Grid column -->
   
           <!-- Grid column -->
-          <div class="col-md-2 col-lg-2 col-xl-2 mx-auto mb-4">
+          {{-- <div class="col-md-2 col-lg-2 col-xl-2 mx-auto mb-4">
             <!-- Links -->
             <h6 class="text-uppercase fw-bold mb-4">
               Products
@@ -67,7 +66,7 @@
             <p>
               <a href="#!" class="text-reset">Laravel</a>
             </p>
-          </div>
+          </div> --}}
           <!-- Grid column -->
   
           <!-- Grid column -->
@@ -95,7 +94,7 @@
           <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mb-md-0 mb-4">
             <!-- Links -->
             <h6 class="text-uppercase fw-bold mb-4">Contact</h6>
-            <p><i class="fas fa-home me-3"></i> Sentul City, Jl. Pakuan No.3, Sumur Batu, Babakan Madang, Bogor Regency, West Java 16810</p>
+            <p><i class="fas fa-home me-3"></i>Jl. Pakuan No.3, Sumur Batu</p>
             <p>
               <i class="fas fa-envelope me-3"></i>
               GrowCeries@ceries.com

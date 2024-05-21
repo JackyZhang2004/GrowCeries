@@ -3,16 +3,39 @@
 namespace App\Http\Controllers;
 
 // use App\Models\customer;
+
+use App\Models\cart;
 use App\Models\product;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class homeController extends Controller
 {
     public function index(){
-        $products = product::with('productDetail')->get();;
+        $products = product::with('productDetail')->get();
 
-        return view('home', [
-            'products' => $products
-        ]);
+        $user = Auth::user();
+
+        $userId = auth()?->user()?->id;
+
+        $count = 0;
+
+        $cartItems = collect();
+
+        if (Auth::check()) {
+            $userId = $user->id;
+
+            // Ensure the user has a cart
+            $cart = Cart::firstOrCreate(['userId' => $userId]);
+
+            // Get the cart items
+            $cartItems = $cart->cartList;
+
+            // Count the cart items
+            $count = $cartItems->count();
+        }
+
+
+        return view('home', compact('products', 'count', 'cartItems'));
     }
 }

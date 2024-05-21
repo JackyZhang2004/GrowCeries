@@ -64,22 +64,22 @@ html{
     animation: floating2 3s ease-in-out infinite;
 }
 
-.imageanggur{
-    top: 31%;
-    width: 8%;
-    right: 62%;
+/* .imageanggur{
+    top: 20%;
+    width: 9%;
+    right: 65%;
     animation: floating 3s ease-in-out infinite;
-}
+} */
 
 .imagelogo{
-    top: 39%;
-    right: 37%;
-    width: 23%;
-    animation: fadeIn 8s;
+    top: 33%;
+    right: 27%;
+    width: 45%;
+    animation: fadeIn 5s;
 }
 
 .imagewortel{
-    top: 58%;
+    top: 27%;
     right: 77%;
     width: 9%;
     animation: floating 3s ease-in-out infinite;
@@ -106,21 +106,21 @@ html{
     animation: floating2 3s ease-in-out infinite;
 }
 .imageselada {
-    right: 16%;
-    top: 34%;
-    width: 18%;
+    right: 13%;
+    top: 37%;
+    width: 13%;
     animation: floating 3s ease-in-out infinite;
 }
 .imagepisang {
     right: 2%;
     top: 63%;
-    width: 14%;
+    width: 12%;
     animation: floating 3s ease-in-out infinite;
 }
 .imagestroberi {
     right: 50%;
-    top: 8%;
-    width: 10%;
+    top: 6%;
+    width: 8%;
     animation: floating 3s ease-in-out infinite;
 }
 .imagecabai {
@@ -130,7 +130,7 @@ html{
     animation: floating 3s ease-in-out infinite;
 }
 .imagesemangka {
-    right: 60%;
+    right: 71%;
     top: 65%;
     width: 12%;
     animation: floating 3s ease-in-out infinite;
@@ -142,15 +142,15 @@ html{
     animation: floating 3s ease-in-out infinite;
 }
 .imagedaunbawang {
-    right: 45%;
-    top: 55%;
+    right: 29%;
+    top: 67%;
     width: 12%;
     animation: floating 3s ease-in-out infinite;
 }
 
 #clicktocontinue{
     position: absolute;
-    right: 43.5%;
+    right: 44.5%;
     top: 84%;
     text-decoration: none;
     border: none;

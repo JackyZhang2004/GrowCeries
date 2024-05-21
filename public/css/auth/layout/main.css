@@ -26,7 +26,7 @@ body, html {
 
 /*---------------------------------------------*/
 .wrap-login100{
-    box-shadow: 0px 0px 6px 0px rgba(222,224,227,1);
+    /* box-shadow: 0px 0px 6px 0px rgba(222,224,227,1); */
 }
 /*---------------------------------------------*/
 a {
@@ -181,8 +181,8 @@ iframe {
 }
 
 .wrap-login100 {
-  width: 500px;
-  background: #fff;
+  width: 700px;
+  /* background: #fff; */
   border-radius: 10px;
   overflow: hidden;
 }
@@ -198,7 +198,7 @@ iframe {
 .login100-form-title {
   display: block;
   font-family: 'Itim'-bold;
-  font-size: 39px;
+  font-size: 65px;
   color: #3F945A;
   line-height: 1.2;
   text-align: center;
@@ -212,7 +212,7 @@ iframe {
 .wrap-input100 {
   width: 100%;
   position: relative;
-  border-bottom: 2px solid #d9d9d9;
+  /* border-bottom: 2px solid #d9d9d9; */
 }
 
 .label-input100 {
@@ -230,9 +230,12 @@ iframe {
   line-height: 1.2;
   display: block;
   width: 100%;
-  height: 55px;
-  background: transparent;
+  height: 50px;
   padding: 0 7px 0 43px;
+  border-radius: 20px;
+  box-shadow: 0px 3px 2px 0px rgba(0,0,0,0.28);
+  -webkit-box-shadow: 0px 3px 2px 0px rgba(0,0,0,0.28);
+  -moz-box-shadow: 0px 3px 2px 0px rgba(0,0,0,0.28);
 }
 
 /*---------------------------------------------*/
@@ -283,13 +286,13 @@ iframe {
 }
 
 
-.input100:focus + .focus-input100::before {
+/* .input100:focus + .focus-input100::before {
   width: 100%;
 }
 
 .has-val.input100 + .focus-input100::before {
   width: 100%;
-}
+} */
 
 .input100:focus + .focus-input100::after {
   color: #039FFC;

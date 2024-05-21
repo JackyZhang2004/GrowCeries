@@ -22,18 +22,14 @@
 @endpush
 
 @section('title', 'Login')
- 
-@section('success')
-    @include('widgets.successMessage')
-@endsection
 
 @section('login')
 <div class="limiter">
-    <div class="container-login100" style="background-image: url('images/bg-01.jpg');">
-        <div class="wrap-login100 p-l-55 p-r-55 p-t-65 p-b-54">
+    <div class="container-login100">
+        <div class="wrap-login100 p-l-55 p-r-55 p-t-30 p-b-54">
             <form class="login100-form validate-form" action="{{ route('login') }}" method="POST">
                 @csrf
-                <span class="login100-form-title p-b-49">
+                <span class="login100-form-title p-b-30">
                     Login
                 </span>
 

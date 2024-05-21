@@ -37,14 +37,14 @@
             <!-- Current: "bg-gray-900 text-white", Default: "text-gray-300 hover:bg-gray-700 hover:text-white" -->
             <a href="{{ route('home') }}" class="px-3 py-2 text-sm font-medium" aria-current="page"
               id="{{ Route::is('home') ? 'active' : 'notactive' }}">Home</a>
+              <a href="{{ route('discover') }}" class="rounded-md px-3 py-2 text-sm font-medium"
+                id="{{ Route::is('discover') ? 'active' : 'notactive' }}">Discover</a>
             <a href="{{ route('order') }}"
               class=" hover:bg-gray-700 hover:text-white rounded-md px-3 py-2 text-sm font-medium"
               id="{{ Route::is('order') ? 'active' : 'notactive' }}">Order</a>
             <a href="{{ route('about') }}"
               class=" hover:bg-gray-700 hover:text-white rounded-md px-3 py-2 text-sm font-medium"
               id="{{ Route::is('about') ? 'active' : 'notactive' }}">About</a>
-            <a href="{{ route('discover') }}" class="rounded-md px-3 py-2 text-sm font-medium"
-              id="{{ Route::is('discover') ? 'active' : 'notactive' }}">Discover</a>
           </div>
         </div>
         <div></div>
@@ -68,10 +68,13 @@
               <path
                 d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .491.592l-1.5 8A.5.5 0 0 1 13 12H4a.5.5 0 0 1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0 1-.5-.5M3.102 4l1.313 7h8.17l1.313-7zM5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4m7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4m-7 1a1 1 0 1 1 0 2 1 1 0 0 1 0-2m7 0a1 1 0 1 1 0 2 1 1 0 0 1 0-2" />
             </svg>
-            <span>0</span>
-            {{-- <span>{{Cart::instance('cart')->content()->count()}}</span> --}}
-            {{-- jangan lupa kalo spannya udah lebih dari 10 ganti font size nya yang di nav.css bagian icon-cart .span
-            biar proporsional angkanya --}}
+            @if ($count > 10)
+                <p>ini lebih besar dari 10</p>
+                {{-- jangan lupa kalo spannya udah lebih dari 10 ganti font size nya yang di nav.css bagian icon-cart .span  --}}
+            @else
+                <span>{{$count ?? 0}}</span>
+                
+            @endif
           </a>
           </button>
 
@@ -125,15 +128,15 @@
       <!-- Current: "bg-gray-900 text-white", Default: "text-gray-300 hover:bg-gray-700 hover:text-white" -->
       <a href="{{ route('home') }}" class="block rounded-md px-3 py-2 text-base font-medium"
         id="{{ Route::is('home') ? 'active' : 'notactive' }}">Home</a>
+        <a href="{{ route('discover') }}"
+          class="hover:bg-gray-700 hover:text-white block rounded-md px-3 py-2 text-base font-medium"
+          id="{{ Route::is('dicover') ? 'active' : 'notactive' }}">Discover</a>
       <a href="{{ route('order') }}"
         class="hover:bg-gray-700 hover:text-white block rounded-md px-3 py-2 text-base font-medium"
         id="{{ Route::is('order') ? 'active' : 'notactive' }}">Order</a>
       <a href="{{ route('about') }}"
         class="hover:bg-gray-700 hover:text-white block rounded-md px-3 py-2 text-base font-medium"
         id="{{ Route::is('about') ? 'active' : 'notactive' }}">About</a>
-      <a href="{{ route('discover') }}"
-        class="hover:bg-gray-700 hover:text-white block rounded-md px-3 py-2 text-base font-medium"
-        id="{{ Route::is('dicover') ? 'active' : 'notactive' }}">Discover</a>
     </div>
   </div>
 

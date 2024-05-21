@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 // use App\Models\customer;
 
+use App\Models\cart;
 use App\Models\User;
 use Illuminate\Http\Request;
 
@@ -26,6 +27,12 @@ class authController extends Controller
                 'phoneNumber' => $validated['phonenumber'],
                 'email' => $validated['email'],
                 'password' => bcrypt($validated['password'])
+        ]);
+
+        $userId = $user->id;
+
+        cart::create([
+            'userId' => $userId,
         ]);
 
         return redirect()->route('login')->with('success', 'Account has been successfully made, you can login now!');

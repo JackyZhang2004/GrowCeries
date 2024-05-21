@@ -36,4 +36,4 @@
 
 </form>
 
-<script src="C:\Users\asus\OneDrive\Documents\GitHub\GrowCeries\public\js\search.js"></script>
+{{-- <script src="{{ asset('js/search.js') }}"></script> --}}

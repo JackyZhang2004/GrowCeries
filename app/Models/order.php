@@ -17,7 +17,8 @@ class order extends Model
         'userId', 
         'courierId', 
         'orderDate', 
-        'orderStatus'
+        'orderStatus',
+        'deliveryTime'
     ];
 
 

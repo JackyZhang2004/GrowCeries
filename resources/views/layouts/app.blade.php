@@ -48,6 +48,8 @@
         <div class="loginContainer">
             @yield('login')
         </div>
+    @elseif (Route::currentRouteName() == 'cart')
+        @yield('content') 
     @else
         @yield('content') 
         @include('navigation.footer')

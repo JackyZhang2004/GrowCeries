@@ -42,6 +42,7 @@ Route::get('cart', [cartController::class, 'index'])->name('cart');
 Route::get('add-cart/{id}', [cartController::class, 'addCart'])->name('cart.add');
 Route::post('/cart/increment/{id}', [cartController::class, 'incrementCart'])->name('cart.increment');
 Route::post('/cart/decrement/{id}', [cartController::class, 'decrementCart'])->name('cart.decrement');
+Route::delete('cart/{id}', [cartController::class, 'destroy'])->name('cart.destroy');
 
 Route::get('checkout', [CartController::class, 'checkout'])->name('checkout');
 

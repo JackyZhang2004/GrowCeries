@@ -30,11 +30,11 @@
 </head>
 <body>
     @include('navigation.admin.nav'	)
+    @include('widgets.errorMessage')
+    @include('widgets.successMessage')
 
     @if (Route::currentRouteName() == 'admin.login')
-            @yield('error')
-            @yield('success')
-            @yield('login')
+        @yield('login')
     @else
         @yield('content') 
     @endif

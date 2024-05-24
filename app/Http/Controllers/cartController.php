@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\address;
 use App\Models\cart;
 use App\Models\cartList;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Log;
@@ -31,7 +32,42 @@ class cartController extends Controller
             $count = $cartItems->count();
         }
 
-        return view('cart', compact('count', 'cartItems'));
+        $now = Carbon::now();
+
+        // Define delivery time slots
+        $timeSlots = [
+            ['start' => 6, 'end' => 9, 'label' => '06:00-09:00'],
+            ['start' => 12, 'end' => 15, 'label' => '12:00-15:00'],
+            ['start' => 18, 'end' => 21, 'label' => '18:00-21:00'],
+        ];
+
+        // Create an array to store the delivery times
+        $deliveryTimes = [];
+
+        // Check today's delivery times
+        foreach ($timeSlots as $slot) {
+            if ($now->hour < $slot['end'] && $now->hour >= $slot['start']) {
+                $deliveryTimes[] = [
+                    'date' => $now->format('d M'),
+                    'day' => 'Today',
+                    'time' => $slot['label']
+                ];
+            }
+        }
+
+        // Add tomorrow's and day after tomorrow's delivery times
+        for ($i = 1; $i <= 2; $i++) {
+            $date = $now->copy()->addDays($i);
+            foreach ($timeSlots as $slot) {
+                $deliveryTimes[] = [
+                    'date' => $date->format('d M'),
+                    'day' => $i == 1 ? 'Tomorrow' : ($i == 2 ? '2 more Days' : ''),
+                    'time' => $slot['label']
+                ];
+            }
+        }
+
+        return view('cart', compact('count', 'cartItems', 'deliveryTimes'));
     }
 
     public function addCart($id)
@@ -122,7 +158,7 @@ class cartController extends Controller
                 $cartItem->quantity -= 1;
     
                 // Use the custom method to handle composite keys
-                CartList::updateOrInsert(
+                cartList::updateOrInsert(
                     ['cartId' => $cart->cartId, 'productId' => $id],
                     ['quantity' => $cartItem->quantity]
                 );
@@ -137,6 +173,18 @@ class cartController extends Controller
 
         }
     }
+
+    public function destroy($id){
+        $user = Auth::user();
+
+        $userId = $user->id;
+
+        $cart = Cart::firstOrCreate(['userId' => $userId]);
+
+        cartList::where('cartId', $cart->cartId)->where('productId', $id)->delete();
+
+        return redirect()->route('cart')->with('success', 'cart item deleted successfully!');
+     }
     
     public function checkout(Request $request)
     {
@@ -147,6 +195,18 @@ class cartController extends Controller
         $addresses = $user->addresses;
         $firstAddress = address::find($addressId) ?? $addresses->first();
 
-        return view('checkout', compact('addresses', 'firstAddress'));
+        $selectedItems = $request->input('selectedItems');
+
+        $cartId = $user->cart->cartId; 
+
+        $cartItems = cartList::whereIn('productId', $selectedItems)->where('cartId', $cartId)->get(); 
+
+        $selectedDeliveryTime = $request->input('selectedDeliveryTime');
+        $dateTimeParts = explode(' ', $selectedDeliveryTime);
+        $selectedDate = $dateTimeParts[0] . ' ' . $dateTimeParts[1];
+        $selectedTime = $dateTimeParts[3]; 
+        $selectedDeliveryTime = $selectedDate . ' ' . $selectedTime;
+
+        return view('checkout', compact('cartItems', 'addresses', 'firstAddress','selectedDeliveryTime'));
     }
 }

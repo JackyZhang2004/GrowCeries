@@ -292,86 +292,106 @@ html{
     transform: scale(1.25);
   }
 
-.dropdown-content{
-    display: none;
+  .input-group {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 7vh;
+    background-color: white;
+    border-radius: 26px;
 }
 
-.centered_box{
-    /* background-color: aquamarine; */
-    width: 85%;
-    height: 65%;
-    padding-left: 5vw;
+.search_container {
+    display: flex;
+    width: 100%;
+    align-items: center;
+    padding: 5px;
+    position: absolute;
 }
-input:focus{
-    outline: none;
-    box-shadow: none;
-}
-#myInput{
-    width: 65%;
+
+#myInput {
+    flex-grow: 1; /* Allow the input to take available space */
     height: 100%;
     border: none;
     font-size: 25px;
+    padding-left: 10px; /* Padding for better alignment */
+    box-sizing: border-box; /* Include padding in width */
 }
-.bi-search{
+
+input:focus {
+    outline: none;
+    box-shadow: none;
+}
+
+.bi-search {
     margin-right: 1vw;
     margin-left: 1vw;
     font-size: 30px;
     font-weight: 10;
-  }
-.input-group{
-    display: flex;
-    width: 100%;
-    height: 7vh;
-    /* border: solid 1px black; */
-    background-color: white;
-    border-radius: 26px;
 }
-.search_container{
-    display: flex;
-    width: 100%;
-    /* height: 50%; */
-    padding:5px;
-}
-.search_button{
+
+.search_button {
     width: 30%;
     border-radius: 24px;
     background-color: rgba(136,148,63,255);
-    font-size: 25px;
+    font-size: 1.4rem;
     color: white;
+    cursor: pointer; /* Pointer cursor on hover */
+    height: 100%; /* Make the button the same height as the input */
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
-.mainText{
-    font-size: 4vw;
-}
-.search_input{
-    background-color: cyan;
-    margin: 0px 1vw;
-    border-radius: 0px 1px 24px 24px;
-}
-.result_box{
+
+.result_box {
     position: relative;
     margin-left: 1.5vw;
-
 }
-.dropdown-content{
+
+.dropdown-content {
     width: 100%;
     height: 100%;
     background-color: blueviolet;
     position: absolute;
     z-index: 2;
-    /* background-color: aliceblue; */
-    /* position: absolute; */
-    /* z-index: 2; */
 }
 
-.result_field{
+.result_field {
     width: 25.5vw;
-    border-radius: 0px 0px 24px 24px;
+    border-radius: 0 0 24px 24px;
     background-color: white;
     border: 1px solid black;
-    border-top: 0px;
+    border-top: 0;
     padding-top: 1vh;
     overflow: hidden;
 }
+
+.centered_box {
+    width: 85%;
+    height: 65%;
+    padding-left: 5vw;
+}
+
+.mainText {
+    font-size: 4vw;
+}
+
+.search_input {
+    background-color: cyan;
+    margin: 0 1vw;
+    border-radius: 0 1px 24px 24px;
+}
+
+input:focus {
+    outline: none;
+    box-shadow: none;
+}
+
+.dropdown-content {
+    display: none;
+}
+
 .percontent{
     display: flex;
     align-items: center;

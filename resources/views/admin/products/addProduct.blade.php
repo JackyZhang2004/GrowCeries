@@ -7,12 +7,6 @@
 @section('title', 'Admin | Products Page')
 
 @section('content')
-    <div class="successMessage">
-      @include('widgets.successMessage')
-    </div>
-    <div class="errorMessage">
-        @include('widgets.errorMessage')
-    </div>
     <p class="h1">Admin Add Product Page</p>
     <a href="{{ route('admin.users') }}">redirect to Users page</a>
     <a href="{{ route('admin.products') }}">redirect to Users page</a>

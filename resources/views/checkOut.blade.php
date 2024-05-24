@@ -19,5 +19,16 @@
         <p>No address found. Please add an address in your profile.</p>
         <a href="{{ route('address.create') }}" class="btn btn-primary">Add New Address</a>
     @endif  
+
+    {{-- cek apakah data data yang dikirim dari cart bener atau gak --}}
+    <p>Selected Delivery Time: {{ $selectedDeliveryTime }}</p>
+    @foreach ($cartItems as $item)
+        <div class="checkout-item">
+            <span>{{ $item->product->productDetail->productName }}</span>
+            <span>{{ $item->quantity }}</span>
+            <span>Rp {{ $item->product->productPrice * $item->quantity }}</span>
+        </div>
+    @endforeach
+
 </div>
 @endsection

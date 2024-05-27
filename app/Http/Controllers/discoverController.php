@@ -43,6 +43,40 @@ class discoverController extends Controller
             });
         }
 
+        $isSayurSelected = filter_var(request()->input('sayur'), FILTER_VALIDATE_BOOLEAN);
+        $isBuahSelected = filter_var(request()->input('buah'), FILTER_VALIDATE_BOOLEAN);
+
+        if ($isSayurSelected && $isBuahSelected) {
+            // Jika keduanya dipilih, tampilkan kedua kategori
+            $productsQuery->whereHas('productDetail', function ($query) {
+                $query->whereIn('productCategory', ['sayur', 'buah']);
+            });
+        } elseif ($isSayurSelected) {
+            // Jika hanya sayur yang dipilih
+            $productsQuery->whereHas('productDetail', function ($query) {
+                $query->where('productCategory', 'sayur');
+            });
+        } elseif ($isBuahSelected) {
+            // Jika hanya buah yang dipilih
+            $productsQuery->whereHas('productDetail', function ($query) {
+                $query->where('productCategory', 'buah');
+            });
+        }
+
+        if (request()->has('minPrice') || request()->has('maxPrice')) {
+            $minPrice = request()->input('minPrice');
+            $maxPrice = request()->input('maxPrice');
+            $productsQuery->whereBetween('productPrice', [$minPrice, $maxPrice]);
+        }
+
+
+        // Price Range Filter
+        // if (request()->has('minPrice') && request()->has('maxPrice')) {
+        //     $minPrice = request()->input('minPrice');
+        //     $maxPrice = request()->input('maxPrice');
+        //     $productsQuery->whereBetween('price', [$minPrice, $maxPrice]);
+        // }
+
         // Execute the quer y to get the results
         $products = $productsQuery->get();
 

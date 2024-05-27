@@ -6,6 +6,9 @@
 <form action="{{route('discover')}}" method="GET" id="search" data-aos="fade-right" data-aos-delay="200" data-aos-duration="1000">
 
         <div class="input-group">
+            <button class="buttonFilter" type="button" data-bs-toggle="offcanvas" data-bs-target="#staticBackdrop" aria-controls="staticBackdrop">
+                <i class="bi bi-funnel-fill"></i>
+            </button>
             <div class="search_container">
                 <i class="bi bi-search" id="magnifying" style="color: #050505 solid"></i>
                 <input name="searchInput" type="text" autocomplete="off" placeholder="Search your daily Growceries" id="myInput" oninput="filterFunction()"

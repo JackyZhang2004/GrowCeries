@@ -24,10 +24,8 @@
 
 
     </div>
-<button class="buttonFilter" type="button" data-bs-toggle="offcanvas" data-bs-target="#staticBackdrop" aria-controls="staticBackdrop">
-    <i class="bi bi-funnel-fill"></i>
-</button>
 
+<form class = "filter" method="GET" action="{{ route('discover') }}">
 <div class="offcanvas offcanvas-start" data-bs-backdrop="static" tabindex="-1" id="staticBackdrop" aria-labelledby="staticBackdropLabel">
     <div class="offcanvas-header">
        <h1><b>Filter</b></h1>
@@ -38,11 +36,11 @@
             <div class="filterbox">
                 <h2>Category</h2>
                 <div class="categorylist">
-                    <label for="">
-                        <input type="checkbox">Sayur
+                    <label for="category-sayur">
+                        <input type="checkbox" name="sayur" id="category-sayur">Sayur
                     </label>
-                    <label for="">
-                        <input type="checkbox">Buah
+                    <label for="category-buah">
+                        <input type="checkbox" name="buah" id="category-buah">Buah
                     </label>
                 </div>
             </div>
@@ -69,9 +67,11 @@
                     <input type="range" class="range-max" min="0" max="500000" value="375000" step="500">
                 </div>
             </div>
+            <button type="button" id="save-filters">Save</button>
         </div>
     </div>
 </div>
+</form>
 
     <div class="recommendedSection">
         <div class="row row-cols-1 row-cols-sm-3 row-cols-md-4 mx-3">

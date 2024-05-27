@@ -14,7 +14,14 @@
             {{ $firstAddress->phoneNumber }} <br>
             {{ $firstAddress->addressName }}, {{ $firstAddress->addressDetail }}</p>
             <input type="hidden" name="redirect_to" value="{{ url()->current() }}">
-        <a href="{{ route('address.chooseAddress') }}" class="btn btn-secondary">Edit Address</a>
+        <form method="GET" action="{{ route('address.chooseAddress') }}">
+            @foreach (request()->input('selectedItems', []) as $item)
+                <input type="hidden" name="selectedItems[]" value="{{ $item }}">
+            @endforeach
+            <input type="hidden" name="selectedDeliveryTime" value="{{ request()->input('selectedDeliveryTime') }}">
+            {{-- <input type="hidden" name="addressId" value="{{ $address->addressId }}"> --}}
+            <button type="submit" class="btn btn-secondary">Edit Address</button>
+        </form>
     @else
         <p>No address found. Please add an address in your profile.</p>
         <a href="{{ route('address.create') }}" class="btn btn-primary">Add New Address</a>

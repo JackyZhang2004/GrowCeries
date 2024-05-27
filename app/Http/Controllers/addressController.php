@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\address;
+use App\Models\cartList;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Validator;
@@ -58,12 +59,20 @@ class addressController extends Controller
         return redirect()->route('address.index')->with('success', 'Address deleted successfully.');
     }
 
-    public function chooseAddress()
+    public function chooseAddress(Request $request)
     {
         $user = Auth::user();
         $addresses = $user->addresses;
 
-        return view('addresses.chooseAddress', compact('addresses'));
+        $cartId = $user->cart->cartId; 
+
+        $selectedItems = $request->input('selectedItems');
+
+        $cartItems = cartList::whereIn('productId', $selectedItems)->where('cartId', $cartId)->get(); 
+
+        $selectedDeliveryTime = $request->input('selectedDeliveryTime');
+
+        return view('addresses.chooseAddress', compact('addresses', 'cartItems'));
     }
 
     public function edit($id)

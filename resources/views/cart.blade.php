@@ -43,11 +43,19 @@
                             value="{{ $cartItem->product->productId }}" @if(is_array(old('selectedItems')) &&
                             in_array($cartItem->product->productId, old('selectedItems'))) checked @endif>
                         <div class="itemDetails">
-                            <img src="{{ asset('image/gambarRectangle.png') }}" alt="Product Image">
+                            <a href="{{ route('productDetail', $cartItem->product->productId) }}" class="productDetailButton">
+                                <img src="{{ asset('image/gambarRectangle.png') }}" class="card-img-top" alt="...">
+                            </a>                            
                             <div>
-                                <p class="item-name h5">{{ $cartItem->product->productDetail->productName }}</p>
-                                <p class="item-weight">{{ $cartItem->product->variant }}</p>
-                                <p class="item-price">Rp. {{ $cartItem->product->productPrice }}</p>
+                                <a href="{{ route('productDetail', $cartItem->product->productId) }}" class="productDetailButton">
+                                    <p class="itemName h5">{{$cartItem->product->productDetail->productName}}</p>
+                                </a>
+                                <a href="{{ route('productDetail', $cartItem->product->productId) }}" class="productDetailButton">
+                                    <p class="itemWeight">{{$cartItem->product->variant}}</p>
+                                </a>
+                                <a href="{{ route('productDetail', $cartItem->product->productId) }}" class="productDetailButton">
+                                    <p class="itemPrice">Rp. {{$cartItem->product->productPrice}}</p>
+                                </a>
                             </div>
                         </div>
                         <div class="itemActions">

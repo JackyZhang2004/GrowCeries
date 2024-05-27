@@ -4,17 +4,17 @@
 
 <div class="col-lg-3 col-md-4 col-sm-6 col-xs-6 col-6 d-flex align-items-stretch mt-3">
   <div class="card">
-    <a href="{{route('productDetail', ['id'=>$product->productId])}}" class="productDetailButton">
+    <a href="{{ route('productDetail', ['id'=>$product->productId]) }}" class="productDetailButton">
       <img src="{{ asset('image/gambarRectangle.png') }}" class="card-img-top" alt="...">
     </a>
     <div class="card-body">
-      <a href="{{route('productDetail', ['id'=>$product->productId])}}" class="productDetailButton">
+      <a href="{{ route('productDetail', ['id'=>$product->productId]) }}" class="productDetailButton">
         <p class="card-title h5">{{$product->productDetail->productName}}</p>
       </a>
-      <a href="{{route('productDetail', ['id'=>$product->productId])}}" class="productDetailButton">
+      <a href="{{ route('productDetail', ['id'=>$product->productId]) }}" class="productDetailButton">
         <p class="text-muted card-text varianttext">{{$product->variant}}</p>
       </a>
-      <a href="{{route('productDetail', ['id'=>$product->productId])}}" class="productDetailButton">
+      <a href="{{ route('productDetail', ['id'=>$product->productId]) }}" class="productDetailButton">
         <p class="card-text productPrice">Rp {{$product->productPrice}}</p>
       </a>
 

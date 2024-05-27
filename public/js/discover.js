@@ -102,6 +102,11 @@ progress = document.querySelector(".slider .progress");
 let priceGapSlide = 25000;
 let priceGapBox = 25000;
 
+function updateProgress(minVal, maxVal) {
+    progress.style.left = ((minVal / rangeInput[0].max) * 100) + "%";
+    progress.style.right = 100 - (maxVal / rangeInput[1].max) * 100 + "%";
+}
+
 priceInput.forEach(input =>{
     input.addEventListener("input", e=>{
         //getting two inputs value and parsing them to number
@@ -140,13 +145,50 @@ rangeInput.forEach(input =>{
         else{
             priceInput[0].value = minVal;
             priceInput[1].value = maxVal;
-            progress.style.left = ((minVal / rangeInput[0].max) * 100) + "%";
-            progress.style.right = 100 - (maxVal / rangeInput[1].max) * 100 + "%";
+            updateProgress(minVal, maxVal);
         }
 
     });
 });
 
+const currentUrl = new URL(window.location.href); //ambil url skrg
+const params = currentUrl.searchParams; //ambil parameter dri url
+const sayur = params.get('sayur');
+const buah = params.get('buah');
+const minPrice = params.get('minPrice');
+const maxPrice = params.get('maxPrice');
+
+document.querySelector('#category-sayur').checked = sayur === 'true';
+document.querySelector('#category-buah').checked = buah === 'true';
+
+// if (minPrice==null) minPrice=120000;
+// document.getElementById('min').value=minPrice;
+
+if (minPrice !== null) {
+    document.querySelector('.input-min').value = minPrice;
+    rangeInput[0].value = minPrice;
+    updateProgress(minPrice, maxPrice || rangeInput[1].value);
+}
+
+if (maxPrice !== null) {
+    document.querySelector('.input-max').value = maxPrice;
+    rangeInput[1].value = maxPrice;
+    updateProgress(minPrice || rangeInput[0].value, maxPrice);
+}
+
+document.querySelector('#save-filters').addEventListener('click', function(event) {
+    event.preventDefault();
+    const sayur = document.querySelector('#category-sayur').checked;
+    const buah = document.querySelector('#category-buah').checked;
+    const minVal = parseInt(rangeInput[0].value);
+    const maxVal = parseInt(rangeInput[1].value);
+    const url = new URL(window.location.href);
+    url.searchParams.set('sayur', sayur);
+    url.searchParams.set('buah', buah);
+    url.searchParams.set('minPrice', minVal);
+    url.searchParams.set('maxPrice', maxVal);
+    window.location.href = url.toString();
+});
 //===================
 // function sayurfuct(){
 //     document.myInput.action = "action.php";

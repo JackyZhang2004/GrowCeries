@@ -80,12 +80,6 @@
     background-color: rgb(158, 222, 158);
 }
 
-.buttonFilter{
-    background-color: transparent;
-    border: none;
-    font-size: 24px;
-    cursor: pointer;
-}
 
 .h1centerText{
     width: 100%;
@@ -238,4 +232,15 @@ input[type="range"]::-moz-range-thumb{
 
 .plesMines{
     margin-bottom: 0px;
+}
+
+#save-filters{
+    background-color: green;
+    color: aliceblue;
+    width: 25%;
+    height: 85%;
+    border-radius: 22px;
+    font-size: 25px;
+    margin-left: auto;
+    margin-right: auto;
 }

@@ -202,7 +202,12 @@ class cartController extends Controller
         $cartItems = cartList::whereIn('productId', $selectedItems)->where('cartId', $cartId)->get(); 
 
         $selectedDeliveryTime = $request->input('selectedDeliveryTime');
-        if(str_contains($selectedDeliveryTime, 'Today') | str_contains($selectedDeliveryTime, 'Tomorrow') | str_contains($selectedDeliveryTime, '2 more Days')){
+        if(str_contains($selectedDeliveryTime, 'Today') | str_contains($selectedDeliveryTime, 'Tomorrow')){
+            $dateTimeParts = explode(' ', $selectedDeliveryTime);
+            $selectedDate = $dateTimeParts[0] . ' ' . $dateTimeParts[1];
+            $selectedTime = $dateTimeParts[3]; 
+            $selectedDeliveryTime = $selectedDate . ' ' . $selectedTime;
+        }elseif(str_contains($selectedDeliveryTime, '2 more Days')){
             $dateTimeParts = explode(' ', $selectedDeliveryTime);
             $selectedDate = $dateTimeParts[0] . ' ' . $dateTimeParts[1];
             $selectedTime = $dateTimeParts[5]; 

@@ -1,0 +1,103 @@
+.container{
+    width: 100vw;
+    height: auto;
+}
+
+.Order{
+    width: 100%;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.OrderTitle{
+    width: 100%;
+    text-align: center;
+    font-size: 35px;
+    margin: 5vh 0px 5vh 0px;
+}
+
+.OrderUnit{
+    width: 85%;
+    height: 30vh;
+    display: flex;
+    border-radius: 20px;
+    flex-direction: column;
+    border: 1px;
+    border-style: solid;
+    border-color: black;
+    margin-bottom: 5vh;
+}
+
+.unitTop{
+    width: 100%;
+    height: 60%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    border-bottom: 1px;
+    border-style: solid;
+}
+
+.topLeft{
+    width: 10%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.topMid{
+    width: 70%;
+}
+
+.status{
+    font-size: 24px;
+}
+
+.purchaseDate{
+    color: #827A7A;
+}
+
+.productPurchased{
+    color: #827A7A;
+}
+
+.topRight{
+    width: 20%;
+    text-align: center;
+    font-size: 24px;
+    color: red;
+}
+
+.unitBottom{
+    width: 100%;
+    height: 40%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.button1{
+    width: 20%;
+    height: 50%;
+    border: 2px;
+    border-radius: 15px;
+    border-style: solid;
+    border-color: #3F945A;
+    color: #3F945A;
+    font-size: 20px;
+    margin: 0px 3vw 0px 8vw;
+}
+
+.button2{
+    width: 20%;
+    height: 50%;
+    border: 2px;
+    border-radius: 15px;
+    border-style: solid;
+    border-color: #C20202;
+    color: white;
+    background-color: #C20202;
+    font-size: 20px;
+}

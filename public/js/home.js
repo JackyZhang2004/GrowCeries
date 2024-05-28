@@ -12,8 +12,7 @@
         }
 
 function scrollbottom(){
-    document.documentElement.scrollTop = 700;
-    console.log("hai");
+    document.documentElement.scrollTop = 520;
 }
 
 var originalDropdownContent = document.getElementById("myDropdown").innerHTML;

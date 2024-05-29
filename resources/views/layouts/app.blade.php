@@ -63,8 +63,5 @@
     <script src="{{ asset('js/nav.js') }}"></script>
 
     @yield('script')
-
-    @yield('script')
-
 </body>
 </html>

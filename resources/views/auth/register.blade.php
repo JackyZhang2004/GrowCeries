@@ -19,10 +19,11 @@
 <link rel="stylesheet" type="text/css" href="{{ asset('css/auth/layout/util.css') }}">
 <link rel="stylesheet" type="text/css" href="{{ asset('css/auth/layout/main.css')}}">
 <!--===============================================================================================-->
+<link rel="stylesheet" type="text/css" href="{{ asset('vendor/fontawesome/css/all.min.css') }}">
+
 @endpush
 
 @section('title', 'Register')
-
 
 @section('register')
 <div class="limiter">
@@ -36,7 +37,7 @@
 
                 <div class="wrap-input100 validate-input">
                     <span class="label-input100">Name</span>
-                    <input class="input100" type="text" name="name" placeholder="Type your name">
+                    <input class="input100" type="text" name="name" placeholder="Type your name" value="{{old('name')}}">
                     <span class="focus-input100" data-symbol="&#xf206;"></span>
                 </div>
                 @error('name')
@@ -45,9 +46,8 @@
 
                 <div class="wrap-input100 validate-input m-t-23">
                     <span class="label-input100">Handphone Number</span>
-                    <input class="input100" type="tel" name="phonenumber" placeholder="Type your handphone number">
+                    <input class="input100" type="tel" name="phonenumber" placeholder="Type your handphone number" value="{{old('phonenumber')}}">
                     <span class="focus-input100" data-symbol="&#9743;"></span>
-                    {{-- <i class="focus-input100 fa-solid fa-phone "></i> --}}
                 </div>
                 @error('phonenumber')
                     <span class="error text-danger">{{ $message }}</span>
@@ -55,26 +55,32 @@
 
                 <div class="wrap-input100 validate-input m-t-23">
                     <span class="label-input100">Email</span>
-                    <input class="input100" type="text" name="email" placeholder="Type your email">
+                    <input class="input100" type="text" name="email" placeholder="Type your email" value="{{old('email')}}">
                     <span class="focus-input100" data-symbol="&#xf206;"></span>
                 </div>
                 @error('email')
                     <span class="error text-danger">{{ $message }}</span>
                 @enderror
 
-                <div class="wrap-input100 validate-input m-t-23">
+                <div class="wrap-input100 validate-input m-t-23 input-container">
                     <span class="label-input100">Password</span>
-                    <input class="input100" type="password" name="password" placeholder="Type your password">
+                    <input class="input100" type="password" name="password" placeholder="Type your password" id="password" >
                     <span class="focus-input100" data-symbol="&#xf190;"></span>
+                    <span class="toggle-password" onclick="togglePassword('password')">
+                        <i class="fas fa-eye-slash" id="togglePasswordIconpassword"></i>
+                    </span>
                 </div>
                 @error('password')
                     <span class="error text-danger">{{ $message }}</span>
                 @enderror
 
-                <div class="wrap-input100 validate-input m-t-23">
+                <div class="wrap-input100 validate-input m-t-23 input-container">
                     <span class="label-input100">Confirm Password</span>
-                    <input class="input100" type="password" name="password_confirmation" placeholder="Confirm your password">
+                    <input class="input100" type="password" name="password_confirmation" placeholder="Confirm your password" id="password_confirmation">
                     <span class="focus-input100" data-symbol="&#xf190;"></span>
+                    <span class="toggle-password" onclick="togglePassword('password_confirmation')">
+                        <i class="fas fa-eye-slash" id="togglePasswordIconpassword_confirmation"></i>
+                    </span>
                 </div>
                 @error('password_confirmation')
                     <span class="error text-danger">{{ $message }}</span>
@@ -100,4 +106,8 @@
         </div>
     </div>
 </div>
+@endsection
+
+@section('script')
+    <script src="{{ asset('js/loginregis.js') }}"></script>
 @endsection

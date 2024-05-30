@@ -9,6 +9,8 @@ use App\Http\Controllers\aboutController;
 use App\Http\Controllers\addressController;
 use App\Http\Controllers\admin\homeController as adminHomeController;
 use App\Http\Controllers\admin\productController as adminProductController;
+use App\Http\Controllers\admin\adminOrderController;
+use App\Http\Controllers\admin\adminProfileController;
 use App\Http\Controllers\authController;
 use App\Http\Controllers\cartController;
 use App\Http\Controllers\discoverController;
@@ -82,16 +84,18 @@ Route::group(['prefix' => 'admin'], function(){
         Route::get('home', [adminHomeController::class, 'index'])->name('admin.home');
         Route::post('logout', [adminLoginController::class, 'logout'])->name('admin.logout');
         Route::get('users', [adminUserController::class, 'index'])->name('admin.users');
-        Route::get('products', [adminProductController::class, 'index'])->name('admin.products');
+        Route::get('/products', [adminProductController::class, 'index'])->name('admin.products');
         Route::get('addProducts', [adminProductController::class, 'addProduct'])->name('admin.addProductIndex');
         Route::post('addProducts', [adminProductController::class, 'store'])->name('admin.addProduct');
         Route::delete('product/{product}', [adminProductController::class, 'destroy'])->name('admin.destroyProduct');
-        Route::get('product/{product}', [adminProductController::class, 'show'])->name('admin.showProduct');
+        // Route::get('product/{product}', [adminProductController::class, 'show'])->name('admin.showProduct');
         Route::get('product/{product}/edit', [adminProductController::class, 'edit'])->name('admin.editProduct');
         Route::put('product/{product}', [adminProductController::class, 'update'])->name('admin.updateProduct');
+        Route::get('orderAdmin', [adminOrderController::class, 'index'])->name('admin.orderAdmin');
+        Route::get('profileAdmin', [adminProfileController::class, 'index'])->name('admin.profileAdmin');
+        Route::post('profileAdmin', [adminProfileController::class, 'index'])->name('admin.profileAdmin');
         
     });
-
 });
 
 

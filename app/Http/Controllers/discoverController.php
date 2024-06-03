@@ -27,7 +27,7 @@ class discoverController extends Controller
             $userId = $user->id;
 
             // Ensure the user has a cart
-            $cart = cart::firstOrCreatsse(['userId' => $userId]);
+            $cart = cart::firstOrCreate(['userId' => $userId]);
 
             // Get the cart items
             $cartItems = $cart->cartList;
@@ -81,7 +81,7 @@ class discoverController extends Controller
             });
         }
         $products = $productsQuery->get();
-        dd($products);
+        // dd($products);
         return view('discover', compact('products', 'count', 'cartItems', 'productDetail','products_all'));
         return view('discover', [
             'products' => $products,

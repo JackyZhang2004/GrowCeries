@@ -79,7 +79,7 @@
 
     <div class="recommendedSection">
         <div class="row row-cols-1 row-cols-sm-3 row-cols-md-4 mx-3">
-          @foreach ($productsQuery as $product)
+          @foreach ($products as $product)
             @include('widgets.productCard')
           @endforeach
         </div>

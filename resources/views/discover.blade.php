@@ -31,51 +31,55 @@
        <h1><b>Filter</b></h1>
         <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
     </div>
-    <div class="offcanvas-body">
-        <div class="main">
-            <div class="filterbox">
-                <h2>Category</h2>
-                <div class="categorylist">
-                    <label for="category-sayur">
-                        <input type="checkbox" name="sayur" id="category-sayur">Sayur
-                    </label>
-                    <label for="category-buah">
-                        <input type="checkbox" name="buah" id="category-buah">Buah
-                    </label>
-                </div>
-            </div>
-            <div class="header">
-                <h2>Price Range</h2>
-            </div>
-            <div class="wrapper">
-                <div class="price-input">
-                    <div class="field">
-                        <span>Min</span>
-                        <input type="number" class="input-min" value="125000">
-                    </div>
-                    <div class="separator">-</div>
-                    <div class="field">
-                        <span>Max</span>
-                        <input type="number" class="input-max" value="375000">
+    <div class="offcanvas-body"
+
+        <form action="{{route('discover')}}" method="GET" id="search" data-aos="fade-right" data-aos-delay="200"
+        data-aos-duration="1000">
+            <div class="main">
+                <div class="filterbox">
+                    <h2>Category</h2>
+                    <div class="categorylist">
+                        <label name='sayur'  for="category-sayur">
+                            <input type="checkbox" name="sayur" id="category-sayur">Sayur
+                        </label>
+                        <label name='buah' for="category-buah">
+                            <input type="checkbox" name="buah" id="category-buah">Buah
+                        </label>
                     </div>
                 </div>
-                <div class="slider">
-                    <div class="progress"></div>
+                <div class="header">
+                    <h2>Price Range</h2>d
                 </div>
-                <div class="range-input">
-                    <input type="range" class="range-min" min="0" max="500000" value="125000" step="500">
-                    <input type="range" class="range-max" min="0" max="500000" value="375000" step="500">
+                <div class="wrapper">
+                    <div class="price-input">
+                        <div class="field">
+                            <span>Min</span>
+                            <input type="number" class="input-min" value="125000">
+                        </div>
+                        <div class="separator">-</div>
+                        <div class="field">
+                            <span>Max</span>
+                            <input type="number" class="input-max" value="375000">
+                        </div>
+                    </div>
+                    <div class="slider">
+                        <div class="progress"></div>
+                    </div>
+                    <div class="range-input">
+                        <input type="range" class="range-min" min="0" max="500000" value="125000" step="500">
+                        <input type="range" class="range-max" min="0" max="500000" value="375000" step="500">
+                    </div>
                 </div>
-            </div>
-            <button type="button" id="save-filters">Save</button>
+                <button type="button" id="save-filters">Save</button>
         </div>
+        </form>
     </div>
 </div>
 </form>
 
     <div class="recommendedSection">
         <div class="row row-cols-1 row-cols-sm-3 row-cols-md-4 mx-3">
-          @foreach ($products as $product)
+          @foreach ($productsQuery as $product)
             @include('widgets.productCard')
           @endforeach
         </div>

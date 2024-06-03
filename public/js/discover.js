@@ -151,6 +151,10 @@ rangeInput.forEach(input =>{
     });
 });
 
+// <? php ?>
+
+// <? php ?>
+
 const currentUrl = new URL(window.location.href); //ambil url skrg
 const params = currentUrl.searchParams; //ambil parameter dri url
 const sayur = params.get('sayur');

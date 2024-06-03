@@ -13,9 +13,9 @@ class discoverController extends Controller
     public function index()
     {
         $products = product::all();
+        $products_all = product::all();
         $productDetail = productDetail::all();
         $productsQuery = Product::query();
-
         $user = Auth::user();
         $userId = auth()?->user()?->id;
 
@@ -27,21 +27,18 @@ class discoverController extends Controller
             $userId = $user->id;
 
             // Ensure the user has a cart
-            $cart = cart::firstOrCreate(['userId' => $userId]);
+            $cart = cart::firstOrCreatsse(['userId' => $userId]);
 
             // Get the cart items
             $cartItems = $cart->cartList;
+
 
             // Count the cart items
             $count = $cartItems->count();
         }
 
 
-        if ($searchInput = request()->input('search_Input')) {
-            $productsQuery->whereHas('productDetail', function ($query) use ($searchInput) {
-                $query->where('productName', 'like', '%' . $searchInput . '%');
-            });
-        }
+
 
         $isSayurSelected = filter_var(request()->input('sayur'), FILTER_VALIDATE_BOOLEAN);
         $isBuahSelected = filter_var(request()->input('buah'), FILTER_VALIDATE_BOOLEAN);
@@ -78,10 +75,19 @@ class discoverController extends Controller
         // }
 
         // Execute the quer y to get the results
+        if ($searchInput = request()->input('search_Input')) {
+            $productsQuery->whereHas('productDetail', function ($query) use ($searchInput) {
+                $query->where('productName', 'like', '%' . $searchInput . '%');
+            });
+        }
         $products = $productsQuery->get();
+        dd($products);
+        return view('discover', compact('products', 'count', 'cartItems', 'productDetail','products_all'));
+        return view('discover', [
+            'products' => $products,
+            'products_all' => $products_all,
+            'productDetail' => $productDetail
 
-        return view('discover', compact('products', 'count', 'cartItems', 'productDetail'));
+        ]);
     }
-
 }
-

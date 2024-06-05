@@ -40,6 +40,12 @@ html, body{
     width: 100%;  
 }
 
+.addProductButton{
+    height: 11vh;
+    width: 100%;
+    color: #3F945A;
+}
+
 .logOut{
     height: 11vh;
     width: 100%;

@@ -54,7 +54,7 @@ h1{
 
 .deliveryOptions {
     display: flex;
-    gap: 5px; 
+    gap: 15px; 
 }
 
 .deliveryOption {

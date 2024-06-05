@@ -4,6 +4,7 @@
   </a>
   @auth('admin')
     <div class="dropDown">
+      <a href="{{ route('admin.addProduct')}}" class="addProductButton">Add Product</a>
       <button onclick="" class="dropDownButton">Admin</button>
       <div class="dropDownList">
         <form action="{{ route('admin.logout') }}" method="POST" class="dropDownListButton"

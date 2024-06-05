@@ -12,15 +12,15 @@ class product extends Model
 
     protected $primaryKey = 'productId';
 
-    protected $fillable = [
-        'productDetailId',  
+    protected $fillable = [  
+        'productDetailId',
         'productPrice',
         'stock',
         'variant',
     ];
 
     public function productDetail(){
-        return $this->hasOne(productDetail::class, 'productDetailId', 'productDetailId');
+        return $this->belongsTo(productDetail::class, 'productDetailId');
     }
 
     public function cartList(){

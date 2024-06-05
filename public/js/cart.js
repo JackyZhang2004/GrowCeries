@@ -13,7 +13,7 @@ document.addEventListener('DOMContentLoaded', function() {
             totalPrice += subtotal;
         });
 
-        document.getElementById('totalPrice').textContent = 'Rp. ' + totalPrice.toLocaleString('id-ID');
+        document.getElementById('totalPriceFooter').textContent = 'Rp. ' + totalPrice.toLocaleString('id-ID');
     }
 
     function restoreSelectedItems() {
@@ -85,13 +85,7 @@ document.addEventListener('DOMContentLoaded', function() {
 document.addEventListener('DOMContentLoaded', function() {
     const checkAll = document.getElementById('checkAll');
     const checkboxes = document.querySelectorAll('.checkboxItem');
-    const totalPriceElement = document.getElementById('totalPrice');
-    const totalPriceFinalElement = document.getElementById('totalPriceFinal');
-    const totalPriceFooterElement = document.getElementById('totalPriceFooter');
-
-    const defaultShippingCost = 0; // Set your default value
-    const defaultServiceFee = 0; // Set your default value
-    const defaultPackagingCost = 0; // Set your default value
+    const totalPriceElement = document.getElementById('totalPriceFooter');
 
     function updateTotalPrice() {
         let totalPrice = 0;
@@ -103,9 +97,6 @@ document.addEventListener('DOMContentLoaded', function() {
         });
         totalPriceElement.textContent = `Rp ${totalPrice.toLocaleString()}`;
 
-        const finalTotalPrice = totalPrice + defaultShippingCost + defaultServiceFee + defaultPackagingCost;
-        totalPriceFinalElement.textContent = `Rp ${finalTotalPrice.toLocaleString()}`;
-        totalPriceFooterElement.textContent = `Rp ${finalTotalPrice.toLocaleString()}`;
     }
 
     checkAll.addEventListener('change', function() {
@@ -204,8 +195,3 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     });
 });
-
-
-
-
-

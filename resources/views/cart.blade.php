@@ -83,7 +83,7 @@
                     @endforeach
                 </div>
 
-                <div class="summarySection">
+                {{-- <div class="summarySection">
                     <div class="paymentDetails">
                         <p class="h2">Payment Details</p>
                         <div class="detailRow">
@@ -108,7 +108,7 @@
                         <span>Total Payment</span>
                         <span id="totalPriceFinal">0</span>
                     </div>
-                </div>
+                </div> --}}
                 <div class="stickyFooter">
                     <div class="footerContent">
                         <div class="totalPaymentFinal">

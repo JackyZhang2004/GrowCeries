@@ -15,6 +15,7 @@ class productDetail extends Model
     protected $primaryKey = 'productDetailId';
 
     protected $fillable = [
+        'productDetailId',
         'productName',
         'calories',
         'fat',
@@ -24,9 +25,13 @@ class productDetail extends Model
         'shelfLife',
         'productCategory',
         'productDesc',
+        'origin',
     ];
 
+    
     public function product(){
-        return $this->belongsTo(product::class, 'productDetailId');
+        return $this->hasMany(product::class, 'productId' ,'productId')->first();
     }
+
+    
 }

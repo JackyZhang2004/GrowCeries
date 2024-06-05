@@ -11,7 +11,7 @@ use Illuminate\Http\Request;
 class productController extends Controller
 {
     public function index()
-    {
+    {   
         $products = product::all();
         return view('admin.products.crud', compact('products'));
     }
@@ -40,11 +40,12 @@ class productController extends Controller
             'shelfLife' => 'required',
             'productCategory' => 'required',
             'productDesc' => 'required',
+            'origin' => 'required',
         ]);
 
 
         // First, check if a product detail with the same name already exists
-        $productDetail = productDetail::where('productName', request()->get('productName', ''))->first();
+        $productDetail = productDetail::where('productName', request()->get('productName'))->first();
 
         if (!$productDetail) {
             // If product detail doesn't exist, create a new one
@@ -58,6 +59,7 @@ class productController extends Controller
                 'shelfLife' => request()->get('shelfLife', null), // Assuming the input for shelf life
                 'productCategory' => request()->get('productCategory', null), // Assuming the input for shelf life
                 'productDesc' => request()->get('productDesc', null), // Assuming the input for shelf life
+                'origin' => request()->get('origin', null),
             ]);
 
             // Save the product detail
@@ -86,36 +88,30 @@ class productController extends Controller
 
     public function edit(product $product){
         $editing = true;
-        return view('admin.products.showProduct', compact('product', 'editing'));
+        return view('admin.products.editProduct', compact('product', 'editing'));
     }
 
-    public function update(product $product){
+    public function update(Request $request){
+        $targetProduct = product::where('productId', $request->id)->first();
+        $targetProductDetail = productDetail::where('productDetailId', $request->id)->first();
 
-        $validator = request()->validate([
-            'productName' => 'required',
-            'productPrice' => 'required|numeric',
-            'stock' => 'required|numeric',
-            'variant' => 'required|numeric',
-            // 'calories' => 'required|numeric',
-            // 'fat' => 'required|numeric',
-            // 'sugar' => 'required|numeric',
-            // 'carbohydrate' => 'required|numeric',
-            // 'protein' => 'required|numeric',
-            // 'shelfLife' => 'required',
-            // 'productCategory' => 'required',
-            // 'productDesc' => 'required',
-        ]);
+        $targetProductDetail->productName = $request->productName;
+        $targetProductDetail->calories = $request->calories;
+        $targetProductDetail->fat = $request->fat;
+        $targetProductDetail->sugar = $request->sugar;
+        $targetProductDetail->carbohydrate = $request->carbohydrate;
+        $targetProductDetail->protein = $request->protein;
+        $targetProductDetail->shelfLife = $request->shelfLife;
+        $targetProductDetail->productCategory = $request->productCategory;
+        $targetProductDetail->productDesc = $request->productDesc;
+        $targetProductDetail->origin = $request->origin;
+        $targetProduct->productPrice = $request->productPrice;
+        $targetProduct->stock = $request->stock;
+        $targetProduct->variant = $request->variant;
+        $targetProduct->save();
+        $targetProductDetail->save();
 
-        $productDetail = $product->productDetail;
-        $productDetail->productName = request()->get('productName', '');
-        $productDetail->save();
-
-        $product->productPrice = request()->get('productPrice', '');
-        $product->stock = request()->get('stock', '');
-        $product->variant = request()->get('variant', '');
-        $product->save();
-
-        return redirect()->route('admin.products', $product->productId)->with('success', 'idea updated successfully!');
+        return redirect()->route('admin.products', $targetProduct)->with('success', 'idea updated successfully!');
     }
 
 }

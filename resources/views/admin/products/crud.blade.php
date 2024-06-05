@@ -11,90 +11,61 @@
 <div class="container">
     <div class="searchContainer">
         <p class="searchTitle">Find Our Product Here ...</p>
-        <input type="text" placeholder="Input product code here..." class="searchField">
+        <input type="text" placeholder="Input product code here..." class="searchField" id ="searchField" oninput=searchFunction($product)>
     </div>
     <div class="productListContainer">
         <p class="productListTitle">Product List</p>
+        @foreach ($products as $product)
         <div class="productUnit">
             <div class="unitTop">
                 <div class="topLeft">
-                    <img src="" alt="">
+                    <img src={{ asset('image/semangka.png') }} alt="">
                 </div>
                 <div class="topMid">
-                    <p class="productName">Semangka</p>
-                    <p class="productStock">3000</p>
+                    <p class="productName">{{$product->productDetail->productName}}</p>
+                    <p class="productStock">Stock : {{$product->stock}}</p>
                 </div>
                 <div class="topRight">
-                    <button onclick="" class="viewDetialsButton">Details</button>
+                    
+                    <button class="viewDetailsButton" onclick="dropDownFunction( {{ $product->productId }} );">Details</button>
                 </div>
             </div>
-            <div class="unitBottom">
+            <div class="unitBottom" id="{{$product->productId}}">
                 <div class="bottomUp">
-                    <p class="descriptionTitle">Description :</p>
-                    <p class="descripton">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Voluptate tenetur error, facilis incidunt omnis, molestiae, quidem commodi dignissimos unde itaque laboriosam maxime explicabo ad molestias! Eveniet facilis asperiores hic doloremque.</p>
-                    <P class="productInformationTitle">Product Information</P>
-                    
+                    <p class="informationTitle">Description</p>
+                    <p class="description">{{$product->productDetail->productDesc}}</p>
+                    <P class="informationTitle">Product Information</P>
+                    <div class="productInformation">
+                        <p class="productInformationTitle">Product Origin</p>
+                        <p> : </p>
+                        <p class="productInformationDesc">{{$product->productDetail->origin}}</p>
+                    </div>
+                    <div class="productInformation">
+                        <p class="productInformationTitle">Nutrition Details</p>
+                        <p> : </p>
+                        <p class="productInformationDesc">Calories ({{$product->productDetail->calories}} gr), 
+                            Fat ({{$product->productDetail->fat}} gr), 
+                            Sugar ({{$product->productDetail->sugar}} gr), 
+                            Carbohydrate ({{$product->productDetail->carbohydrate}} gr), 
+                            {{-- {{-- Protein ({{$product->productDetail->protein}} gr) --}}
+                        </p>
+                    </div>
+                    <div class="productInformation">
+                        <p class="productInformationTitle">Shelf Life</p>
+                        <p> : </p>
+                        <p class="productInformationDesc">{{$product->productDetail->shelfLife}}</p>
+                    </div>
+                    <P class="informationTitle">Price</P>
+                    <p class="productInformationDesc">Rp. {{$product->productPrice}}</p>
                 </div>
                 <div class="bottomDown">
-                    
+                    <a class="editProductButton" href="{{ route('admin.editProduct', $product->productId) }}">Edit Product</a>
+                    <a class="deleteProductButton" href="{{ route('admin.delete', $product->productId) }}">Delete Product</a>
                 </div>
             </div>
-
         </div>
+        @endforeach
     </div>
 </div>
+<script src="{{ asset('js/admin/crud.js') }}"></script>
 @endsection
-
-{{-- @extends('layouts.appAdmin')
-
-@push('head')
-    <link rel="stylesheet" href="{{ asset('css/admin/products/index.css') }}"> {{-- ini buat nyambungin home.css ke home blade nya --}}
-{{-- @endpush
-
-@section('title', 'Admin | Products Page')
-
-@section('content')
-    <div class="successMessage">
-      @include('widgets.successMessage')
-    </div>
-    <div class="errorMessage">
-        @include('widgets.errorMessage')
-    </div>
-    <p class="h1">Welcome Admin</p>
-    <p>Users Page</p>
-    <a href="{{ route('admin.users') }}">redirect to Users page</a> <br>
-    <a href="{{ route('admin.products') }}">redirect to Product page</a>
-    <br>
-    <a href="{{ route('admin.addProductIndex') }}">Create new Product</a>
-
-    <table class="table table-striped">
-        <thead class="table-dark">
-            <tr>
-                <th>ID</th>
-                <th>Name</th>
-                <th>Stock</th>
-                <th>Variant</th>
-                <th>#</th>
-            </tr>
-        </thead>
-        <tbody>
-            @foreach ($products as $product)
-                <tr>
-                    <td>{{ $product->productId }}</td>
-                    <td>{{ $product->productDetail->productName }}</td>
-                    <td>{{ $product->stock }}</td>
-                    <td>{{ $product->variant}}</td>
-                    <td>
-                        <form method="POST" action="{{ route('admin.destroyProduct', $product->productId) }}">
-                            @csrf
-                            @method('delete')
-                            <a href="{{ route('admin.editProduct', $product->productId) }}">Edit</a>
-                            <a href="{{ route('admin.showProduct', $product->productId) }}">Show</a>
-                            <button class="btn btn-danger btn-sm"> Delete </button>
-                        </form>
-                    </td>
-                </tr>
-            @endforeach
-        </tbody>
-    </table>
-@endsection --}}

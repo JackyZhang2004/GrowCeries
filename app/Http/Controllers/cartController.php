@@ -46,7 +46,7 @@ class cartController extends Controller
 
         // Check today's delivery times
         foreach ($timeSlots as $slot) {
-            if ($now->hour < $slot['end'] && $now->hour >= $slot['start']) {
+            if ($now->hour < $slot['start']) {
                 $deliveryTimes[] = [
                     'date' => $now->format('d M'),
                     'day' => 'Today',

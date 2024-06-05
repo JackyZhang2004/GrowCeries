@@ -49,7 +49,7 @@
             @yield('login')
         </div>
     @elseif (Route::currentRouteName() == 'cart')
-        @yield('content') 
+        @yield('content')
     @else
         @yield('content')
         @include('navigation.footer')

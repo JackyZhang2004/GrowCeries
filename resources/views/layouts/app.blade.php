@@ -32,7 +32,7 @@
 </head>
 <body>
     @if (request()->is('login') || request()->is('register'))
-        @include('navigation.nav-login-register');
+        @include('navigation.nav-login-register')
     @else
         @include('navigation.nav')
     @endif

@@ -12,8 +12,7 @@ use Illuminate\Support\Facades\Log;
 
 class cartController extends Controller
 {
-    public function index()
-    {
+    public function index(){
         $count = 0;
         $cartItems = collect();
 
@@ -70,8 +69,7 @@ class cartController extends Controller
         return view('cart', compact('count', 'cartItems', 'deliveryTimes'));
     }
 
-    public function addCart($id)
-    {
+    public function addCart($id){
         $productId = $id;
         $user = Auth::user();
 
@@ -104,8 +102,7 @@ class cartController extends Controller
         return redirect()->back()->with('success', 'Product added to cart');
     }
 
-    public function incrementCart($id)
-    {
+    public function incrementCart($id){
         $user = Auth::user();
 
         if (is_null($user)) {
@@ -141,28 +138,27 @@ class cartController extends Controller
         }
     }
 
-    public function decrementCart($id)
-    {
+    public function decrementCart($id){
         $user = Auth::user();
 
         if (is_null($user)) {
             return redirect()->route('login')->with('error', 'You are not logged in.');
         }
-    
+
         $userId = $user->id;
         $cart = Cart::firstOrCreate(['userId' => $userId]);
         $cartItem = CartList::where('cartId', $cart->cartId)->where('productId', $id)->first();
-    
+
         if ($cartItem) {
             if ($cartItem->quantity > 1) {
                 $cartItem->quantity -= 1;
-    
+
                 // Use the custom method to handle composite keys
                 cartList::updateOrInsert(
                     ['cartId' => $cart->cartId, 'productId' => $id],
                     ['quantity' => $cartItem->quantity]
                 );
-    
+
                 return redirect()->back()->with('success', 'Product quantity decreased');
             } else {
                 cartList::where('cartId', $cart->cartId)->where('productId', $id)->delete();
@@ -184,10 +180,9 @@ class cartController extends Controller
         cartList::where('cartId', $cart->cartId)->where('productId', $id)->delete();
 
         return redirect()->route('cart')->with('success', 'cart item deleted successfully!');
-     }
-    
-    public function checkout(Request $request)
-    {
+    }
+
+     public function checkout(Request $request){
         $user = Auth::user();
 
         $addressId = $request->input('addressId');
@@ -197,20 +192,20 @@ class cartController extends Controller
 
         $selectedItems = $request->input('selectedItems');
 
-        $cartId = $user->cart->cartId; 
+        $cartId = $user->cart->cartId;
 
-        $cartItems = cartList::whereIn('productId', $selectedItems)->where('cartId', $cartId)->get(); 
+        $cartItems = cartList::whereIn('productId', $selectedItems)->where('cartId', $cartId)->get();
 
         $selectedDeliveryTime = $request->input('selectedDeliveryTime');
         if(str_contains($selectedDeliveryTime, 'Today') | str_contains($selectedDeliveryTime, 'Tomorrow')){
             $dateTimeParts = explode(' ', $selectedDeliveryTime);
             $selectedDate = $dateTimeParts[0] . ' ' . $dateTimeParts[1];
-            $selectedTime = $dateTimeParts[3]; 
+            $selectedTime = $dateTimeParts[3];
             $selectedDeliveryTime = $selectedDate . ' ' . $selectedTime;
         }elseif(str_contains($selectedDeliveryTime, '2 more Days')){
             $dateTimeParts = explode(' ', $selectedDeliveryTime);
             $selectedDate = $dateTimeParts[0] . ' ' . $dateTimeParts[1];
-            $selectedTime = $dateTimeParts[5]; 
+            $selectedTime = $dateTimeParts[5];
             $selectedDeliveryTime = $selectedDate . ' ' . $selectedTime;
         }
 

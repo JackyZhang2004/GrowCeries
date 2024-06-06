@@ -13,7 +13,6 @@
     <div class="errorMessage">
         @include('widgets.errorMessage')
     </div>
-<<<<<<< Updated upstream
     <div class="container">
         <p class="welcomeTitle">Welcome Admin</p>
         <div class="featureContainer">
@@ -54,11 +53,3 @@
         </div>
     </div>
 @endsection
-=======
-    <p class="h1">Welcome Admin</p>
-    <p>Home page</p>
-    <a href="{{ route('admin.users') }}"> redirect to Users page</a>
-    <a href="{{ route('admin.products') }}"> redirect to product page</a>
-
-@endsection
->>>>>>> Stashed changes

@@ -11,7 +11,7 @@ use Illuminate\Http\Request;
 class productController extends Controller
 {
     public function index()
-    {   
+    {
         $products = product::all();
         return view('admin.products.crud', compact('products'));
     }
@@ -91,7 +91,7 @@ class productController extends Controller
         return view('admin.products.editProduct', compact('product', 'editing'));
     }
 
-    public function update(Request $request){
+    public function update(Request $request, $product){
         $targetProduct = product::where('productId', $request->id)->first();
         $targetProductDetail = productDetail::where('productDetailId', $request->id)->first();
 
@@ -111,7 +111,7 @@ class productController extends Controller
         $targetProduct->save();
         $targetProductDetail->save();
 
-        return redirect()->route('admin.products', $targetProduct)->with('success', 'idea updated successfully!');
+        return redirect()->route('admin.products', $targetProduct)->with('success', 'Product updated successfully!');
     }
 
 }

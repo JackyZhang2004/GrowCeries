@@ -9,11 +9,11 @@
 @section('content')
     <p class="addProductTitle">Edit Product</p>
     <div class="addProductContainer">
-        <form action="{{ route('admin.updateProduct') }}" method="POST">
+        <form action="{{ route('admin.updateProduct', ['product' => $product->productId]) }}" method="POST">
             @csrf
             <input name="id" type="text" class="hidden" value="{{ $product->productId }}">
             <label for="productName" class="label">Product Name</label><br>
-            <input class="inputNormal" name="productName" type="text" id="productName" value="{{ old('productName') }}">
+            <input class="inputNormal" name="productName" type="text" id="productName" value="{{ $product->productDetail->productName }}">
             @error('productName')
                 <span class="error text-danger">{{ $message }}</span>
             @enderror
@@ -21,28 +21,28 @@
 
             <label for="productPrice">Product Price</label><br>
             <input class="inputNormal" name="productPrice" type="tel" id="productPrice"
-                value="{{ old('productPrice') }}">
+            value="{{ $product->productPrice }}">
             @error('productPrice')
                 <span class="error text-danger">{{ $message }}</span>
             @enderror
             <br>
 
             <label for="stock">Stock</label><br>
-            <input class="inputNormal" name="stock" type="tel" id="stock" value="{{ old('stock') }}">
+            <input class="inputNormal" name="stock" type="tel" id="stock" value="{{ $product->stock }}">
             @error('stock')
                 <span class="error text-danger">{{ $message }}</span>
             @enderror
             <br>
 
             <label for="variant">Variant</label><br>
-            <input class="inputNormal" name="variant" type="text" id="variant" value="{{ old('variant') }}">
+            <input class="inputNormal" name="variant" type="text" id="variant" value="{{ $product->variant }}">
             @error('variant')
                 <span class="error text-danger">{{ $message }}</span>
             @enderror
             <br>
 
             <label for="calories">Product Origin</label><br>
-            <input class="inputNormal" name="origin" type="tel" id="origin" value="{{ old('origin') }}">
+            <input class="inputNormal" name="origin" type="tel" id="origin" value="{{ $product->productDetail->origin }}">
             @error('origin')
                 <span class="error text-danger">{{ $message }}</span>
             @enderror
@@ -51,14 +51,14 @@
             <div class="formRow">
                 <div class="formColumn">
                     <label for="calories" class="miniLabel">Calories</label><br>
-                    <input class="miniInput" name="calories" type="tel" id="calories" value="{{ old('calories') }}">
+                    <input class="miniInput" name="calories" type="tel" id="calories" value="{{ $product->productDetail->calories }}">
                     @error('calories')
                         <span class="error text-danger">{{ $message }}</span>
                     @enderror
                     <br>
 
                     <label for="fat" class="miniLabel">Fat</label><br>
-                    <input class="miniInput" name="fat" type="tel" id="fat" value="{{ old('fat') }}">
+                    <input class="miniInput" name="fat" type="tel" id="fat" value="{{ $product->productDetail->fat }}">
                     @error('fat')
                         <span class="error text-danger">{{ $message }}</span>
                     @enderror
@@ -66,7 +66,7 @@
                 </div>
                 <div class="formColumn">
                     <label for="sugar" class="miniLabel">Sugar</label><br>
-                    <input class="miniInput" name="sugar" type="tel" id="sugar" value="{{ old('sugar') }}">
+                    <input class="miniInput" name="sugar" type="tel" id="sugar" value="{{ $product->productDetail->sugar }}">
                     @error('sugar')
                         <span class="error text-danger">{{ $message }}</span>
                     @enderror
@@ -74,7 +74,7 @@
 
                     <label for="carbohydrate" class="miniLabel">Carbohydrate</label><br>
                     <input class="miniInput" name="carbohydrate" type="tel" id="carbohydrate"
-                        value="{{ old('carbohydrate') }}">
+                    value="{{ $product->productDetail->carbohydrate }}">
                     @error('carbohydrate')
                         <span class="error text-danger">{{ $message }}</span>
                     @enderror
@@ -82,7 +82,7 @@
                 </div>
                 <div class="formColumn">
                     <label for="protein" class="miniLabel">Protein</label><br>
-                    <input class="miniInput" name="protein" type="tel" id="protein" value="{{ old('protein') }}">
+                    <input class="miniInput" name="protein" type="tel" id="protein" value="{{ $product->productDetail->protein }}">
                     @error('protein')
                         <span class="error text-danger">{{ $message }}</span>
                     @enderror
@@ -94,7 +94,7 @@
 
 
             <label for="shelfLife">Shelf Life</label><br>
-            <input class="inputNormal" name="shelfLife" type="tel" id="shelfLife" value="{{ old('shelfLife') }}">
+            <input class="inputNormal" name="shelfLife" type="tel" id="shelfLife" value="{{ $product->productDetail->shelfLife }}">
             @error('shelfLife')
                 <span class="error text-danger">{{ $message }}</span>
             @enderror
@@ -102,10 +102,10 @@
             <div class="category">
                 <p class="label">Category</p>
                 <input type="radio" id="productCategory" name="productCategory" value="buah"
-                    {{ old('productCategory') == 'buah' ? 'checked' : '' }}>
+                    {{ $product->productDetail->productCategory == 'buah' ? 'checked' : '' }}>
                 <label class="miniLabel" for="Buah">Buah</label><br>
                 <input type="radio" id="productCategory" name="productCategory" value="sayur"
-                    {{ old('productCategory') == 'sayur' ? 'checked' : '' }}>
+                    {{ $product->productDetail->productCategory == 'sayur' ? 'checked' : '' }}>
                 <label class="miniLabel" for="sayur">Sayur</label>
                 @error('productCategory')
                     <span class="error text-danger">{{ $message }}</span>
@@ -115,7 +115,7 @@
 
 
             <label for="productDesc">Product Desc</label><br>
-            <textarea class="largeInput" name="productDesc"id="productDesc">{{ old('productDesc') }}</textarea>
+            <textarea class="largeInput" name="productDesc"id="productDesc">{{$product->productDetail->productCategory}}</textarea>
             @error('productDesc')
                 <span class="error text-danger">{{ $message }}</span>
             @enderror

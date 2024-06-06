@@ -15,7 +15,7 @@
         <p class="text-muted card-text varianttext">{{$product->productDetail->variant}}</p>
       </a>
       <a href="{{ route('productDetail', ['id'=>$product->productDetailId]) }}" class="productDetailButton">
-        <p class="card-text productPrice">Rp {{$product->productDetail->productPrice}}</p>
+        <p class="card-text productPrice">Rp {{$product->productPrice}}</p>
       </a>
       @php
       $cartItem = $cartItems->firstWhere('productId', $product->productId);

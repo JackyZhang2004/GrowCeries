@@ -29,13 +29,13 @@
                         </div>
                     @endforeach
                     <input type="hidden" name="selectedDeliveryTime" id="selectedDeliveryTime">
-                </div>                
+                </div>
                 <div class="checkboxCheckAll">
                     <input type="checkbox" id="checkAll" class="checkAll">
                     <p>Select All</p>
                 </div>
             </div>
-            <div class="cart-content"> 
+            <div class="cart-content">
                 <div class="cartItems">
                     @foreach ($cartItems as $cartItem)
                     <div class="cartItem" data-price="{{ $cartItem->product->productPrice * $cartItem->quantity }}">
@@ -45,7 +45,7 @@
                         <div class="itemDetails">
                             <a href="{{ route('productDetail', $cartItem->product->productId) }}" class="productDetailButton">
                                 <img src="{{ asset('image/gambarRectangle.png') }}" class="card-img-top" alt="...">
-                            </a>                            
+                            </a>
                             <div>
                                 <a href="{{ route('productDetail', $cartItem->product->productId) }}" class="productDetailButton">
                                     <p class="itemName h5">{{$cartItem->product->productDetail->productName}}</p>
@@ -63,7 +63,13 @@
                                 <form action="{{ route('cart.decrement', $cartItem->product->productId) }}" method="POST"
                                     class="d-inline plesMines">
                                     @csrf
-                                    <button type="submit" class="btn btn-outline-secondary quantityBtn">-</button>
+                                    {{-- <button type="submit" class="btn btn-outline-secondary quantityBtn">-</button> --}}
+                                </form>
+                                {{-- yang atas ini dibiarin aja jangan dihapus, kalo dihapus jadi error --}}
+                                <form action="{{ route('cart.decrement', $cartItem->product->productId) }}" method="POST"
+                                    class="d-inline plesMines">
+                                    @csrf
+                                    <button type="submit" class="btn btn-outline-success quantityBtn">-</button>
                                 </form>
                                 <span class="quantity mx-2">{{ $cartItem->quantity }}</span>
                                 <form action="{{ route('cart.increment', $cartItem->product->productId) }}" method="POST"
@@ -79,7 +85,7 @@
                             </form>
                         </div>
                     </div>
-    
+
                     @endforeach
                 </div>
 

@@ -81,8 +81,8 @@ class discoverController extends Controller
             });
         }
         $products = $productsQuery->get();
-        // dd($products);
-        return view('discover', compact('products', 'count', 'cartItems', 'productDetail','products_all'));
+
+        return view('discover', compact('products', 'count', 'cartItems', 'productDetail', 'products_all'));
         return view('discover', [
             'products' => $products,
             'products_all' => $products_all,

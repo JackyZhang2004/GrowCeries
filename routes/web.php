@@ -38,6 +38,8 @@ Route::get('product/{id}', [productController::class, 'productDetails'])->name('
 
 Route::get('discover', [discoverController::class, 'index'])->name('discover');
 
+Route::get('contact-us', function () {return view('contactUs');});
+
 Route::get('order', [orderController::class, 'index'])->name('order');
 
 Route::get('cart', [cartController::class, 'index'])->name('cart');
@@ -51,6 +53,7 @@ Route::get('checkout', [CartController::class, 'checkout'])->name('checkout');
 Route::get('/choose-address', [addressController::class, 'chooseAddress'])->name('address.chooseAddress');
 
 Route::get('/address/{id}/edit', [addressController::class, 'edit'])->name('address.edit');
+Route::get('/add-address', function () {return view('addAddress');});
 Route::put('/address/{id}/update', [addressController::class, 'update'])->name('address.update');
 
 
@@ -90,10 +93,15 @@ Route::group(['prefix' => 'admin'], function(){
         Route::get('product/{product}', [adminProductController::class, 'destroy'])->name('admin.delete');
         // Route::post('product/{product}', [adminProductController::class, 'destroy'])->name('admin.delete');
         Route::get('product/{product}/edit', [adminProductController::class, 'edit'])->name('admin.editProduct');
+<<<<<<< Updated upstream
         Route::post('product/', [adminProductController::class, 'update'])->name('admin.updateProduct');
         Route::get('orderAdmin', [adminOrderController::class, 'index'])->name('admin.orderAdmin');
         Route::get('profileAdmin', [adminProfileController::class, 'index'])->name('admin.profileAdmin');
         Route::post('profileAdmin', [adminProfileController::class, 'index'])->name('admin.profileAdmin');
+=======
+        Route::put('product/{product}', [adminProductController::class, 'update'])->name('admin.updateProduct');
+
+>>>>>>> Stashed changes
     });
 });
 

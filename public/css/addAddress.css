@@ -1,0 +1,57 @@
+body {
+    background-color: #EAEAEA;
+}
+.contact{
+    display: flex;
+    flex-direction: column;
+}
+.contact h2{
+    margin-top: 2.5vh;
+    font-size: 30px;
+}
+.name{
+    height: 30px;
+    margin-bottom: 0.3vh;
+}
+
+.number{
+    height: 30px;
+    margin-bottom: 0.3vh;
+}
+
+.address{
+    display: flex;
+    flex-direction: column;
+}
+.address h2{
+    margin-top: 2.5vh;
+    font-size: 30px;
+}
+.province{
+    height: 30px;
+    margin-bottom: 0.3vh;
+}
+
+.street{
+    height: 30px;
+    margin-bottom: 0.3vh;
+}
+
+.other{
+    height: 30px;
+    margin-bottom: 0.3vh;
+}
+
+.button{
+    text-align: center;
+    margin-top: 6vh;
+}
+
+#save-btn{
+    background-color: #3F945A;
+    border-radius: 10px;
+    /* margin-right: -2vw; */
+    width: 15vw;
+    height: 4vh;
+    color: white;
+}

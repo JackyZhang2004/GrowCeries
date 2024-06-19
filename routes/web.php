@@ -59,7 +59,6 @@ Route::put('/address/{id}/update', [addressController::class, 'update'])->name('
 
 
 
-
 // Route::middleware('auth')->group(function () {
     Route::get('/addresses', [addressController::class, 'index'])->name('address.index');
     Route::get('/addresses/create', [addressController::class, 'create'])->name('address.create');
@@ -93,9 +92,13 @@ Route::group(['prefix' => 'admin'], function(){
         Route::get('product/{product}', [adminProductController::class, 'destroy'])->name('admin.delete');
         // Route::post('product/{product}', [adminProductController::class, 'destroy'])->name('admin.delete');
         Route::get('product/{product}/edit', [adminProductController::class, 'edit'])->name('admin.editProduct');
+<<<<<<< Updated upstream
         Route::post('product/{product}', [adminProductController::class, 'update'])->name('admin.updateProduct');
 
         // Route::post('product/', [adminProductController::class, 'update'])->name('admin.updateProduct');
+=======
+        Route::post('product/', [adminProductController::class, 'update'])->name('admin.updateProduct');
+>>>>>>> Stashed changes
         Route::get('orderAdmin', [adminOrderController::class, 'index'])->name('admin.orderAdmin');
         Route::get('profileAdmin', [adminProfileController::class, 'index'])->name('admin.profileAdmin');
         Route::post('profileAdmin', [adminProfileController::class, 'index'])->name('admin.profileAdmin');

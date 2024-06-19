@@ -16,6 +16,7 @@ use App\Http\Controllers\cartController;
 use App\Http\Controllers\discoverController;
 use App\Http\Controllers\orderController;
 use App\Http\Controllers\productController;
+use App\Models\address;
 use Illuminate\Support\Facades\Route;
 
 
@@ -70,6 +71,8 @@ Route::put('/address/{id}/update', [addressController::class, 'update'])->name('
 
 
 
+
+
 // ADMIN DOWN HERE
 
 Route::group(['prefix' => 'admin'], function(){
@@ -92,13 +95,14 @@ Route::group(['prefix' => 'admin'], function(){
         Route::get('product/{product}', [adminProductController::class, 'destroy'])->name('admin.delete');
         // Route::post('product/{product}', [adminProductController::class, 'destroy'])->name('admin.delete');
         Route::get('product/{product}/edit', [adminProductController::class, 'edit'])->name('admin.editProduct');
-<<<<<<< Updated upstream
+
         Route::post('product/{product}', [adminProductController::class, 'update'])->name('admin.updateProduct');
 
         // Route::post('product/', [adminProductController::class, 'update'])->name('admin.updateProduct');
-=======
         Route::post('product/', [adminProductController::class, 'update'])->name('admin.updateProduct');
->>>>>>> Stashed changes
+        Route::post('admin/product/{product}', [adminProductController::class, 'update'])->name('admin.updateProduct');
+
+                // Route::post('product/', [adminProductController::class, 'update'])->name('admin.updateProduct');
         Route::get('orderAdmin', [adminOrderController::class, 'index'])->name('admin.orderAdmin');
         Route::get('profileAdmin', [adminProfileController::class, 'index'])->name('admin.profileAdmin');
         Route::post('profileAdmin', [adminProfileController::class, 'index'])->name('admin.profileAdmin');

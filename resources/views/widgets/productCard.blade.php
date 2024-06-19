@@ -5,7 +5,9 @@
 <div class="col-lg-3 col-md-4 col-sm-6 col-xs-6 col-6 d-flex align-items-stretch mt-3">
   <div class="card">
     <a href="{{ route('productDetail', ['id'=>$product->productDetailId]) }}" class="productDetailButton">
-      <img src="{{ asset('image/gambarRectangle.png') }}" class="card-img-top" alt="...">
+      {{-- <img src="{{ asset('image/gambarRectangle.png') }}" class="card-img-top" alt="..."> --}}
+      <img src="{{ $product->getImageURL() }}" class="card-img-top" alt="Product Image">
+        
     </a>
     <div class="card-body">
       <a href="{{ route('productDetail', ['id'=>$product->productDetailId]) }}" class="productDetailButton">

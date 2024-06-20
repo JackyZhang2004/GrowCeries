@@ -8,6 +8,7 @@ body {
 .contact h2{
     margin-top: 2.5vh;
     font-size: 30px;
+    padding-left: 2vw;
 }
 .name{
     height: 30px;
@@ -26,6 +27,7 @@ body {
 .address h2{
     margin-top: 2.5vh;
     font-size: 30px;
+    padding-left: 2vw;
 }
 .province{
     height: 30px;
@@ -54,4 +56,13 @@ body {
     width: 15vw;
     height: 4vh;
     color: white;
+}
+
+
+input[type="name"]::placeholder,
+input[type="number"]::placeholder,
+input[type="province"]::placeholder,
+input[type="street"]::placeholder,
+input[type="other"]::placeholder {
+    padding-left: 2vw;
 }

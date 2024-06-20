@@ -14,7 +14,8 @@ class addressController extends Controller
     public function index()
     {
         $user = Auth::user();
-        $addresses = $user->addresses;
+
+        $addresses = $user->addresses ?? null;
 
         return view('addresses.index', compact('addresses'));
     }
@@ -64,11 +65,11 @@ class addressController extends Controller
         $user = Auth::user();
         $addresses = $user->addresses;
 
-        $cartId = $user->cart->cartId; 
+        $cartId = $user->cart->cartId;
 
         $selectedItems = $request->input('selectedItems');
 
-        $cartItems = cartList::whereIn('productId', $selectedItems)->where('cartId', $cartId)->get(); 
+        $cartItems = cartList::whereIn('productId', $selectedItems)->where('cartId', $cartId)->get();
 
         $selectedDeliveryTime = $request->input('selectedDeliveryTime');
 
@@ -94,7 +95,7 @@ class addressController extends Controller
             'addressName' => 'required|string|max:255',
             'addressDetail' => 'required|string|max:255',
         ]);
-        
+
         $address = Address::findOrFail($id);
 
         if ($address->userId != Auth::id()) {
@@ -109,6 +110,6 @@ class addressController extends Controller
         } else {
             return redirect()->route('home');
         }
-    
+
     }
 }

@@ -14,6 +14,7 @@ class order extends Model
 
     protected $fillable = [
         'orderId',
+        'orderDetailId',
         'userId', 
         'courierId', 
         'orderDate', 
@@ -23,6 +24,6 @@ class order extends Model
 
 
     public function orderList(){
-        return $this->hasMany(orderList::class, 'orderId', 'orderId');
+        return $this->belongsTo(orderList::class, 'orderDetailId', 'orderDetailId');
     }
 }

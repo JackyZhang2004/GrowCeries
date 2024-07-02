@@ -1,5 +1,4 @@
 function dropDownFunction(id){
-    console.log(id);
     if(document.getElementById(id).classList.contains('view')){
         dropDown = document.getElementById(id).classList.remove('view')
     }
@@ -9,7 +8,7 @@ function dropDownFunction(id){
     
 }
 
-function searchFunction(){
+function searchFunction(product){
     searchValue = document.getElementById(searchField);
-    
+    console.log(searchField);
 }

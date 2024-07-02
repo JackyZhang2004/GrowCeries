@@ -11,38 +11,37 @@
     <div class="addProductContainer">
         <form action="{{ route('admin.addProduct') }}" method="POST">
             @csrf
-            
             <label for="productName" class="label">Product Name</label><br>
-            <input class="inputNormal" name="productName" type="text" id="productName" value="{{old('productName')}}">
+            <input class="inputNormal" name="productName" type="text" id="productName" placeholder="input product name here...">
             @error('productName')
             <span class="error text-danger">{{ $message }}</span>
             @enderror
             <br>
 
             <label for="productPrice">Product Price</label><br>
-            <input class="inputNormal" name="productPrice" type="tel" id="productPrice" value="{{old('productPrice')}}">
+            <input class="inputNormal" name="productPrice" type="tel" id="productPrice" placeholder="input product price here...">
             @error('productPrice')
             <span class="error text-danger">{{ $message }}</span>
             @enderror
             <br>
 
             <label for="stock">Stock</label><br>
-            <input class="inputNormal" name="stock" type="tel" id="stock" value="{{old('stock')}}">
+            <input class="inputNormal" name="stock" type="tel" id="stock" placeholder="input product stock here...">
             @error('stock')
                 <span class="error text-danger">{{ $message }}</span>
             @enderror
             <br>
 
             <label for="variant">Variant</label><br>
-            <input class="inputNormal" name="variant" type="text" id="variant" value="{{old('variant')}}">
+            <input class="inputNormal" name="variant" type="text" id="variant" placeholder="input product variant here...">
             @error('variant')
                 <span class="error text-danger">{{ $message }}</span>
             @enderror
             <br>
 
-            <label for="calories">Product Origin</label><br>
-            <input class="inputNormal" name="calories" type="tel" id="calories" value="{{old('calories')}}">
-            @error('calories')
+            <label for="origin">Product Origin</label><br>
+            <input class="inputNormal" name="origin" type="tel" id="origin" placeholder="input product origin here...">
+            @error('origin')
                 <span class="error text-danger">{{ $message }}</span>
             @enderror
             <br>
@@ -50,14 +49,14 @@
             <div class="formRow">
                 <div class="formColumn">
                     <label for="calories" class="miniLabel">Calories</label><br>
-                    <input class="miniInput" name="calories" type="tel" id="calories" value="{{old('calories')}}">
+                    <input class="miniInput" name="calories" type="tel" id="calories" placeholder="input calories here...">
                     @error('calories')
                     <span class="error text-danger">{{ $message }}</span>
                     @enderror
                     <br>
                     
                     <label for="fat" class="miniLabel">Fat</label><br>
-                    <input class="miniInput" name="fat" type="tel" id="fat" value="{{old('fat')}}">
+                    <input class="miniInput" name="fat" type="tel" id="fat" placeholder="input fat here...">
                     @error('fat')
                     <span class="error text-danger">{{ $message }}</span>
                     @enderror
@@ -65,14 +64,14 @@
                 </div>
                 <div class="formColumn">
                     <label for="sugar" class="miniLabel">Sugar</label><br>
-                    <input class="miniInput" name="sugar" type="tel" id="sugar" value="{{old('sugar')}}">
+                    <input class="miniInput" name="sugar" type="tel" id="sugar" placeholder="input sugar here...">
                     @error('sugar')
                     <span class="error text-danger">{{ $message }}</span>
                     @enderror
                     <br>
         
                     <label for="carbohydrate" class="miniLabel">Carbohydrate</label><br>
-                    <input class="miniInput" name="carbohydrate" type="tel" id="carbohydrate" value="{{old('carbohydrate')}}">
+                    <input class="miniInput" name="carbohydrate" type="tel" id="carbohydrate" placeholder="input carbohydrate here...">
                     @error('carbohydrate')
                     <span class="error text-danger">{{ $message }}</span>
                     @enderror
@@ -80,7 +79,7 @@
                 </div>
                 <div class="formColumn">
                     <label for="protein" class="miniLabel">Protein</label><br>
-                    <input class="miniInput" name="protein" type="tel" id="protein" value="{{old('protein')}}">
+                    <input class="miniInput" name="protein" type="tel" id="protein" placeholder="input protein here...">
                     @error('protein')
                     <span class="error text-danger">{{ $message }}</span>
                     @enderror
@@ -89,7 +88,7 @@
             </div>
             
             <label for="shelfLife">Shelf Life</label><br>
-            <input class="inputNormal" name="shelfLife" type="tel" id="shelfLife" value="{{old('shelfLife')}}">
+            <input class="inputNormal" name="shelfLife" type="tel" id="shelfLife" placeholder="input shelf life here...">
             @error('shelfLife')
             <span class="error text-danger">{{ $message }}</span>
             @enderror
@@ -108,14 +107,14 @@
             
                         
             <label for="productDesc">Product Desc</label><br>
-            <textarea class="largeInput" name="productDesc"id="productDesc">{{old('productDesc')}}</textarea>
+            <textarea class="largeInput" name="productDesc"id="productDesc" placeholder="input description here..."></textarea>
             @error('productDesc')
             <span class="error text-danger">{{ $message }}</span>
             @enderror
             <br>
 
             <label for="shelfLife">Image Link</label><br>
-            <input class="inputNormal" name="image" type="tel" id="image" value="{{old('image')}}">
+            <input class="inputNormal" name="image" type="tel" id="image" placeholder="input image link here...">
             @error('image')
             <span class="error text-danger">{{ $message }}</span>
             @enderror
@@ -123,8 +122,8 @@
 
             <div class="buttonContainer">
                 <a href="{{ route('admin.products') }}" class="cancelButton">Cancel</a>
-                <button class="submitButton" type="submit">Save</button>
             </div>
+            <button type="submit" class="submitButton">Save</button>
         </form>
     </div>
 

@@ -10,20 +10,18 @@ class order extends Model
     use HasFactory;
     protected $table = 'transactionHeader';
 
-    protected $primaryKey = 'orderId';
-
     protected $fillable = [
         'orderId',
         'orderDetailId',
-        'userId', 
-        'courierId', 
-        'orderDate', 
+        'userId',
+        'courierId',
+        'orderDate',
         'orderStatus',
         'deliveryTime'
     ];
 
 
     public function orderList(){
-        return $this->belongsTo(orderList::class, 'orderDetailId', 'orderDetailId');
+        return $this->hasMany(orderList::class, 'orderId', 'orderId');
     }
 }

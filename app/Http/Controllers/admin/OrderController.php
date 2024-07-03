@@ -6,10 +6,10 @@ use App\Http\Controllers\Controller;
 use App\Models\order;
 use Illuminate\Http\Request;
 
-class adminOrderController extends Controller
+class OrderController extends Controller
 {
     public function index(){
-        $orders = order::orderBy('orderId', 'asc');
-        return view('admin.order.orderAdmin', compact('orders'));
+        $orders = order::orderBy('orderId', 'asc')->get();
+        return view('admin.order.index', compact('orders'));
     }
 }

@@ -13,12 +13,12 @@ class orderList extends Model
     protected $primaryKey = 'orderDetailId';
 
     protected $fillable = [
-        'productId', 
+        'productId',
         'quantity'
     ];
 
     public function order(){
-        return $this->hasOne(orderList::class);
+        return $this->belongsTo(orderList::class, 'orderId', 'orderId');
     }
 
     public function product()

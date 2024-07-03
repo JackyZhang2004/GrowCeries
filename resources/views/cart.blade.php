@@ -44,7 +44,7 @@
                             in_array($cartItem->product->productId, old('selectedItems'))) checked @endif>
                         <div class="itemDetails">
                             <a href="{{ route('productDetail', $cartItem->product->productId) }}" class="productDetailButton">
-                                <img src="{{ asset('image/gambarRectangle.png') }}" class="card-img-top" alt="...">
+                                <img src="{{ $cartItem->getImageURL() }}" class="card-img-top" alt="...">
                             </a>
                             <div>
                                 <a href="{{ route('productDetail', $cartItem->product->productId) }}" class="productDetailButton">

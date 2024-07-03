@@ -29,7 +29,8 @@
                                     <div class="topMid">
                                         <p class="status">Order is being Packed</p>
                                         <p class="purchaseDate">Purchased at {{$list->orderDate}}</p>
-                                        <p class="productPurchased">{{$list->orderList->quantity}}</p>
+                                        <p class="productPurchased mb-1">Item Buyed : {{ $list->orderList->count() }}</p>
+
                                     </div>
                                 @elseif($list->orderStatus == "Shipped")
                                     <div class="topLeft">
@@ -38,7 +39,8 @@
                                     <div class="topMid">
                                         <p class="status">Order is being Shipped</p>
                                         <p class="purchaseDate">Purchased at {{$list->orderDate}}</p>
-                                        <p class="productPurchased">{{$list->orderList->quantity}}</p>
+                                        <p class="productPurchased mb-1">Item Buyed : {{ $list->orderList->count() }}</p>
+
                                     </div>
                                 @elseif($list->orderStatus == "Done")
                                     <div class="topLeft">
@@ -47,7 +49,8 @@
                                     <div class="topMid">
                                         <p class="status">Order is Arrived</p>
                                         <p class="purchaseDate">Purchased at {{$list->orderDate}}</p>
-                                        <p class="productPurchased">{{$list->orderList->quantity}}</p>
+                                        <p class="productPurchased mb-1">Item Buyed : {{ $list->orderList->count() }}</p>
+
                                     </div>
                                 @elseif($list->orderStatus == "Refund")
                                     <div class="topLeft">
@@ -56,7 +59,8 @@
                                     <div class="topMid">
                                         <p class="status">Refund has already Requested</p>
                                         <p class="purchaseDate">Purchased at {{$list->orderDate}}</p>
-                                        <p class="productPurchased">{{$list->orderList->quantity}}</p>
+                                        <p class="productPurchased mb-1">Item Buyed : {{ $list->orderList->count() }}</p>
+
                                     </div>
                                 @endif
                                 <div class="topRight">

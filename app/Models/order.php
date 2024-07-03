@@ -12,12 +12,12 @@ class order extends Model
 
     protected $fillable = [
         'orderId',
-        'orderDetailId',
         'userId',
         'courierId',
         'orderDate',
         'orderStatus',
-        'deliveryTime'
+        'deliveryTime',
+        'paymentMethod'
     ];
 
 

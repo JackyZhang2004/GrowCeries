@@ -6,8 +6,8 @@
   <div class="card">
     <a href="{{ route('productDetail', ['id'=>$product->productDetailId]) }}" class="productDetailButton">
       {{-- <img src="{{ asset('image/gambarRectangle.png') }}" class="card-img-top" alt="..."> --}}
-      <img src="{{ $product->getImageURL() }}" class="card-img-top" alt="Product Image">
-        
+      <img src="{{ $product->getImageURL() }}" class="card-img-top" alt="Product Image" style="height: 300px;width: 217px;">
+
     </a>
     <div class="card-body">
       <a href="{{ route('productDetail', ['id'=>$product->productDetailId]) }}" class="productDetailButton">

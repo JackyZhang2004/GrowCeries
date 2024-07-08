@@ -17,7 +17,7 @@
         <div class="timeline">
             <div class="timeline-step completed">
                 <div class="timeline-icon">
-                    <img src="path/to/icon1.png" alt="Icon 1">
+                    <img src="{{ asset('image/ordered.svg') }}" alt="Icon 1">
                 </div>
                 <div class="timeline-content">
                     <p class="timeline-title">Pesanan Dibuat</p>
@@ -26,7 +26,7 @@
             </div>
             <div class="timeline-step completed">
                 <div class="timeline-icon">
-                    <img src="path/to/icon2.png" alt="Icon 2">
+                    <img src="{{ asset('image/wallet.svg') }}" alt="Icon 2">
                 </div>
                 <div class="timeline-content">
                     <p class="timeline-title">Pesanan Dibayarkan</p>
@@ -36,7 +36,7 @@
             </div>
             <div class="timeline-step completed">
                 <div class="timeline-icon">
-                    <img src="path/to/icon3.png" alt="Icon 3">
+                    <img src="{{ asset('image/shipped.svg') }}" alt="Icon 3">
                 </div>
                 <div class="timeline-content">
                     <p class="timeline-title">Pesanan Dikirimkan</p>
@@ -45,7 +45,7 @@
             </div>
             <div class="timeline-step completed">
                 <div class="timeline-icon">
-                    <img src="path/to/icon4.png" alt="Icon 4">
+                    <img src="{{ asset('image/done.svg') }}" alt="Icon 4">
                 </div>
                 <div class="timeline-content">
                     <p class="timeline-title">Pesanan Selesai</p>

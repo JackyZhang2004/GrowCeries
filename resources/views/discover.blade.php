@@ -2,7 +2,6 @@
 
 @push('head')
     <link rel="stylesheet" href="{{ asset('css/discover.css') }}">
-
 @endpush
 
 @section('title', 'Discover')
@@ -48,7 +47,7 @@
                     </div>
                 </div>
                 <div class="header">
-                    <h2>Price Range</h2>d
+                    <h2>Price Range</h2>
                 </div>
                 <div class="wrapper">
                     <div class="price-input">

@@ -63,11 +63,33 @@
             </div>
         </div>
         <div class="listfield">
-            <div class="box">
+            <form action="{{route('courier')}}" method="GET" id="search" data-aos="fade-right" data-aos-delay="200"
+            data-aos-duration="1000">
+                @foreach ($orders as $order)
+                <div class="box">
+                    <div class="top">
+                        <img class="icon_status" src="{{ asset('image/packed.svg')}}" alt="" srcset="">
+                        <div class="detail">
+                            <p class="status_title">Order is being packed</p>
+                            <p class="date">Purchased at {{$order->orderDate}}</p>
+                            <p class="id_order">00000{{$order->orderId}}</p>
+                        </div>
+                        <div class="price">Rp. 72.000</div>
+                    </div>
+                    <div class="line">
+                    </div>
+                    <div class="bottom">
+                        <button id="update_status_button" class="update_status">Order Pick Up</button>
+                    </div>
+                </div>
+                @endforeach
+            </form>
+
+            {{-- <div class="box">
                 <div class="top">
-                    <img class="icon_status" src="{{ asset('image/packed.svg')}}" alt="" srcset="">
+                    <img class="icon_status" src="{{ asset('image/shipped.svg')}}" alt="" srcset="">
                     <div class="detail">
-                        <p class="status_title">Order is being packed</p>
+                        <p class="status_title">Order is being shipped</p>
                         <p class="date">Purchased April 23, 2024</p>
                         <p class="id_order">#ABC123BCA123</p>
                     </div>
@@ -76,7 +98,7 @@
                 <div class="line">
                 </div>
                 <div class="bottom">
-                    <button class="update_status">Order Pick Up</button>
+                    <button class="update_status">Order Complete</button>
                 </div>
             </div>
             <div class="box">
@@ -94,23 +116,7 @@
                 <div class="bottom">
                     <button class="update_status">Order Complete</button>
                 </div>
-            </div>
-            <div class="box">
-                <div class="top">
-                    <img class="icon_status" src="{{ asset('image/shipped.svg')}}" alt="" srcset="">
-                    <div class="detail">
-                        <p class="status_title">Order is being shipped</p>
-                        <p class="date">Purchased April 23, 2024</p>
-                        <p class="id_order">#ABC123BCA123</p>
-                    </div>
-                    <div class="price">Rp. 72.000</div>
-                </div>
-                <div class="line">
-                </div>
-                <div class="bottom">
-                    <button class="update_status">Order Complete</button>
-                </div>
-            </div>
+            </div> --}}
         </div>
     </div>
 

@@ -9,8 +9,8 @@ use App\Http\Controllers\aboutController;
 use App\Http\Controllers\addressController;
 use App\Http\Controllers\admin\homeController as adminHomeController;
 use App\Http\Controllers\admin\productController as adminProductController;
-use App\Http\Controllers\admin\adminOrderController;
-use App\Http\Controllers\admin\adminProfileController;
+use App\Http\Controllers\admin\OrderController as adminOrderController;
+use App\Http\Controllers\admin\ProfileController as adminProfileController;
 use App\Http\Controllers\authController;
 use App\Http\Controllers\cartController;
 use App\Http\Controllers\discoverController;
@@ -89,23 +89,18 @@ Route::group(['prefix' => 'admin'], function(){
         Route::get('home', [adminHomeController::class, 'index'])->name('admin.home');
         Route::post('logout', [adminLoginController::class, 'logout'])->name('admin.logout');
         Route::get('users', [adminUserController::class, 'index'])->name('admin.users');
-        Route::get('/products', [adminProductController::class, 'index'])->name('admin.products');
+        Route::get('products', [adminProductController::class, 'index'])->name('admin.products');
         Route::post('addProducts', [adminProductController::class, 'store'])->name('admin.addProduct');
         Route::get('addProducts', [adminProductController::class, 'addProduct'])->name('admin.addProduct');
         Route::get('product/{product}', [adminProductController::class, 'destroy'])->name('admin.delete');
-        // Route::post('product/{product}', [adminProductController::class, 'destroy'])->name('admin.delete');
         Route::get('product/{product}/edit', [adminProductController::class, 'edit'])->name('admin.editProduct');
         Route::post('product/{product}', [adminProductController::class, 'update'])->name('admin.updateProduct');
-
-        // Route::post('product/', [adminProductController::class, 'update'])->name('admin.updateProduct');
-        Route::post('product/', [adminProductController::class, 'update'])->name('admin.updateProduct');
-        Route::post('admin/product/{product}', [adminProductController::class, 'update'])->name('admin.updateProduct');
-
-                // Route::post('product/', [adminProductController::class, 'update'])->name('admin.updateProduct');
-        Route::get('orderAdmin', [adminOrderController::class, 'index'])->name('admin.orderAdmin');
         Route::get('profileAdmin', [adminProfileController::class, 'index'])->name('admin.profileAdmin');
         Route::post('profileAdmin', [adminProfileController::class, 'index'])->name('admin.profileAdmin');
         Route::put('product/{product}', [adminProductController::class, 'update'])->name('admin.updateProduct');
+        Route::get('product/{product?}', [adminProductController::class, 'search'])->name('admin.searchProduct');
+        Route::get('orderAdmin', [adminOrderController::class, 'index'])->name('admin.orderAdmin');
+        Route::get('orderAdmin/{id}', [adminOrderController::class, 'detail'])->name('admin.orderDetail');
 
     });
 });

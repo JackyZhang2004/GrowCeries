@@ -19,6 +19,7 @@ class OrderController extends Controller
         }
 
         $orders = Order::where('userId', Auth::id())->get();
+        
         return view('order', compact('orders'));
     }
    

@@ -5,7 +5,7 @@
   @auth('admin')
     <div class="dropDown">
       <a href="{{ route('admin.addProduct')}}" class="addProductButton">Add Product</a>
-      <button onclick="" class="dropDownButton">Admin</button>
+      {{-- <button onclick="" class="dropDownButton">Admin</button> --}}
       <div class="dropDownList">
         <form action="{{ route('admin.logout') }}" method="POST" class="dropDownListButton"
             role="menuitem" tabindex="-1" id="user-menu-item-2">
@@ -16,3 +16,13 @@
     </div>
     @endauth
   </nav>
+
+
+<style>
+    .addProductButton {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+</style>

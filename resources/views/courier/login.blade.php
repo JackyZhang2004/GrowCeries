@@ -22,7 +22,7 @@
 @endpush
 
 @section('title', 'Courier Login')
- 
+
 @section('success')
     @include('widgets.successMessage')
 @endsection
@@ -52,8 +52,11 @@
 
                 <div class="wrap-input100 validate-input m-t-23">
                     <span class="label-input100">Password</span>
-                    <input class="input100" type="password" name="password" placeholder="Type your password">
+                    <input class="input100" type="password" name="password" placeholder="Type your password" id="password">
                     <span class="focus-input100" data-symbol="&#xf190;"></span>
+                    <span class="toggle-password" onclick="togglePassword('password')">
+                        <i class="fas fa-eye-slash" id="togglePasswordIconpassword"></i>
+                    </span>
                 </div>
                 @error('password')
                     <span class="error text-danger">{{ $message }}</span>
@@ -71,4 +74,9 @@
         </div>
     </div>
 </div>
+@endsection
+
+
+@section('script')
+    <script src="{{ asset('js/loginregis.js') }}"></script>
 @endsection

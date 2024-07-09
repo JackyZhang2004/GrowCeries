@@ -10,14 +10,20 @@ body {
     font-size: 30px;
     padding-left: 2vw;
 }
-.name{
+#receiverName{
     height: 30px;
     margin-bottom: 0.3vh;
+    margin-left: 5vw;
+    margin-right: 5vw;
+    border-radius: 15px;
 }
 
-.number{
+#phoneNumber{
     height: 30px;
     margin-bottom: 0.3vh;
+    margin-left: 5vw;
+    margin-right: 5vw;
+    border-radius: 15px;
 }
 
 .address{
@@ -29,19 +35,8 @@ body {
     font-size: 30px;
     padding-left: 2vw;
 }
-.province{
-    height: 30px;
-    margin-bottom: 0.3vh;
-}
-
-.street{
-    height: 30px;
-    margin-bottom: 0.3vh;
-}
-
-.other{
-    height: 30px;
-    margin-bottom: 0.3vh;
+h1{
+    padding-left: 2vw;
 }
 
 .button{
@@ -58,11 +53,39 @@ body {
     color: white;
 }
 
+.form-label{
+    margin-left: 3vw;
+}
 
-input[type="name"]::placeholder,
+#addressName, #addressDetail{
+    border-radius: 15px;
+    height: 30px;
+    margin-left: 5vw;
+    margin-right: 5vw;
+}
+
+.error{
+    margin-left: 7vw;
+}
+
+input{
+    padding-left: 12px;
+}
+
+/* input[type="name"]::placeholder,
 input[type="number"]::placeholder,
-input[type="province"]::placeholder,
-input[type="street"]::placeholder,
-input[type="other"]::placeholder {
+input[type="text"]::placeholder {
     padding-left: 2vw;
+} */
+
+input[type="name"],
+input[type="number"],
+input[type="text"]{
+    padding-left: 2vw;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
 }

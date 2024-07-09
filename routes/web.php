@@ -54,7 +54,6 @@ Route::get('checkout', [CartController::class, 'checkout'])->name('checkout');
 Route::get('/choose-address', [addressController::class, 'chooseAddress'])->name('address.chooseAddress');
 
 Route::get('/address/{id}/edit', [addressController::class, 'edit'])->name('address.edit');
-Route::get('/add-address', function () {return view('addAddress');});
 Route::put('/address/{id}/update', [addressController::class, 'update'])->name('address.update');
 
 
@@ -100,7 +99,8 @@ Route::group(['prefix' => 'admin'], function(){
         Route::put('product/{product}', [adminProductController::class, 'update'])->name('admin.updateProduct');
         Route::get('product/{product?}', [adminProductController::class, 'search'])->name('admin.searchProduct');
         Route::get('orderAdmin', [adminOrderController::class, 'index'])->name('admin.orderAdmin');
-        Route::get('orderAdmin/{id}', [adminOrderController::class, 'detail'])->name('admin.orderDetail');
+        Route::get('/orderAdmin/search', [adminOrderController::class, 'search'])->name('admin.searchOrder');
+        Route::get('orderAdmin/{id?}', [adminOrderController::class, 'detail'])->name('admin.orderDetail');
 
     });
 });

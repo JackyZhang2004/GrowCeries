@@ -2,6 +2,7 @@
 
 @push('head')
     <link rel="stylesheet" href="{{ asset('css/admin/order/index.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/widgets/searchBar.css') }}">
 @endpush
 
 @section('title', 'Order')
@@ -10,10 +11,13 @@
 
     <div class="container">
         <div class="searchContainer">
-            <p class="searchTitle">Find Order Here ...</p>
-            <input type="text" placeholder="Input order id here..." class="searchField" id="searchField"
-                oninput="searchFunction($product)">
+            <form method="GET" action="{{ route('admin.searchOrder') }}" style="width: 100%;text-align:center;">
+                <p class="searchTitle">Find Order Here ...</p>
+                <input type="text" name="search" placeholder="Input order id here..." class="searchField"
+                    id="searchField" value="{{ isset($search) ? $search : '' }}">
+            </form>
         </div>
+
         <div class="productListContainer">
             <p class="productListTitle">Order List</p>
             <div class="orderTypeButton tab">
@@ -78,33 +82,113 @@
             </div>
 
             <div id="requestRefund" class="Order tabcontent">
-                @foreach ($orders as $list)
-                    @if ($list->orderStatus == 'Refund')
-                        <div class="OrderUnit">
-                            <div class="unitTop">
-                                <div class="topLeft">
-                                    <img src="{{ asset('image/packed.svg') }}" alt="">
+                <!-- Request Refund Orders Section -->
+                <button class="accordion">Request Refund Orders</button>
+                <div class="panel mt-3" style="display: none">
+                    @foreach ($orders as $list)
+                        @if ($list->orderStatus == 'Request Refund')
+                            <div class="OrderUnit">
+                                <div class="unitTop">
+                                    <div class="topLeft">
+                                        <img src="{{ asset('image/requestRefund.svg') }}" alt="">
+                                    </div>
+                                    <div class="topMid">
+                                        <p class="status">Order Id : {{ $list->orderId }} </p>
+                                        <p class="status">Refund Have Been Requested</p>
+                                        <p class="purchaseDate">Purchased at {{ $list->orderDate }}</p>
+                                        <p class="productPurchased mb-1">Item Buyed : {{ $list->orderList->count() }}</p>
+                                    </div>
+                                    <div class="topRight">
+                                        <p class="totalPrice">{{ $list->price }}</p>
+                                    </div>
                                 </div>
-                                <div class="topMid">
-                                    <p class="status">Refund has already Requested</p>
-                                    <p class="purchaseDate">Purchased at {{ $list->orderDate }}</p>
-                                </div>
-                                <div class="topRight">
-                                    <p class="totalPrice">{{ $list->price }}</p>
+                                <div class="unitBottom">
+                                    <a href="{{ route('admin.orderDetail', $list->orderId) }}" class="button1">View Order
+                                        Details</a>
                                 </div>
                             </div>
-                            <div class="unitBottom">
-                                <a href="{{ route('admin.orderDetail', $list->orderId) }}" class="button1">View Order
-                                    Details</a>
+                        @endif
+                    @endforeach
+                </div>
+
+                <!-- Refunded Orders Section -->
+                <button class="accordion">Refunded Orders</button>
+                <div class="panel mt-3" style="display: none">
+                    @foreach ($orders as $list)
+                        @if ($list->orderStatus == 'Refunded')
+                            <div class="OrderUnit">
+                                <div class="unitTop">
+                                    <div class="topLeft">
+                                        <img src="{{ asset('image/refunded.svg') }}" alt="">
+                                    </div>
+                                    <div class="topMid">
+                                        <p class="status">Order Id : {{ $list->orderId }} </p>
+                                        <p class="status">Refund Have Already Been Refunded</p>
+                                        <p class="purchaseDate">Purchased at {{ $list->orderDate }}</p>
+                                        <p class="productPurchased mb-1">Item Buyed : {{ $list->orderList->count() }}</p>
+                                    </div>
+                                    <div class="topRight">
+                                        <p class="totalPrice">{{ $list->price }}</p>
+                                    </div>
+                                </div>
+                                <div class="unitBottom">
+                                    <a href="{{ route('admin.orderDetail', $list->orderId) }}" class="button1">View Order
+                                        Details</a>
+                                </div>
                             </div>
-                        </div>
-                    @endif
-                @endforeach
+                        @endif
+                    @endforeach
+                </div>
             </div>
         </div>
-    </div>
-@endsection
+    @endsection
 
-@section('script')
-    <script src="{{ asset('js/admin/order/detail.js') }}"></script>
-@endsection
+    @section('script')
+        <script src="{{ asset('js/admin/order/detail.js') }}"></script>
+        <script>
+document.addEventListener("DOMContentLoaded", function() {
+    var searchResult = {!! json_encode($searchResult ?? null) !!};
+
+    if (searchResult) {
+        if (searchResult.orderStatus === 'Done') {
+            activateTab('done');
+        } else if (['Refunded', 'Request Refund'].includes(searchResult.orderStatus)) {
+            activateTab('requestRefund');
+        } else {
+            activateTab('inProgress');
+        }
+    } else {
+        activateTab('inProgress');
+    }
+});
+
+function activateTab(orderStatus) {
+    var i, tabcontent, tablinks;
+
+    // Hide all tab contents
+    tabcontent = document.getElementsByClassName("tabcontent");
+    for (i = 0; i < tabcontent.length; i++) {
+        tabcontent[i].style.display = "none";
+    }
+
+    // Remove active class from all tab links
+    tablinks = document.getElementsByClassName("tablinks");
+    for (i = 0; i < tablinks.length; i++) {
+        tablinks[i].classList.remove("active");
+    }
+
+    // Show the current tab and add an "active" class to the button that opened the tab
+    document.getElementById(orderStatus).style.display = "inline-flex";
+    var tabButton = document.querySelector(`button[onclick="openOrder(event, '${orderStatus}')"]`);
+    if (tabButton) {
+        tabButton.classList.add("active");
+    }
+}
+
+function openOrder(evt, orderStatus) {
+    activateTab(orderStatus);
+    evt.currentTarget.classList.add("active");
+}
+
+        </script>
+    @endsection

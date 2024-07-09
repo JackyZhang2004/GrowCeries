@@ -9,19 +9,23 @@ class address extends Model
 {
     use HasFactory;
     protected $table = 'address';
-    
+
     protected $primaryKey = 'addressId';
 
     protected $fillable = [
-        'addressId', 
-        'userId', 
-        'addressName', 
-        'addressDetail', 
-        'receiverName', 
+        'addressId',
+        'userId',
+        'addressName',
+        'addressDetail',
+        'receiverName',
         'phoneNumber'
     ];
     public function user()
     {
         return $this->belongsTo(User::class);
+    }
+
+    public function address(){
+        return $this->hasMany(order::class, 'addressId', 'addressId');
     }
 }

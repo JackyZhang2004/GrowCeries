@@ -81,6 +81,7 @@
     display: flex;
     justify-content: space-between;
     font-size: 1.5vw;
+    align-items: center;
 }
 
 
@@ -193,4 +194,18 @@
 }
 .timeline-line.Refunded{
     background: linear-gradient(90deg, rgba(5,255,0,1) 100%, #E0E0E0 100%);
+}
+
+
+.stickyFooter{
+    display: flex;
+    flex-direction: row;
+}
+
+.alamat{
+    width: 50%;
+}
+
+.footerContent{
+    width: 50%;
 }

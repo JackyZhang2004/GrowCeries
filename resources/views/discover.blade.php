@@ -48,7 +48,7 @@
                     </div>
                 </div>
                 <div class="header">
-                    <h2>Price Range</h2>d
+                    <h2>Price Range</h2>
                 </div>
                 <div class="wrapper">
                     <div class="price-input">

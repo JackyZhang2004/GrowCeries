@@ -94,6 +94,8 @@ Route::group(['prefix' => 'admin'], function(){
         Route::get('product/{product}', [adminProductController::class, 'destroy'])->name('admin.delete');
         Route::get('product/{product}/edit', [adminProductController::class, 'edit'])->name('admin.editProduct');
         Route::post('product/{product}', [adminProductController::class, 'update'])->name('admin.updateProduct');
+        Route::post('product/', [adminProductController::class, 'update'])->name('admin.updateProduct');
+        Route::get('orderAdmin', [adminOrderController::class, 'index'])->name('admin.orderAdmin');
         Route::get('profileAdmin', [adminProfileController::class, 'index'])->name('admin.profileAdmin');
         Route::post('profileAdmin', [adminProfileController::class, 'index'])->name('admin.profileAdmin');
         Route::put('product/{product}', [adminProductController::class, 'update'])->name('admin.updateProduct');

@@ -42,17 +42,21 @@
         </h1>
     </div>
     <div class="message">
-        <form class="feedback-form">
+        <form class="feedback-form" action="https://formsubmit.co/jackyzhng2004@gmail.com" method="POST">
             <div class="field1">
-                <input type="email" class="email" placeholder="Your Email">
+                <input type="email" name = "email" class="email" placeholder="Your Email" required>
             </div>
             <div class="separator"></div>
             <div class="field2">
-                <input type="send-message" class="send-message" placeholder="Message">
+                <input type="message" name="message" class="send-message" placeholder="Message" required>
             </div>
             <div class="separator"></div>
+            <input type="hidden" name="_captcha" value="false">
+            {{-- <input type="hidden" name="_cc" value="jackyzhng2004@gmail.com"> --}}
+            <input type="hidden" name="_next" value="http://127.0.0.1:8000/contact-us">
+            <input type="hidden" name="_template" value="table">
             <div class="button">
-                <button id = "message-btn" onclick=""> Send Message </button>
+                <button id = "message-btn" type="submit"> Send Message </button>
             </div>
         </form>
     </div>
@@ -65,5 +69,21 @@
 @endsection
 
 @section('script')
+    {{-- <script src="https://smtpjs.com/v3/smtp.js"></script>
+    <script>
+        function sendEmail(){
+            Email.send({
+                Host : "smtp.elasticemail.com",
+                Username : "username",
+                Password : "password",
+                To : 'them@website.com',
+                From : "you@isp.com",
+                Subject : "This is the subject",
+                Body : "And this is the body"
+            }).then(
+            message => alert(message)
+            );
+        }
+    </script> --}}
     <script src="{{ asset('js/contactUs.js') }}"></script>
 @endsection

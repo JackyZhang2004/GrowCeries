@@ -25,7 +25,7 @@ class address extends Model
         return $this->belongsTo(User::class);
     }
 
-    public function address(){
+    public function order(){
         return $this->hasMany(order::class, 'addressId', 'addressId');
     }
 }

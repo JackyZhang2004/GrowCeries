@@ -28,10 +28,6 @@
             <p style="width:100%;text-align:right">Order Number : {{ $order->orderId }} </p>
         </div>
 
-        <div class="alamat">
-            <div class="h4"></div>
-        </div>
-
         <div class="timeline">
             <div class="timeline-step @if (in_array($order->orderStatus, ['Packing', 'Shipped', 'Done', 'Request Refund', 'Refunded'])) completed @else pending @endif">
                 <div class="timeline-icon @if (in_array($order->orderStatus, ['Packing', 'Shipped', 'Done', 'Request Refund', 'Refunded'])) completed @else pending @endif">
@@ -121,7 +117,6 @@
             </div>
         </div>
 
-
         <div id="checkout-form" class="mb-5">
             <div class="cart-content">
                 <div class="cartItems">
@@ -154,6 +149,10 @@
                     @endforeach
                 </div>
                 <div class="stickyFooter">
+                    <div class="alamat">
+                        <p class="h4" style="font-size:2rem">Address</p>
+                        <p class="h4" style="font-size:1rem">{{ $ }}</p>
+                    </div>
                     <div class="footerContent">
                         <div class="priceDetail">
                             <span>Spending Subtotal</span>

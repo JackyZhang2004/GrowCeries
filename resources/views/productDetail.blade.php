@@ -56,7 +56,6 @@
             </div>
         </div>
         <div class="details">
-
             <button class="accordion">Details</button>
             <div class="panel">
                 <div class="row">

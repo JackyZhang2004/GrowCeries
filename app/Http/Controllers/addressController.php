@@ -22,7 +22,7 @@ class addressController extends Controller
 
     public function create()
     {
-        return view('addresses.create');
+        return view('addresses.addAddress');
     }
 
     public function store(Request $request)

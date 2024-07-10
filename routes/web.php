@@ -39,7 +39,7 @@ Route::get('product/{id}', [productController::class, 'productDetails'])->name('
 
 Route::get('discover', [discoverController::class, 'index'])->name('discover');
 
-Route::get('contact-us', function () {return view('contactUs');});
+Route::get('contact-us', function () {return view('contactUs');})->name('contactUs');
 
 Route::get('order/{category?}', [orderController::class, 'index', ($category = "Current")])->name('order');
 Route::get('orderdetail/{id}}', [orderController::class, 'detail'])->name('orderDetail');

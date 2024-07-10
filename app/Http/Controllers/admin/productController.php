@@ -93,6 +93,7 @@ class productController extends Controller
     public function update(Request $request){
         $targetProduct = product::where('productId', $request->id)->first();
         if($request->productName != null){$targetProduct->productDetail->productName = $request->productName;}
+        if($request->productName != null){$targetProduct->productName = $request->productName;}
         if($request->calories != null){$targetProduct->productDetail->calories = $request->calories;}
         if($request->fat != null){$targetProduct->productDetail->fat = $request->fat;}
         if($request->sugar != null){$targetProduct->productDetail->sugar = $request->sugar;}

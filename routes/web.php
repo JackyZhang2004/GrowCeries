@@ -41,7 +41,10 @@ Route::get('discover', [discoverController::class, 'index'])->name('discover');
 
 Route::get('contact-us', function () {return view('contactUs');});
 
-Route::get('order', [orderController::class, 'index'])->name('order');
+Route::get('order/{category?}', [orderController::class, 'index', ($category = "Current")])->name('order');
+Route::get('orderdetail/{id}}', [orderController::class, 'detail'])->name('orderDetail');
+Route::get('deleteOrder/{id}}', [orderController::class, 'delete'])->name('deleteOrder');
+Route::get('refund/{id}}', [orderController::class, 'refund'])->name('refund');
 
 Route::get('cart', [cartController::class, 'index'])->name('cart');
 Route::get('add-cart/{id}', [cartController::class, 'addCart'])->name('cart.add');

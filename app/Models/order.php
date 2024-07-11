@@ -8,6 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class order extends Model
 {
     use HasFactory;
+    protected $primaryKey = 'orderId';
     protected $table = 'transactionHeader';
 
     protected $fillable = [
@@ -27,6 +28,10 @@ class order extends Model
 
     public function address(){
         return $this->belongsTo(address::class, 'addressId', 'addressId');
+    }
+
+    public function refund(){
+        return $this->hasOne(refund::class, 'orderId', 'orderId');
     }
 
 }

@@ -195,6 +195,9 @@
 .timeline-line.Refunded{
     background: linear-gradient(90deg, rgba(5,255,0,1) 100%, #E0E0E0 100%);
 }
+.timeline-line.Rejected{
+    background: linear-gradient(90deg, rgba(5,255,0,1) 100%, #E0E0E0 100%);
+}
 
 
 .stickyFooter{
@@ -208,4 +211,15 @@
 
 .footerContent{
     width: 50%;
+}
+
+
+.accReturn{
+    padding-left: 50px;
+    padding-right: 50px;
+}
+
+.buttonRefund{
+    display: flex;
+    justify-content: space-around;
 }

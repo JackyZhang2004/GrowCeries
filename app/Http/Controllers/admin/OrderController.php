@@ -7,6 +7,7 @@ use App\Models\order;
 use App\Models\orderList;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class OrderController extends Controller
 {
@@ -24,6 +25,8 @@ class OrderController extends Controller
 
     public function search(Request $request){
 
+        $search = $request->input('search');
+
         if ($request->has('search')) {
             $orders = order::where('orderId', 'LIKE', $request->search)->get();
         }
@@ -32,9 +35,29 @@ class OrderController extends Controller
         }
         $searchResult = $orders->first() ?: null; // Assuming only one result for simplicity
 
-        // dump($searchResult);
         // dd($searchResult && $searchResult->orderStatus == 'Done');
 
-        return view('admin.order.index', compact('orders', 'searchResult'));
+        return view('admin.order.index', compact('orders', 'searchResult', 'search'));
     }
+
+    public function accRefund($id){
+        $order = order::where('orderId', $id)->first();
+
+        $order->orderStatus = 'Refunded';
+        $order->save();
+
+        return redirect()->route('admin.home');
+
+    }
+
+    public function rejRefund($id){
+        $order = order::where('orderId', $id)->first();
+
+        $order->orderStatus = 'Rejected';
+        $order->save();
+
+        return redirect()->route('admin.home');
+
+    }
+
 }

@@ -14,7 +14,6 @@ class addressController extends Controller
     public function index()
     {
         $user = Auth::user();
-    
 
         $addresses = $user->addresses ?? null;
 

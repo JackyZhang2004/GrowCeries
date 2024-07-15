@@ -87,7 +87,7 @@
                 </div>
             </div>
         </div>
-    @elseif($order->orderStatus == 'Completed')
+    @elseif($order->orderStatus == 'Done')
         <div class="packing">
             <div class="top">
                 <div class="iconUnitComplete">

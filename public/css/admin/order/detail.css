@@ -223,7 +223,6 @@
 .buttonRefund{
     display: flex;
     justify-content: space-around;
-    background-color: #32CD32; /* Completed step background color */
 }
 
 .completed .timeline-icon img {

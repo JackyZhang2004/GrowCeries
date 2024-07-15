@@ -73,7 +73,7 @@
             background-color: white;
         }
         #nama{
-            font-size: 28px;
+            font-size: 24px;
             font-weight: 800;
         }
         .bot{
@@ -84,8 +84,8 @@
         }
         #quote{
             text-align: center;
-            font-size: 14px;
-            margin-top: 10px;
+            font-size: 12px;
+            margin-top: 8px;
             background-color: rgb(190, 250, 190);
             border-radius: 8px;
             padding: 5px 5px;
@@ -100,6 +100,10 @@
         .bot p{
             font-size: 12px;
 
+        }
+        .up h3{
+
+            font-size: 12px;
         }
         .bot h3{
             font-size: 10px;
@@ -137,3 +141,4 @@
 @section('script')
 
 @endsection
+    

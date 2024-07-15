@@ -93,7 +93,7 @@
                                 </div>
                             @endif
                         @elseif ($category == 'Done')
-                            @if ($list->orderStatus == 'Completed')
+                            @if ($list->orderStatus == 'Done')
                                 {{ $count += 1 }}
                                 <div class="OrderUnit">
                                     <div class="unitTop">
@@ -120,7 +120,7 @@
                             @endif
                         @endif
                     @endforeach
-                    @if (($count == 0 && $category == 'Current') || $category == 'Completed')
+                    @if (($count == 0 && $category == 'Current') || $category == 'Done')
                         <img src="{{ asset('image/noOrder.png') }}" alt="">
                         <p>No orders found.</p>
                     @endif

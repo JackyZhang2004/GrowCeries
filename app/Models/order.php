@@ -10,15 +10,15 @@ class order extends Model
     use HasFactory;
     protected $primaryKey = 'orderId';
     protected $table = 'transactionHeader';
-
     protected $fillable = [
-        'orderId',
         'userId',
         'courierId',
-        'orderDate',
+        'created_at',
+        'updated_at',
         'orderStatus',
         'deliveryTime',
-        'paymentMethod'
+        'payment',
+        'addressId' 
     ];
 
 

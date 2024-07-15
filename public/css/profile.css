@@ -1,0 +1,4 @@
+.personalData{
+    display: flex;
+    flex-direction:column;
+}

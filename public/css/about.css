@@ -1,17 +1,107 @@
-.aboutus{
-    width: 100%;
+.banner
+{
+    padding: 0;
+    margin: 0;
     display: flex;
-    flex-direction: row;
-    justify-content: space-between;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    width: 100%;
 }
 
-.title{
-    width: 1800px;
+.full-img{
+    width: 100%;
+    height: auto;
+}
+
+.text1{
+    position: absolute;
+    color: white;
     text-align: center;
+    font-size: 75px;
 }
 
-.aboutunit{
-    width: 300px;
+.description{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 100%;
+    padding: 50px;
+}
+
+.logoimg{
+    height: 20vh;
+    width: 45vw;
+    padding: 20px;
+}
+
+.description h1{
+  text-align: center;
+  font-size: 60px;
+}
+
+.description p{
+    text-align: center;
+    font-size: 30px;
+}
+
+.contact{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+    width: 100%;
+    padding: 50px;
+}
+
+.desc h1{
+    text-align: left;
+    font-size: 60px;
+}
+
+.desc p{
+    text-align: left;
+    font-size: 30px;
+    margin-bottom: 20px;
+}
+.img{
+    padding: 10px;
+    width: 45vw;
+    height: 35vh;
+}
+#contact-btn{
+    background-color: #3F945A;
+    border-radius: 10px;
+    /* margin-right: -2vw; */
+    width: 10vw;
+    height: 4vh;
+    color: white;
+    font-size: 20px;
+}
+.desc-store{
     display: flex;
     flex-direction: column;
+    /* align-items: right !important; */
+    align-items: end;
 }
+.desc-store h1{
+    text-align: right;
+    font-size: 60px;
+}
+
+.desc-store p{
+    text-align: right;
+    font-size: 30px;
+    margin-bottom: 20px;
+}
+#store-btn{
+    background-color: #3F945A;
+    border-radius: 10px;
+    /* margin-right: -2vw; */
+    width: 10vw;
+    height: 4vh;
+    color: white;
+    font-size: 20px;
+}
+

@@ -1,0 +1,305 @@
+body{
+    overflow-x: hidden;
+}
+
+.title{
+    font-size: 30px;
+    padding-top: 5vh;
+    padding-bottom: 2vh;
+    text-align: center;
+}
+
+.orderId{
+    font-size: 16px;
+    color: rgb(217,217,217);
+    text-align: right;
+    padding: 3vh 5vw 0 0 ;
+}
+
+.packing{
+    width: 90vw;
+    height: 25vh;
+    margin-left: 5vw;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.top{
+    height: 70%;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+.horizontalLineComplete{
+    width: 20%;
+    border-width: 5px;
+    border-color: rgb(5, 255, 0);
+}
+
+.iconUnitComplete{
+    width: 70px;
+    height: 70px;
+    background-color: rgb(5, 255, 0);
+    border-radius: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.iconUnitComplete .iconComplete{
+    width: 70px;
+    height: 70px;
+    padding: 10px;
+    filter: brightness(0) invert(1);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.horizontalLine{
+    width: 20%;
+    border-width: 5px;
+    border-color: grey;
+}
+
+.iconUnit{
+    width: 70px;
+    height: 70px;
+    background-color: grey;
+    border-radius: 100%;
+    display: flex;
+}
+
+.iconUnit .icon{
+    width: 70px;
+    height: 70px;
+    padding: 10px;
+    filter: brightness(0) invert(1);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.unit{
+    width: 90%;
+    height: 20vh;
+    margin-left: 5%;
+    display: flex;
+    flex-direction: row;
+    margin-top: 5vh;
+    border: 1px solid rgb(217,217,217);
+    border-radius: 15px;
+}
+
+.bottom{
+    width: 100%;
+    height: 30%;
+    display: flex;
+    flex-direction: row;
+}
+
+.explainUnitPaid{
+    width: 20%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: first baseline;
+    align-items: center;
+}
+
+.explainUnitPacking{
+    width: 20%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-left: 7%;
+}
+
+.explainUnitShipped{
+    width: 20%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-left: 7%;
+}
+
+.explainUnitDone{
+    width: 15%;
+    font-size:12px;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-left: 7%;
+}
+
+.explainUnitPaid2{
+    width: 12%;
+    font-size:14px;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: first baseline;
+    align-items: first baseline;
+}
+
+.explainUnitPacking2{
+    width: 12%;
+    font-size:14px;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: first baseline;
+    align-items: first baseline;
+    margin-left: 7%;
+
+}
+
+.explainUnitShipped2{
+    width: 12%;
+    font-size:14px;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: first baseline;
+    align-items: last baseline;
+    margin-left: 7%;
+}
+
+.explainUnitDone2{
+    width: 12%;
+    font-size:14px;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: first baseline;
+    align-items: last baseline;
+    margin-left: 8%;
+}
+
+.explainUnitRequest2{
+    width: 12%;
+    font-size:14px;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: last baseline;
+    justify-content: first baseline;
+    margin-left: 8%;
+}
+
+.explainUnitRefund2{
+    width: 12%;
+    font-size:14px;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: last baseline;
+    justify-content: first baseline;
+    margin-left: 8%;
+}
+
+.left{
+    width: 12%;
+    height: 100%;
+}
+
+.productImage{
+    width: 100%;
+    height: 100%;
+}
+
+.mid{
+    width: 65%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.right{
+    width: 20%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.productPrice{
+    color: red;
+    font-size: 20px;
+}
+
+.sectionLine{
+    border-width: 1px;
+    margin-top: 5vh;
+}
+
+.paymentDetail{
+    width: 90%;
+    height: 40vh;
+    display: flex;
+    flex-direction: row;
+    margin-left: 5%;
+    margin-bottom: -5vh;
+}
+
+.paymentDetailLeft{
+    width: 50%;
+    height: 100%;
+    border-right: 1px solid rgb(217,217,217);
+    display: flex;
+    flex-direction: column;
+    align-items: first baseline;
+}
+
+.paymentDetailRight{
+    width: 50%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: first baseline;
+    justify-content: center;
+}
+
+.paymentDetailUnit{
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+}
+
+.paymentDetailTitle{
+    width: 50%;
+    height: 15%;
+    font-size: 20px;
+    margin-left: 5%;
+}
+
+.paymentDetailAns{
+    color: black;
+    height: 15%;
+    width: 50%;
+    font-size: 20px;
+}   
+
+.paymentDetailAnsFree{
+    color: rgb(5, 255, 0);
+    height: 15%;
+    width: 50%;
+    font-size: 20px;
+}
+
+.paymentDetailAnsPrice{
+    color: red;
+    width: 50%;
+    font-size: 20px;
+}

@@ -44,7 +44,7 @@
                             in_array($cartItem->product->productId, old('selectedItems'))) checked @endif>
                         <div class="itemDetails">
                             <a href="{{ route('productDetail', $cartItem->product->productId) }}" class="productDetailButton">
-                                <img src="{{ asset('image/gambarRectangle.png') }}" class="card-img-top" alt="...">
+                                <img src="{{ $cartItem->getImageURL() }}" class="card-img-top" alt="...">
                             </a>
                             <div>
                                 <a href="{{ route('productDetail', $cartItem->product->productId) }}" class="productDetailButton">
@@ -88,33 +88,7 @@
 
                     @endforeach
                 </div>
-
-                {{-- <div class="summarySection">
-                    <div class="paymentDetails">
-                        <p class="h2">Payment Details</p>
-                        <div class="detailRow">
-                            <span>Spending Subtotal</span>
-                            <span id="totalPrice">0</span>
-                        </div>
-                        <div class="detailRow">
-                            <span>Shipping Costs</span>
-                            <span id="shippingCost" class="greenText">Free</span>
-                        </div>
-                        <div class="detailRow">
-                            <span>Service Fees</span>
-                            <span id="serviceFee" class="greenText">Free</span>
-                        </div>
-                        <div class="detailRow">
-                            <span>Packaging Costs</span>
-                            <span id="packagingCost" class="greenText">Free</span>
-                        </div>
-                    </div>
-                    <hr>
-                    <div class="totalPayment">
-                        <span>Total Payment</span>
-                        <span id="totalPriceFinal">0</span>
-                    </div>
-                </div> --}}
+                
                 <div class="stickyFooter">
                     <div class="footerContent">
                         <div class="totalPaymentFinal">

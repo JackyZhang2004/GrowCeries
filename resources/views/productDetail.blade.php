@@ -14,7 +14,7 @@
     <div class="container">
         <div class="product-detail">
             <div class="product-images">
-                <img src="{{ asset('image/gambarRectangle.png') }}" alt="Semangka" class="main-image">
+                <img src="{{ $product->getImageURL() }}" alt="Semangka" class="main-image">
             </div>
             <div class="product-info">
                 <p class="h1">{{ $product->productDetail->productName }} {{ $product->variant }}gr</p>
@@ -56,7 +56,6 @@
             </div>
         </div>
         <div class="details">
-
             <button class="accordion">Details</button>
             <div class="panel">
                 <div class="row">

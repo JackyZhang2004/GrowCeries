@@ -2,6 +2,8 @@
 
 @push('head')
     <link rel="stylesheet" href="{{ asset('css/courier/home.css') }}"> {{-- ini buat nyambungin home.css ke home blade nya --}}
+    {{-- <link rel="stylesheet" href="{{ asset('css/home.css') }}"> --}}
+    {{-- <link rel="stylesheet" href="{{ asset('css/discover.css') }}"> --}}
     {{-- <link rel="stylesheet" href="{{ asset('css/home.css') }}"> ini buat nyambungin home.css ke home blade nya --}}
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.8.1/font/bootstrap-icons.min.css">
 
@@ -20,7 +22,7 @@
         <img src="{{ asset('image/GrowceriesLogo.svg') }}" class="logoGrow" alt="" srcset="">
         <div class="header">
             <div class="title">Order List</div>
-            <form action="{{route('discover')}}" method="GET" id="search" data-aos="fade-right" data-aos-delay="200"
+            <form action="{{route('courier.home')}}" method="GET" id="search" data-aos="fade-right" data-aos-delay="200"
         data-aos-duration="1000">
 
         <div class="input-group">
@@ -62,61 +64,58 @@
                 <p class="option_title">Shipped Order</p>
             </div>
         </div>
+        {{-- @php
+            dump($uporder->orderId)
+        @endphp --}}
         <div class="listfield">
-            <form action="{{route('courier')}}" method="GET" id="search" data-aos="fade-right" data-aos-delay="200"
-            data-aos-duration="1000">
-                @foreach ($orders as $order)
-                <div class="box">
-                    <div class="top">
-                        <img class="icon_status" src="{{ asset('image/packed.svg')}}" alt="" srcset="">
-                        <div class="detail">
-                            <p class="status_title">Order is being packed</p>
-                            <p class="date">Purchased at {{$order->orderDate}}</p>
-                            <p class="id_order">00000{{$order->orderId}}</p>
-                        </div>
-                        <div class="price">Rp. 72.000</div>
-                    </div>
-                    <div class="line">
-                    </div>
-                    <div class="bottom">
-                        <button id="update_status_button" class="update_status">Order Pick Up</button>
-                    </div>
-                </div>
-                @endforeach
-            </form>
 
-            {{-- <div class="box">
-                <div class="top">
-                    <img class="icon_status" src="{{ asset('image/shipped.svg')}}" alt="" srcset="">
-                    <div class="detail">
-                        <p class="status_title">Order is being shipped</p>
-                        <p class="date">Purchased April 23, 2024</p>
-                        <p class="id_order">#ABC123BCA123</p>
-                    </div>
-                    <div class="price">Rp. 72.000</div>
-                </div>
-                <div class="line">
-                </div>
-                <div class="bottom">
-                    <button class="update_status">Order Complete</button>
-                </div>
-            </div>
-            <div class="box">
-                <div class="top">
-                    <img class="icon_status" src="{{ asset('image/shipped.svg')}}" alt="" srcset="">
-                    <div class="detail">
-                        <p class="status_title">Order is being shipped</p>
-                        <p class="date">Purchased April 23, 2024</p>
-                        <p class="id_order">#ABC123BCA123</p>
-                    </div>
-                    <div class="price">Rp. 72.000</div>
-                </div>
-                <div class="line">
-                </div>
-                <div class="bottom">
-                    <button class="update_status">Order Complete</button>
-                </div>
-            </div> --}}
+                @foreach ($orders1 as $order)
+                <form action="{{ route('courier.update', $order->orderId) }}" method="GET" id="search2" data-aos="fade-right"
+                    data-aos-delay="200" data-aos-duration="1000">
+                        <div class="box">
+                            <div class="top">
+                                <img class="icon_status" src="{{ asset('image/packed.svg')}}" alt="" srcset="">
+                                <div class="detail">
+                                    <p class="status_title">Order is being {{$order->orderStatus}}</p>
+                                    {{-- <p class="status_title">Order is being packed</p> --}}
+                                    <p class="date">Purchased at {{$order->orderDate}}</p>
+                                    <p class="id_order">000{{$order->orderId}}</p>
+                                </div>
+                                <div class="price">Rp. {{ number_format($order->totalPrice, 0, ',', '.') }}</div>
+                            </div>
+                            <div class="line">
+                            </div>
+                            <div class="bottom">
+                                <button id="update_status_button" class="update_status" type="submit">Order Pick Up</button>
+                            </div>
+                        </div>
+                    </form>
+                @endforeach
+        </div>
+        <div class="listfield">
+
+                @foreach ($orders2 as $order)
+                <form action="{{ route('courier.update', $order->orderId) }}" method="GET" id="search2" data-aos="fade-right"
+                    data-aos-delay="200" data-aos-duration="1000">
+                        <div class="box">
+                            <div class="top">
+                                <img class="icon_status" src="{{ asset('image/packed.svg')}}" alt="" srcset="">
+                                <div class="detail">
+                                    <p class="status_title">Order is being {{$order->orderStatus}}</p>
+                                    {{-- <p class="status_title">Order is being packed</p> --}}
+                                    <p class="date">Purchased at {{$order->orderDate}}</p>
+                                    <p class="id_order">000{{$order->orderId}}</p>
+                                </div>
+                                <div class="price">Rp. 72.000</div>
+                            </div>
+                            <div class="line">
+                            </div>
+                            <div class="bottom">
+                                <button id="update_status_button" class="update_status" type="submit">Order Pick Up</button>
+                            </div>
+                        </div>
+                    </form>
+                @endforeach
         </div>
     </div>
 

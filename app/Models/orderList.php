@@ -21,8 +21,9 @@ class orderList extends Model
     public function order(){
         return $this->belongsTo(orderList::class, 'orderId', 'orderId');
     }
+
     public function product()
     {
-        return $this->belongsTo(product::class, 'productId');
+        return $this->belongsTo(product::class, 'productId', 'productId');
     }
 }

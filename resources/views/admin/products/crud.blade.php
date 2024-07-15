@@ -11,7 +11,9 @@
 <div class="container">
     <div class="searchContainer">
         <p class="searchTitle">Find Our Product Here ...</p>
-        <input type="text" placeholder="Input product code here..." class="searchField" id ="searchField" oninput=searchFunction($product)>
+        {{-- <form action="{{route('admin.searchProduct')}}" method="GET"> --}}
+            <input type="text" placeholder="Input product code here..." class="searchField" id ="searchField" oninput=searchFunction($product)>
+        {{-- </form> --}}
     </div>
     <div class="productListContainer">
         <p class="productListTitle">Product List</p>
@@ -19,14 +21,13 @@
         <div class="productUnit">
             <div class="unitTop">
                 <div class="topLeft">
-                    <img src={{ asset('image/semangka.png') }} alt="">
+                    <img src={{asset($product->image )}} alt="">
                 </div>
                 <div class="topMid">
-                    <p class="productName">{{$product->productDetail->productName}}</p>
+                    <p class="productName">{{$product->productName}}</p>
                     <p class="productStock">Stock : {{$product->stock}}</p>
                 </div>
                 <div class="topRight">
-                    
                     <button class="viewDetailsButton" onclick="dropDownFunction( {{ $product->productId }} );">Details</button>
                 </div>
             </div>
@@ -60,7 +61,7 @@
                 </div>
                 <div class="bottomDown">
                     <a class="editProductButton" href="{{ route('admin.editProduct', $product->productId) }}">Edit Product</a>
-                    <a class="deleteProductButton" href="{{ route('admin.delete', $product->productId) }}">Delete Product</a>
+                    {{-- <a class="deleteProductButton" href="{{ route('admin.delete', $product->productId) }}">Delete Product</a> --}}
                 </div>
             </div>
         </div>

@@ -11,25 +11,25 @@ function calculateTotal() {
     document.getElementById('totalPayment').textContent = 'Rp ' + total.toLocaleString('id-ID');
 }
 
-function validateForm() {
-    const options = document.getElementsByName('option');
-    let selectedValue = '';
 
-    // Check if any radio button is checked
-    for (const option of options) {
-        if (option.checked) {
-            selectedValue = option.value;
-            break;
-        }
+function validateForm(){
+    const address = document.getElementById('address').innerText;
+    const selectedValue = document.getElementsByTagName('optionPayment');
+    // alert('clicked');
+
+    if(address === 'No address found. Please add an address in your profile.'){
+            window.scroll({
+            top: 0, 
+            left: 0, 
+            behavior: 'smooth'});
+            alert("salah");
     }
-
-    // If no option is selected, show error message
-    if (selectedValue === '') {
-        document.getElementById('error-message').style.display = 'block';
-    } else {
+    else if (address !== 'No address found. Please add an address in your profile.' && selectedValue !== '' ){
         // If option is selected, show success message
-        document.getElementById('error-message').style.display = 'none';
+        // document.getElementById('error-message-pay').style.display = 'none';
+        // document.getElementById('error-message-adr').style.display = 'none';
         showPopup();
+        // alert("salah");
     }
 }
 

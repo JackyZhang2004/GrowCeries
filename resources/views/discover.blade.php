@@ -39,10 +39,10 @@
                     <h2>Category</h2>
                     <div class="categorylist">
                         <label name='sayur'  for="category-sayur">
-                            <input type="checkbox" name="sayur" id="category-sayur">Sayur
+                            <input type="checkbox" name="sayur" id="category-sayur">Vegetable
                         </label>
                         <label name='buah' for="category-buah">
-                            <input type="checkbox" name="buah" id="category-buah">Buah
+                            <input type="checkbox" name="buah" id="category-buah">Fruit
                         </label>
                     </div>
                 </div>

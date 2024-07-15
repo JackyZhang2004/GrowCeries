@@ -12,7 +12,7 @@ class cartList extends Model
     protected $table = 'cartList';
     public $incrementing = false;
     protected $keyType = 'string';
-    
+
     protected $fillable = [
         'cartId',
         'productId',
@@ -34,4 +34,12 @@ class cartList extends Model
         return $this->where('cartId', $cartId)->where('productId', $productId)->delete();
     }
 
+    public function getImageURL()
+    {
+        $product = $this->product;
+        if ($product->image) {
+            return url('image/' . $product->image);
+        }
+        return "https://api.multiavatar.com/{{ $product->productName }}.svg";
+    }
 }

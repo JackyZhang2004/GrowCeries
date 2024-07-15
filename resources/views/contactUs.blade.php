@@ -44,11 +44,11 @@
     <div class="message">
         <form class="feedback-form" action="https://formsubmit.co/jackyzhng2004@gmail.com" method="POST">
             <div class="field1">
-                <input type="email" name = "email" class="email" placeholder="Your Email" required>
+                <input type="email" style="padding: 15px;" name = "email" class="email" placeholder="Your Email" required>
             </div>
             <div class="separator"></div>
             <div class="field2">
-                <input type="message" name="message" class="send-message" placeholder="Message" required>
+                <input type="message" style="padding: 15px;" name="message" class="send-message" placeholder="Message" required>
             </div>
             <div class="separator"></div>
             <input type="hidden" name="_captcha" value="false">

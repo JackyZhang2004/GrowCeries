@@ -8,9 +8,14 @@ use Illuminate\Database\Eloquent\Model;
 class order extends Model
 {
     use HasFactory;
+<<<<<<< Updated upstream
+=======
+    protected $table = 'transactionHeader';
+>>>>>>> Stashed changes
     protected $primaryKey = 'orderId';
     protected $table = 'transactionHeader';
     protected $fillable = [
+<<<<<<< Updated upstream
         'userId',
         'courierId',
         'created_at',
@@ -19,6 +24,15 @@ class order extends Model
         'deliveryTime',
         'payment',
         'addressId' 
+=======
+        'orderId',
+        'userId',
+        'courierId',
+        'orderDate',
+        'orderStatus',      
+        'deliveryTime',
+        'paymentMethod'
+>>>>>>> Stashed changes
     ];
 
 

@@ -81,7 +81,10 @@
     display: flex;
     justify-content: space-between;
     font-size: 1.5vw;
+<<<<<<< Updated upstream
     align-items: center;
+=======
+>>>>>>> Stashed changes
 }
 
 
@@ -120,6 +123,10 @@
     height: 50px;
     border-radius: 50%;
     background-color: white;
+<<<<<<< Updated upstream
+=======
+    border: 3px solid #32CD32; /* Circle color */
+>>>>>>> Stashed changes
     display: flex;
     align-items: center;
     justify-content: center;
@@ -155,6 +162,7 @@
 }
 
 .completed .timeline-icon {
+<<<<<<< Updated upstream
     background-color: #32CD32;
 }
 
@@ -222,4 +230,11 @@
 .buttonRefund{
     display: flex;
     justify-content: space-around;
+=======
+    background-color: #32CD32; /* Completed step background color */
+}
+
+.completed .timeline-icon img {
+    filter: brightness(0) invert(1); /* Invert icon color for completed steps */
+>>>>>>> Stashed changes
 }

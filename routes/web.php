@@ -59,6 +59,9 @@ Route::post('add-order', [checkOutController::class, 'addOrder'])->name('checkou
 Route::get('/choose-address', [addressController::class, 'chooseAddress'])->name('address.chooseAddress');
 
 Route::get('/address/{id}/edit', [addressController::class, 'edit'])->name('address.edit');
+Route::get('/add-address', function () {
+    return view('addAddress');
+});
 Route::put('/address/{id}/update', [addressController::class, 'update'])->name('address.update');
 
 Route::get('/addresses', [addressController::class, 'index'])->name('address.index');
@@ -72,26 +75,28 @@ Route::get('/profile', [profileController::class,'index'])->name('profile');
 
 
 // Route::middleware('auth')->group(function () {
-    Route::get('/addresses', [addressController::class, 'index'])->name('address.index');
-    Route::get('/addresses/create', [addressController::class, 'create'])->name('address.create');
-    Route::post('/addresses/create', [addressController::class, 'store']);
+Route::get('/addresses', [addressController::class, 'index'])->name('address.index');
+Route::get('/addresses/create', [addressController::class, 'create'])->name('address.create');
+Route::post('/addresses/create', [addressController::class, 'store']);
 //     Route::get('/addresses/{address}/edit', [addressController::class, 'edit'])->name('addresses.edit');
 //     Route::put('/addresses/{address}', [addressController::class, 'update'])->name('addresses.update');
-    Route::delete('/addresses/{address}', [addressController::class, 'destroy'])->name('address.destroy');
+Route::delete('/addresses/{address}', [addressController::class, 'destroy'])->name('address.destroy');
 // });
 
 
 
 // ADMIN DOWN HERE
 
-Route::group(['prefix' => 'admin'], function(){
-    Route::group(['middleware' => 'admin.guest'], function(){
+Route::group(['prefix' => 'admin'], function () {
+
+
+    Route::group(['middleware' => 'admin.guest'], function () {
         Route::get('login', [adminLoginController::class, 'index'])->name('admin.login');
         Route::post('authenticate', [adminLoginController::class, 'authenticate'])->name('admin.authenticate');
-
     });
 
-    Route::group(['middleware' => 'admin.auth'], function(){
+
+    Route::group(['middleware' => 'admin.auth'], function () {
         Route::get('home', [adminHomeController::class, 'index'])->name('admin.home');
         Route::post('logout', [adminLoginController::class, 'logout'])->name('admin.logout');
         Route::get('users', [adminUserController::class, 'index'])->name('admin.users');
@@ -101,16 +106,24 @@ Route::group(['prefix' => 'admin'], function(){
         Route::get('product/{product}', [adminProductController::class, 'destroy'])->name('admin.delete');
         Route::get('product/{product}/edit', [adminProductController::class, 'edit'])->name('admin.editProduct');
         Route::post('product/', [adminProductController::class, 'update'])->name('admin.updateProduct');
+        Route::post('admin/product/{product}', [adminProductController::class, 'update'])->name('admin.updateProduct');
+
+        // Route::post('product/', [adminProductController::class, 'update'])->name('admin.updateProduct');
         Route::get('orderAdmin', [adminOrderController::class, 'index'])->name('admin.orderAdmin');
+        // Route::get('profileAdmin',[ControllersAdminProfileController::class,'index' ]);
         Route::get('profileAdmin', [adminProfileController::class, 'index'])->name('admin.profileAdmin');
-        Route::post('profileAdmin', [adminProfileController::class, 'index'])->name('admin.profileAdmin');
+        // Route::post('profileAdmin', [adminProfileController::class, 'index'])->name('admin.profileAdmin');
         Route::put('product/{product}', [adminProductController::class, 'update'])->name('admin.updateProduct');
+<<<<<<< Updated upstream
         Route::get('product/{product?}', [adminProductController::class, 'search'])->name('admin.searchProduct');
         Route::get('orderAdmin', [adminOrderController::class, 'index'])->name('admin.orderAdmin');
         Route::get('/orderAdmin/search', [adminOrderController::class, 'search'])->name('admin.searchOrder');
         Route::get('orderAdmin/{id?}', [adminOrderController::class, 'detail'])->name('admin.orderDetail');
         Route::get('orderAdmin/{id?}/acc', [adminOrderController::class, 'accRefund'])->name('admin.accRefund');
         Route::get('orderAdmin/{id?}/rej', [adminOrderController::class, 'rejRefund'])->name('admin.rejRefund');
+=======
+
+>>>>>>> Stashed changes
     });
 });
 
@@ -119,19 +132,15 @@ Route::group(['prefix' => 'admin'], function(){
 
 Route::group(['prefix' => 'courier'], function(){
 
-    Route::group(['middleware' => 'courier.guest'], function(){
+    Route::group(['middleware' => 'courier.guest'], function () {
         Route::get('login', [courierLoginController::class, 'index'])->name('courier.login');
         Route::post('authenticate', [courierLoginController::class, 'authenticate'])->name('courier.authenticate');
-
     });
+
 
     Route::group(['middleware' => 'courier.auth'], function(){
         Route::get('home', [courierHomeController::class, 'index'])->name('courier.home');
+        Route::get('home/update/{id?}', [courierHomeController::class, 'update'])->name('courier.update');
         Route::post('logout', [courierLoginController::class, 'logout'])->name('courier.logout');
-
     });
-
 });
-
-
-

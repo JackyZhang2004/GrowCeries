@@ -13,6 +13,7 @@ function openOrder(evt, orderStatus) {
 }
 
 // By default, open the "In Progress" tab
+<<<<<<< Updated upstream
 // document.addEventListener('DOMContentLoaded', function() {
 //     document.querySelector('.tablinks').click();
 // });
@@ -35,3 +36,8 @@ for (i = 0; i < acc.length; i++) {
     }
   });
 }
+=======
+document.addEventListener('DOMContentLoaded', function() {
+    document.querySelector('.tablinks').click();
+});
+>>>>>>> Stashed changes

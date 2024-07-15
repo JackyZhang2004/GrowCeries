@@ -7,14 +7,21 @@ use App\Models\order;
 use App\Models\orderList;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
+<<<<<<< Updated upstream
 use Illuminate\Support\Facades\Auth;
+=======
+>>>>>>> Stashed changes
 
 class OrderController extends Controller
 {
     public function index(){
         $orders = order::orderBy('orderId', 'DESC')->get();
+<<<<<<< Updated upstream
         $searchResult = null;
         return view('admin.order.index', compact('orders', 'searchResult'));
+=======
+        return view('admin.order.index', compact('orders'));
+>>>>>>> Stashed changes
     }
 
     public function detail($orderId){
@@ -23,6 +30,7 @@ class OrderController extends Controller
         return view('admin.order.detail', compact('detail', 'order'));
     }
 
+<<<<<<< Updated upstream
     public function search(Request $request){
 
         $search = $request->input('search');
@@ -59,5 +67,7 @@ class OrderController extends Controller
         return redirect()->route('admin.home');
 
     }
+=======
+>>>>>>> Stashed changes
 
 }

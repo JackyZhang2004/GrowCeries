@@ -2,7 +2,6 @@
 
 @push('head')
     <link rel="stylesheet" href="{{ asset('css/discover.css') }}">
-
 @endpush
 
 @section('title', 'Discover')

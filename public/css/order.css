@@ -1,6 +1,9 @@
 body{
     overflow-x: hidden;
+<<<<<<< Updated upstream
     width: 100vw;
+=======
+>>>>>>> Stashed changes
 }
 
 .container{
@@ -12,6 +15,31 @@ body{
     display: flex;
     flex-direction: column;
     justify-content: center;
+}
+
+.orderType{
+    width: 100%;
+}
+
+.orderTypeButton{
+    width: 100vw;
+    height: 10vh;
+    margin-left: -7vw;
+    display: flex;
+    flex-direction: row;
+    margin-bottom: 5vh;
+}
+
+.orderButton{
+    width: 33.3vw;
+    height: 100%;
+    font-size: 24px;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-top: 2px solid #3F945A;
+    border-bottom: 2px solid #3F945A;
 }
 
 .Order{

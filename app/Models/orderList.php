@@ -1,4 +1,4 @@
-<?php
+x<?php
 
 namespace App\Models;
 
@@ -13,6 +13,7 @@ class orderList extends Model
     protected $primaryKey = 'orderDetailId';
 
     protected $fillable = [
+        'orderId',
         'productId',
         'quantity'
     ];

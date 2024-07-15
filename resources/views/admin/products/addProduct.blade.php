@@ -114,7 +114,11 @@
             <br>
 
             <label for="shelfLife">Image Link</label><br>
+<<<<<<< Updated upstream
             <input name="image" type="file" id="image" placeholder="input image link here...">
+=======
+            <input class="inputNormal" name="image" type="tel" id="image" placeholder="input image link here...">
+>>>>>>> Stashed changes
             @error('image')
             <span class="error text-danger">{{ $message }}</span>
             @enderror
@@ -122,8 +126,12 @@
 
             <div class="buttonContainer">
                 <a href="{{ route('admin.products') }}" class="cancelButton">Cancel</a>
+<<<<<<< Updated upstream
                 <button type="submit" class="submitButton">Save</button>
+=======
+>>>>>>> Stashed changes
             </div>
+            <button type="submit" class="submitButton">Save</button>
         </form>
     </div>
 

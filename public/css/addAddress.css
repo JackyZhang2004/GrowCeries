@@ -8,6 +8,7 @@ body {
 .contact h2{
     margin-top: 2.5vh;
     font-size: 30px;
+<<<<<<< Updated upstream
     padding-left: 2vw;
 }
 #receiverName{
@@ -24,6 +25,17 @@ body {
     margin-left: 5vw;
     margin-right: 5vw;
     border-radius: 15px;
+=======
+}
+.name{
+    height: 30px;
+    margin-bottom: 0.3vh;
+}
+
+.number{
+    height: 30px;
+    margin-bottom: 0.3vh;
+>>>>>>> Stashed changes
 }
 
 .address{
@@ -33,10 +45,27 @@ body {
 .address h2{
     margin-top: 2.5vh;
     font-size: 30px;
+<<<<<<< Updated upstream
     padding-left: 2vw;
 }
 h1{
     padding-left: 2vw;
+=======
+}
+.province{
+    height: 30px;
+    margin-bottom: 0.3vh;
+}
+
+.street{
+    height: 30px;
+    margin-bottom: 0.3vh;
+}
+
+.other{
+    height: 30px;
+    margin-bottom: 0.3vh;
+>>>>>>> Stashed changes
 }
 
 .button{
@@ -52,6 +81,7 @@ h1{
     height: 4vh;
     color: white;
 }
+<<<<<<< Updated upstream
 
 .form-label{
     margin-left: 3vw;
@@ -89,3 +119,5 @@ input::-webkit-inner-spin-button {
   -webkit-appearance: none;
   margin: 0;
 }
+=======
+>>>>>>> Stashed changes

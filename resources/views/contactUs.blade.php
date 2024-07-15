@@ -56,7 +56,7 @@
             <input type="hidden" name="_next" value="http://127.0.0.1:8000/contact-us">
             <input type="hidden" name="_template" value="table">
             <div class="button">
-                <button id = "message-btn" type="submit"> Send Message </button>
+                <button id = "message-btn" type="submit">Send Message</button>
             </div>
         </form>
     </div>

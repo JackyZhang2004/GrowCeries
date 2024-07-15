@@ -22,7 +22,7 @@
         </ul> --}}
 
 
-    </div>
+</div>
 
 <form class = "filter" method="GET" action="{{ route('discover') }}">
 <div class="offcanvas offcanvas-start" data-bs-backdrop="static" tabindex="-1" id="staticBackdrop" aria-labelledby="staticBackdropLabel">
@@ -31,7 +31,6 @@
         <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
     </div>
     <div class="offcanvas-body"
-
         <form action="{{route('discover')}}" method="GET" id="search" data-aos="fade-right" data-aos-delay="200"
         data-aos-duration="1000">
             <div class="main">

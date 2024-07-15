@@ -1,8 +1,10 @@
 
 .input-group{
     display: flex;
-    justify-content: center;
     flex-direction: row;
+    justify-content: center;
+    align-items: center;
+
 }
 .search_container{
     width: 53%;
@@ -106,9 +108,16 @@ padding-left: 1vw;
     outline: none !important;
     box-shadow: none !important;
 }
+
 .buttonFilter{
+    width: 5%;
     background-color: transparent;
     border: none;
     font-size: 24px;
+    margin-top: 1vh;
     cursor: pointer;
+}
+
+.separator{
+    padding: 7px;
 }

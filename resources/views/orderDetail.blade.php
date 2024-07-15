@@ -327,6 +327,4 @@
         </div>
     </div>
     <hr class="sectionLine">
-
-
 @endsection

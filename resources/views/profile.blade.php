@@ -9,7 +9,7 @@
 @section('content')
     <div class="jumbotron">
         <div class="profilePicture">
-            <img src="{{ $user->image }}" alt="PROFILE PICTURE">
+            <img src="{{ $user->image() }}" alt="PROFILE PICTURE">
         </div>
     </div>
     <h1>Personal Data</h1>

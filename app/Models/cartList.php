@@ -38,7 +38,7 @@ class cartList extends Model
     {
         $product = $this->product;
         if ($product->image) {
-            return url('image/' . $product->image);
+            return url($product->image);
         }
         return "https://api.multiavatar.com/{{ $product->productName }}.svg";
     }

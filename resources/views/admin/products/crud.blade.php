@@ -61,7 +61,7 @@
                 </div>
                 <div class="bottomDown">
                     <a class="editProductButton" href="{{ route('admin.editProduct', $product->productId) }}">Edit Product</a>
-                    {{-- <a class="deleteProductButton" href="{{ route('admin.delete', $product->productId) }}">Delete Product</a> --}}
+                    <a class="deleteProductButton" href="{{ route('admin.delete', $product->productId) }}">Delete Product</a>
                 </div>
             </div>
         </div>

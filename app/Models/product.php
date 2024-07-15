@@ -36,7 +36,7 @@ class product extends Model
     public function getImageURL()
     {
         if ($this->image) {
-            return url('image/' . $this->image);
+            return url($this->image);
         }
         return "https://api.multiavatar.com/{{ $this->productName }}.svg";
     }

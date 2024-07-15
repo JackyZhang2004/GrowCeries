@@ -13,9 +13,11 @@ use App\Http\Controllers\admin\OrderController as adminOrderController;
 use App\Http\Controllers\admin\ProfileController as adminProfileController;
 use App\Http\Controllers\authController;
 use App\Http\Controllers\cartController;
+use App\Http\Controllers\checkOutController;
 use App\Http\Controllers\discoverController;
 use App\Http\Controllers\orderController;
 use App\Http\Controllers\productController;
+use App\Http\Controllers\profileController;
 use App\Models\address;
 use Illuminate\Support\Facades\Route;
 
@@ -52,6 +54,7 @@ Route::post('/cart/decrement/{id}', [cartController::class, 'decrementCart'])->n
 Route::delete('cart/{id}', [cartController::class, 'destroy'])->name('cart.destroy');
 
 Route::get('checkout', [CartController::class, 'checkout'])->name('checkout');
+Route::post('add-order', [checkOutController::class, 'addOrder'])->name('checkout.add');
 
 Route::get('/choose-address', [addressController::class, 'chooseAddress'])->name('address.chooseAddress');
 
@@ -65,6 +68,7 @@ Route::delete('/addresses/{address}', [addressController::class, 'destroy'])->na
 
 // Route::get('/refund/{id}', [orderController::class, 'refund'])->name('order.refund');
 Route::post('/refund/store/{id}', [orderController::class, 'storerefund'])->name('order.storeRefund');
+Route::get('/profile', [profileController::class,'index'])->name('profile');
 
 
 // Route::middleware('auth')->group(function () {

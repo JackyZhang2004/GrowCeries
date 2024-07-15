@@ -21,7 +21,7 @@
         <div class="productUnit">
             <div class="unitTop">
                 <div class="topLeft">
-                    <img src={{ asset('image/semangka.png') }} alt="">
+                    <img src={{asset($product->image )}} alt="">
                 </div>
                 <div class="topMid">
                     <p class="productName">{{$product->productName}}</p>
@@ -61,7 +61,7 @@
                 </div>
                 <div class="bottomDown">
                     <a class="editProductButton" href="{{ route('admin.editProduct', $product->productId) }}">Edit Product</a>
-                    {{-- <a class="deleteProductButton" href="{{ route('admin.delete', $product->productId) }}">Delete Product</a> --}}
+                    <a class="deleteProductButton" href="{{ route('admin.delete', $product->productId) }}">Delete Product</a>
                 </div>
             </div>
         </div>

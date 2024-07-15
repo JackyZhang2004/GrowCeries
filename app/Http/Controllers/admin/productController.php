@@ -70,7 +70,8 @@ class productController extends Controller
             'productName' => request()->get('productName', ''), // Assuming the input for the product name is 'product_name'
             'productPrice' => request()->get('productPrice', ''), // Assuming the input for the variant is 'product'
             'stock' => request()->get('stock', ''), // Assuming the input for the variant is 'product'
-            'variant' => request()->get('variant', '') // Assuming the input for the variant is 'product'
+            'variant' => request()->get('variant', ''), // Assuming the input for the variant is 'product'
+            'image' => 'image/productImage/'.request()->get('image', '')
         ]);
 
         $product->save();
@@ -106,6 +107,7 @@ class productController extends Controller
         if($request->productPrice != null){$targetProduct->productPrice = $request->productPrice;}
         if($request->stock != null){$targetProduct->stock = $request->stock;}
         if($request->variant != null){$targetProduct->variant = $request->variant;}
+        if($request->image != null){$targetProduct->image = 'image/productImage/'.$request->image;}
         
         $targetProduct->save();
 

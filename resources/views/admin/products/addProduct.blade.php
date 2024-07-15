@@ -114,7 +114,7 @@
             <br>
 
             <label for="shelfLife">Image Link</label><br>
-            <input class="inputNormal" name="image" type="tel" id="image" placeholder="input image link here...">
+            <input name="image" type="file" id="image" placeholder="input image link here...">
             @error('image')
             <span class="error text-danger">{{ $message }}</span>
             @enderror
@@ -122,8 +122,8 @@
 
             <div class="buttonContainer">
                 <a href="{{ route('admin.products') }}" class="cancelButton">Cancel</a>
+                <button type="submit" class="submitButton">Save</button>
             </div>
-            <button type="submit" class="submitButton">Save</button>
         </form>
     </div>
 

@@ -121,6 +121,14 @@
             @enderror
             <br>
 
+            <label for="shelfLife">Image Link</label><br>
+            <input name="image" type="file" id="image" placeholder="input image link here...">
+            @error('image')
+            <span class="error text-danger">{{ $message }}</span>
+            @enderror
+            <br>
+
+
             <div class="buttonContainer">
                 <a href="{{ route('admin.products') }}" class="cancelButton">Cancel</a>
                 <button class="submitButton" type="submit">Save</button>

@@ -11,22 +11,22 @@
         @if ($orders->isEmpty())
             <p>No orders found.</p>
         @else
+            <div class="orderTypeButton">
+                @if ($category == "Current")
+                    <a href="{{ route('order', ['category' => "Current"])}}" class="orderButtonMark" style="text-decoration: none">Current Order</a>
+                    <a href="{{ route('order', ['category' => "Done"])}}" class="orderButton" style="text-decoration: none">Order History</a>
+                    <a href="{{ route('order', ['category' => "Refund"])}}" class="orderButton" style="text-decoration: none">Refund</a>
+                @elseif ($category == "Done")
+                    <a href="{{ route('order', ['category' => "Current"])}}" class="orderButton" style="text-decoration: none">Current Order</a>
+                    <a href="{{ route('order', ['category' => "Done"])}}" class="orderButtonMark" style="text-decoration: none">Order History</a>
+                    <a href="{{ route('order', ['category' => "Refund"])}}" class="orderButton" style="text-decoration: none">Refund</a>
+                @else
+                    <a href="{{ route('order', ['category' => "Current"])}}" class="orderButton" style="text-decoration: none">Current Order</a>
+                    <a href="{{ route('order', ['category' => "Done"])}}" class="orderButton" style="text-decoration: none">Order History</a>
+                    <a href="{{ route('order', ['category' => "Refund"])}}" class="orderButtonMark" style="text-decoration: none">Refund</a>
+                @endif
+            </div>
             <div class="orderType">
-                <div class="orderTypeButton">
-                    @if ($category == "Current")
-                        <a href="{{ route('order', ['category' => "Current"])}}" class="orderButtonMark" style="text-decoration: none">Current Order</a>
-                        <a href="{{ route('order', ['category' => "Done"])}}" class="orderButton" style="text-decoration: none">Order History</a>
-                        <a href="{{ route('order', ['category' => "Refund"])}}" class="orderButton" style="text-decoration: none">Refund</a>
-                    @elseif ($category == "Done")
-                        <a href="{{ route('order', ['category' => "Current"])}}" class="orderButton" style="text-decoration: none">Current Order</a>
-                        <a href="{{ route('order', ['category' => "Done"])}}" class="orderButtonMark" style="text-decoration: none">Order History</a>
-                        <a href="{{ route('order', ['category' => "Refund"])}}" class="orderButton" style="text-decoration: none">Refund</a>
-                    @else
-                        <a href="{{ route('order', ['category' => "Current"])}}" class="orderButton" style="text-decoration: none">Current Order</a>
-                        <a href="{{ route('order', ['category' => "Done"])}}" class="orderButton" style="text-decoration: none">Order History</a>
-                        <a href="{{ route('order', ['category' => "Refund"])}}" class="orderButtonMark" style="text-decoration: none">Refund</a>
-                    @endif
-                </div>
                 <div class="Order">
                     @foreach ($orders as $list)
                         @if ($category == "Current")
@@ -94,12 +94,15 @@
                                     </div>
                                 </div>
                             @endif
-                        @else
-                            @if($list->orderStatus == "Refund")
+                        @endif
+                    @endforeach
+                    @if($category == "Refund")
+                        @foreach ($orders as $list)
+                            @if($list->orderStatus == "Request Refund")
                                 <div class="OrderUnit">
                                     <div class="unitTop">
                                         <div class="topLeft">
-                                            <img src="{{asset('image/refund.svg')}}" alt="">
+                                            <img src="{{asset('image/requestRefund.svg')}}" alt="">
                                         </div>
                                         <div class="topMid">
                                             <p class="status">Your Refund has been requested</p>
@@ -111,12 +114,34 @@
                                         </div>
                                     </div>
                                     <div class="unitBottom">
-                                        <a href= "{{route('orderDetail', $list->orderDetailId)}}" class="button1">View Order Details</a>
+                                        <a href= "{{route('orderDetail', $list->orderId)}}" class="button1">View Order Details</a>
                                     </div>
                                 </div>
                             @endif
-                        @endif
-                    @endforeach
+                        @endforeach
+                        @foreach ($orders as $list)
+                            @if($list->orderStatus == "Refunded")
+                                <div class="OrderUnit">
+                                    <div class="unitTop">
+                                        <div class="topLeft">
+                                            <img src="{{asset('image/refunded.svg')}}" alt="">
+                                        </div>
+                                        <div class="topMid">
+                                            <p class="status">Your Refund has been approved</p>
+                                            <p class="purchaseDate">Purchased at {{$list->orderDate}}</p>
+                                            <p class="productPurchased mb-1">Item Bought : {{ $list->orderList->count() }}</p>
+                                        </div>
+                                        <div class="topRight">
+                                            <p class="totalPrice">{{$list->price}}</p>
+                                        </div>
+                                    </div>
+                                    <div class="unitBottom">
+                                        <a href= "{{route('orderDetail', $list->orderId)}}" class="button1">View Order Details</a>
+                                    </div>
+                                </div>
+                            @endif
+                        @endforeach
+                    @endif
                 </div>
             </div>
         @endif

@@ -20,13 +20,8 @@ class OrderController extends Controller
         }
 
         $orders = Order::where('userId', Auth::id())->get();
-<<<<<<< Updated upstream
 
         return view('order', compact('orders', 'category'));
-=======
-        
-        return view('order', compact('orders'));
->>>>>>> Stashed changes
     }
 
     public function detail($id){

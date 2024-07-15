@@ -121,7 +121,7 @@
             @enderror
             <br>
 
-            <label for="shelfLife">Image Link</label><br>
+            <label for="shelfLife">Product Image</label><br>
             <input name="image" type="file" id="image" placeholder="input image link here...">
             @error('image')
             <span class="error text-danger">{{ $message }}</span>

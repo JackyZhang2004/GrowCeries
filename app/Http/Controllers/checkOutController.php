@@ -75,11 +75,13 @@ class checkOutController extends Controller
          ->where("cartList.productId", $req)
          ->first();
          $orderDetail = new orderList([
-            'orderID' => $order->orderId,
+            'orderId' => $order->orderId,
             'productId' => $req,
             'quantity' => $quant->quantity
          ]);
          $orderDetail->save();
+
+         return redirect()->route('home');
       };
       
       // dd($orderDetail);

@@ -105,25 +105,19 @@ Route::group(['prefix' => 'admin'], function () {
         Route::get('addProducts', [adminProductController::class, 'addProduct'])->name('admin.addProduct');
         Route::get('product/{product}', [adminProductController::class, 'destroy'])->name('admin.delete');
         Route::get('product/{product}/edit', [adminProductController::class, 'edit'])->name('admin.editProduct');
-        Route::post('product/', [adminProductController::class, 'update'])->name('admin.updateProduct');
         Route::post('admin/product/{product}', [adminProductController::class, 'update'])->name('admin.updateProduct');
 
-        // Route::post('product/', [adminProductController::class, 'update'])->name('admin.updateProduct');
         Route::get('orderAdmin', [adminOrderController::class, 'index'])->name('admin.orderAdmin');
         // Route::get('profileAdmin',[ControllersAdminProfileController::class,'index' ]);
         Route::get('profileAdmin', [adminProfileController::class, 'index'])->name('admin.profileAdmin');
         // Route::post('profileAdmin', [adminProfileController::class, 'index'])->name('admin.profileAdmin');
-        Route::put('product/{product}', [adminProductController::class, 'update'])->name('admin.updateProduct');
-<<<<<<< Updated upstream
+        // Route::put('product/{product}', [adminProductController::class, 'update'])->name('admin.updateProduct');
         Route::get('product/{product?}', [adminProductController::class, 'search'])->name('admin.searchProduct');
         Route::get('orderAdmin', [adminOrderController::class, 'index'])->name('admin.orderAdmin');
         Route::get('/orderAdmin/search', [adminOrderController::class, 'search'])->name('admin.searchOrder');
         Route::get('orderAdmin/{id?}', [adminOrderController::class, 'detail'])->name('admin.orderDetail');
         Route::get('orderAdmin/{id?}/acc', [adminOrderController::class, 'accRefund'])->name('admin.accRefund');
         Route::get('orderAdmin/{id?}/rej', [adminOrderController::class, 'rejRefund'])->name('admin.rejRefund');
-=======
-
->>>>>>> Stashed changes
     });
 });
 

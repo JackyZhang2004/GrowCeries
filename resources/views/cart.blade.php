@@ -81,7 +81,7 @@
                             <form method="POST" action="{{ route('cart.destroy',$cartItem->product->productId) }}">
                                 @csrf
                                 @method('delete')
-                                <button class="deleteButton"> Hapus </button>
+                                <button class="deleteButton"> Delete </button>
                             </form>
                         </div>
                     </div>

@@ -96,9 +96,9 @@
             <div class="category">
                 <p class="label">Category</p>
                 <input type="radio" id="productCategory" name="productCategory" value="buah" {{ old('productCategory') == "buah" ? 'checked' : '' }}>
-                <label class="miniLabel" for="Buah">Buah</label><br>
+                <label class="miniLabel" for="Buah">Fruit</label><br>
                 <input type="radio" id="productCategory" name="productCategory" value="sayur" {{ old('productCategory') == "sayur" ? 'checked' : '' }}>
-                <label class="miniLabel" for="sayur">Sayur</label>
+                <label class="miniLabel" for="sayur">Vegetable</label>
                 @error('productCategory')
                 <span class="error text-danger">{{ $message }}</span>
                 @enderror
@@ -113,12 +113,8 @@
             @enderror
             <br>
 
-            <label for="shelfLife">Image Link</label><br>
-<<<<<<< Updated upstream
-            <input name="image" type="file" id="image" placeholder="input image link here...">
-=======
-            <input class="inputNormal" name="image" type="tel" id="image" placeholder="input image link here...">
->>>>>>> Stashed changes
+            <label for="shelfLife">Product Image</label><br>
+            <input name="image" type="file" id="image">
             @error('image')
             <span class="error text-danger">{{ $message }}</span>
             @enderror
@@ -126,12 +122,8 @@
 
             <div class="buttonContainer">
                 <a href="{{ route('admin.products') }}" class="cancelButton">Cancel</a>
-<<<<<<< Updated upstream
                 <button type="submit" class="submitButton">Save</button>
-=======
->>>>>>> Stashed changes
             </div>
-            <button type="submit" class="submitButton">Save</button>
         </form>
     </div>
 

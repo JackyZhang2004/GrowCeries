@@ -76,18 +76,18 @@
             <div class="bottom">
                 <div class="explainUnitPaid">
                     <p>Order Paid at :</p>
-                    <p> {{$order->created_at}}</p>
+                    <p class="explanation"> {{$order->created_at}}</p>
                 </div>
                 <div class="explainUnitPacking">
                     <p>Packing Your Order</p>
                 </div>
                 <div class="explainUnitShipped">
                     <p>Order Shipped at :</p>
-                    <p> {{$order->deliveryTime}}</p>
+                    <p class="explanation"> {{$order->deliveryTime}}</p>
                 </div>
             </div>
         </div>
-    @elseif($order->orderStatus == 'Done')
+    @elseif($order->orderStatus == 'Completed')
         <div class="packing">
             <div class="top">
                 <div class="iconUnitComplete">
@@ -117,18 +117,18 @@
             <div class="bottom">
                 <div class="explainUnitPaid">
                     <p>Order Paid at :</p>
-                    <p> {{$order->created_at}}</p>
+                    <p class="explanation"> {{$order->created_at}}</p>
                 </div>
                 <div class="explainUnitPacking">
                     <p>Packing Your Order</p>
                 </div>
                 <div class="explainUnitShipped">
                     <p>Order Shipped at :</p>
-                    <p> {{$order->deliveryTime}}</p>
+                    <p class="explanation"> {{$order->deliveryTime}}</p>
                 </div>
                 <div class="explainUnitDone">
                     <p>Order Completed</p>
-                    <p> {{$order->droppeddatetime}}</p>
+                    <p class="explanation"> {{$order->deliveryTime}}</p>
                 </div>
             </div>
         </div>
@@ -174,18 +174,18 @@
             <div class="bottom">
                 <div class="explainUnitPaid2">
                     <p>Order Paid at :</p>
-                    <p> {{$order->created_at}}</p>
+                    <p class="explanation"> {{$order->created_at}}</p>
                 </div>
                 <div class="explainUnitPacking2">
                     <p>Packing Your Order</p>
                 </div>
                 <div class="explainUnitShipped2">
                     <p>Order Shipped at :</p>
-                    <p> {{$order->deliveryTime}}</p>
+                    <p class="explanation"> {{$order->deliveryTime}}</p>
                 </div>
                 <div class="explainUnitDone2">
                     <p>Order Completed</p>
-                    <p> {{$order->droppeddatetime}}</p>
+                    <p class="explanation"> {{$order->droppeddatetime}}</p>
                 </div>
                 <div class="explainUnitRequest2">
                     <p>Refund In-Progress</p>
@@ -238,27 +238,27 @@
             <div class="bottom">
                 <div class="explainUnitPaid2">
                     <p>Order Paid at :</p>
-                    <p> {{$order->created_at}}</p>
+                    <p class="explanation"> {{$order->created_at}}</p>
                 </div>
                 <div class="explainUnitPacking2">
                     <p>Packing Your Order</p>
                 </div>
                 <div class="explainUnitShipped2">
                     <p>Order Shipped at :</p>
-                    <p> {{$order->deliveryTime}}</p>
+                    <p class="explanation"> {{$order->deliveryTime}}</p>
                 </div>
                 <div class="explainUnitDone2">
                     <p>Order Completed</p>
-                    <p> {{$order->droppeddatetime}}</p>
+                    <p class="explanation"> {{$order->droppeddatetime}}</p>
                 </div>
                 <div class="explainUnitRequest2">
                     <p>Refund In Progress</p>
                 </div>
                 <div class="explainUnitRefund2">
                     @if ($order->orderStatus == 'Refunded')
-                        <p>Refund Accepted</p>
+                        <p>Refunded</p>
                     @elseif($order->orderStatus == 'Rejected')
-                        <p>Refund Request Rejected</p>
+                        <p>Rejected</p>
                     @endif
                 </div>
             </div>
@@ -302,7 +302,7 @@
         <div class="paymentDetailRight">
             <div class="paymentDetailUnit">
                 <p style="font-size: 20px" class="paymentDetailTitle">Spending Subtotal</p>    
-                <p class="paymentDetailAns">{{ $order->address->phoneNumber }}</p>   
+                <p class="paymentDetailRightAns">Rp. {{ $totalPrice }}</p>   
             </div>
             <div class="paymentDetailUnit">
                 <p style="font-size: 20px" class="paymentDetailTitle">Shipping Cost</p>
@@ -314,7 +314,7 @@
             </div>
             <div class="paymentDetailUnit">
                 <p style="font-size: 20px" class="paymentDetailTitle">Packaging Cost</p>    
-                <p class="paymentDetailAns">Rp. 1.000</p>   
+                <p class="paymentDetailRightAns">Rp. 1.000</p>   
             </div>
             <div class="paymentDetailUnit">
                 <p style="font-size: 20px" class="paymentDetailTitle">Total Payment</p>
@@ -322,7 +322,7 @@
             </div>
             <div class="paymentDetailUnit">
                 <p style="font-size: 20px" class="paymentDetailTitle">Payment Method</p>
-                <p class="paymentDetailAns">{{$order->paymentMethod}}</p>   
+                <p class="paymentDetailRightAns">{{$order->payment}}</p>   
             </div>
         </div>
     </div>

@@ -10,6 +10,7 @@ class order extends Model
     use HasFactory;
     protected $table = 'transactionHeader';
     protected $primaryKey = 'orderId';
+    // protected $table = 'transactionHeader';
     protected $fillable = [
         'userId',
         'courierId',
@@ -18,20 +19,25 @@ class order extends Model
         'orderStatus',
         'deliveryTime',
         'payment',
-        'addressId' 
+        'addressId',
+        'orderId',
+        'orderDate',
+        'paymentMethod'
     ];
 
 
-    public function orderList(){
+    public function orderList()
+    {
         return $this->hasMany(orderList::class, 'orderId', 'orderId');
     }
 
-    public function address(){
+    public function address()
+    {
         return $this->belongsTo(address::class, 'addressId', 'addressId');
     }
 
-    public function refund(){
+    public function refund()
+    {
         return $this->hasOne(refund::class, 'orderId', 'orderId');
     }
-
 }

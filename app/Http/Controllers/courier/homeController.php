@@ -4,7 +4,7 @@ namespace App\Http\Controllers\courier;
 
 use App\Http\Controllers\Controller;
 use App\Models\order;
-
+use App\Models\orderList;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
@@ -53,7 +53,9 @@ class HomeController extends Controller
     {
         $orders1 = Order::where('orderStatus', 'Packing')->get();
         $orders2 = Order::where('orderStatus', 'Shipped')->get();
-        return view('courier.home', compact('orders1', 'orders2'));
+        $orders3 = Order::where('orderStatus', 'Done')->get();
+        $orderDetail = orderList::all();
+        return view('courier.home', compact('orders1', 'orders2','orders3', 'orderDetail'));
     }
 
     public function update($orderId)
@@ -64,14 +66,15 @@ class HomeController extends Controller
             if ($uporder->orderStatus == "Packing") {
                 $uporder->orderStatus = "Shipped";
             } else if ($uporder->orderStatus == "Shipped") {
-                $uporder->orderStatus = "Completed";
+                $uporder->orderStatus = "Done";
             }
             $uporder->save();
 
             // Re-fetch the updated lists
             $orders1 = Order::where('orderStatus', 'Packing')->get();
             $orders2 = Order::where('orderStatus', 'Shipped')->get();
-            return view('courier.home', compact('orders1', 'orders2', 'uporder'));
+            $orders3 = Order::where('orderStatus', 'Done')->get();
+            return view('courier.home', compact('orders1', 'orders2','orders3', 'uporder'));
         } else {
             return redirect()->route('courier.home')->with('error', 'Order not found');
         }

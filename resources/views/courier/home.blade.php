@@ -5,6 +5,8 @@
     {{-- <link rel="stylesheet" href="{{ asset('css/home.css') }}"> --}}
     {{-- <link rel="stylesheet" href="{{ asset('css/discover.css') }}"> --}}
     {{-- <link rel="stylesheet" href="{{ asset('css/home.css') }}"> ini buat nyambungin home.css ke home blade nya --}}
+    <link rel="stylesheet" href="{{ asset('css/order.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/courier/home2.css') }}"> {{-- ini buat nyambungin home.css ke home blade nya --}}
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.8.1/font/bootstrap-icons.min.css">
 
 @endpush
@@ -57,71 +59,96 @@
         </div>
 
         <div class="option">
-            <div class="option_sub">
-                <p class="option_title">Pick Up Order</p>
+            <div id="pick"  class="option_sub">
+                <p onclick="hideShow(1)"   class="option_title">Pick Up Order</p>
             </div>
-            <div class="option_sub">
-                <p class="option_title">Shipped Order</p>
+            <div id="ship" class="option_sub">
+                <p onclick="hideShow(2)" class="option_title">Shipped Order</p>
             </div>
+            {{-- <div id="done" class="option_sub">
+                <p class="option_title">Order History</p>
+            </div> --}}
         </div>
         {{-- @php
             dump($uporder->orderId)
         @endphp --}}
-        <div class="listfield">
+        <div id="list_pack" class="listfield">
 
                 @foreach ($orders1 as $order)
-                <form action="{{ route('courier.update', $order->orderId) }}" method="GET" id="search2" data-aos="fade-right"
-                    data-aos-delay="200" data-aos-duration="1000">
-                        <div class="box">
-                            <div class="top">
-                                <img class="icon_status" src="{{ asset('image/packed.svg')}}" alt="" srcset="">
-                                <div class="detail">
-                                    <p class="status_title">Order is being {{$order->orderStatus}}</p>
-                                    {{-- <p class="status_title">Order is being packed</p> --}}
-                                    <p class="date">Purchased at {{$order->orderDate}}</p>
-                                    <p class="id_order">000{{$order->orderId}}</p>
-                                </div>
-                                <div class="price">Rp. {{ number_format($order->totalPrice, 0, ',', '.') }}</div>
-                            </div>
-                            <div class="line">
-                            </div>
-                            <div class="bottom">
-                                <button id="update_status_button" class="update_status" type="submit">Order Pick Up</button>
-                            </div>
-                        </div>
-                    </form>
-                @endforeach
-        </div>
-        <div class="listfield">
+                    <?php
+                        $totalPrice = 0;
+                    ?>
+                    @foreach ($order->orderList as $orderr)
+                        @if ($orderr->orderId == $order->orderId)
+                            <?php
+                                $totalPrice += $orderr->product->productPrice * $orderr->quantity;
+                            ?>
+                        @endif
+                    @endforeach
 
-                @foreach ($orders2 as $order)
-                <form action="{{ route('courier.update', $order->orderId) }}" method="GET" id="search2" data-aos="fade-right"
-                    data-aos-delay="200" data-aos-duration="1000">
-                        <div class="box">
-                            <div class="top">
-                                <img class="icon_status" src="{{ asset('image/packed.svg')}}" alt="" srcset="">
-                                <div class="detail">
-                                    <p class="status_title">Order is being {{$order->orderStatus}}</p>
-                                    {{-- <p class="status_title">Order is being packed</p> --}}
-                                    <p class="date">Purchased at {{$order->orderDate}}</p>
-                                    <p class="id_order">000{{$order->orderId}}</p>
+                        <form action="{{ route('courier.update', $order->orderId) }}" method="GET" id="search2" data-aos="fade-right"
+                            data-aos-delay="200" data-aos-duration="1000">
+                                <div class="OrderUnit">
+                                    <div class="unitTop">
+                                        <div class="topLeft">
+                                            <img src="{{ asset('image/shipped.svg') }}" alt="">
+                                        </div>
+                                        <div class="topMid">
+                                            <p class="status">Order is being Packing</p>
+                                            <p class="purchaseDate">Purchased at {{ $order->orderDate }}</p>
+                                            <p class="productPurchased mb-1">Item Bought : {{ $order->orderList->count() }}
+                                            </p>
+                                        </div>
+                                        <div class="topRight">
+                                            <p class="totalPrice">Rp. {{ number_format($totalPrice, 0, ',', '.') }}</p>
+                                        </div>
+                                    </div>
+                                    <div class="unitBottom">
+                                        <button id="update_status_button" class="button1" type="submit">Order Pick Up</button>
+                                    </div>
                                 </div>
-                                <div class="price">Rp. 72.000</div>
-                            </div>
-                            <div class="line">
-                            </div>
-                            <div class="bottom">
-                                <button id="update_status_button" class="update_status" type="submit">Order Pick Up</button>
-                            </div>
-                        </div>
-                    </form>
+                        </form>
+            @endforeach
+        </div>
+        <div id="list_ship" class="listfield">
+            @foreach ($orders2 as $order)
+                <?php
+                    $totalPrice = 0;
+                ?>
+                @foreach ($order->orderList as $orderr)
+                    @if ($orderr->orderId == $order->orderId)
+                        <?php
+                            $totalPrice += $orderr->product->productPrice * $orderr->quantity;
+                        ?>
+                    @endif
                 @endforeach
+                    <form action="{{ route('courier.update', $order->orderId) }}" method="GET" id="search2" data-aos="fade-right"
+                        data-aos-delay="200" data-aos-duration="1000">
+                            <div class="OrderUnit">
+                                <div class="unitTop">
+                                    <div class="topLeft">
+                                        <img src="{{ asset('image/shipped.svg') }}" alt="">
+                                    </div>
+                                    <div class="topMid">
+                                        <p class="status">Order is being Shipped</p>
+                                        <p class="purchaseDate">Purchased at {{ $order->orderDate }}</p>
+                                        <p class="productPurchased mb-1">Item Bought : {{ $order->orderList->count() }}
+                                        </p>
+                                    </div>
+                                    <div class="topRight">
+                                        <p class="totalPrice">Rp. {{ number_format($totalPrice, 0, ',', '.') }}</p>
+                                    </div>
+                                </div>
+                                <div class="unitBottom">
+                                    <button id="update_status_button" class="button1" type="submit">Order Done</button>
+                                </div>
+                            </div>
+                    </form>
+            @endforeach
         </div>
     </div>
-
-
+<script src="{{ asset('js/admin/courier/home.js') }}"></script>
+{{-- href="{{ asset('js/admin/courier/home.js') }}" --}}
     {{-- <p class="h1">Welcome Courier</p>
     <p>Home page</p> --}}
-
-
 @endsection

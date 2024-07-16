@@ -147,11 +147,15 @@ input:focus {
     /* background-color: bisque; */
     width: 100%;
     display: flex;
-
-
+    border-bottom: 2px solid #3F945A;
+    border-top: 2px solid #3F945A;
+    border: 2px solid #3F945A;
+    margin-top: 3vh;
+    /* border-radius: 24px;
+    overflow: hidden; */
 }
 .option_sub{
-    margin-top: 10px;
+    /* margin-top: 10px; */
     width: 50%;
     display: flex;
     align-items: center;
@@ -160,18 +164,21 @@ input:focus {
     font-size: 24px;
     /* margin-bottom: 10vh; */
 }
+
 .option_sub:hover{
-    background-color: rgb(149, 234, 74);
+    background-color: #3F945A;
 }
 
 .listfield{
-
-
     /* background-color: bisque; */
     height: auto;
     width: calc(100% - 10vw);
     margin-left: 5vw;
     margin-right: 5vw;
+    display: flex;
+    flex-direction: column;
+    /* justify-content: center; */
+    align-items: center;
 }
 .box{
     margin-top: 5vh;

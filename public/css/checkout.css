@@ -1,5 +1,5 @@
 body {
-    background-color: #EAEAEA;
+    background-color: #fff;
 }
 .shippingDetails {
     display: flex;
@@ -8,6 +8,10 @@ body {
     margin: 3vh 5vw;
     padding: 3vh 3vw;
     border-radius: 10px;
+    border-style: solid;
+    border-width: 0.5px;
+    border-color: lightgray;
+    box-shadow: 0px 5px 5px lightgray;
 }
 .orderedProducts {
     display: flex;
@@ -16,6 +20,10 @@ body {
     margin: 3vh 5vw;
     padding: 3vh 3vw;
     border-radius: 10px;
+    border-style: solid;
+    border-width: 0.5px;
+    border-color: lightgray;
+    box-shadow: 0px 5px 5px lightgray;
 }
 .paymentMethods {
     display: flex;
@@ -24,6 +32,10 @@ body {
     margin: 3vh 5vw;
     padding: 3vh 3vw;
     border-radius: 10px;
+    border-style: solid;
+    border-width: 0.5px;
+    border-color: lightgray;
+    box-shadow: 0px 5px 5px lightgray;
 }
 .addressDetails {
     display: flex;
@@ -39,11 +51,14 @@ body {
 .left {
     display: flex;
     flex-direction: column;
-    line-height: 3vh;
+    line-height: 3.5vh;
 }
 .right {
     display: flex;
     align-items: center;
+}
+.address{
+    line-height: 2.5vh;
 }
 .name {
     font-size: 1.6vw;
@@ -51,7 +66,10 @@ body {
 .address {
     opacity: 0.6;
 }
-
+.timeDetails{
+    margin-top: 4px;
+    line-height: 1.5vh;
+}
 .checkoutProduct{
     border: black;
     border-width: 1px;

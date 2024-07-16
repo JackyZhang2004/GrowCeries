@@ -18,7 +18,7 @@
     position: absolute;
     color: white;
     text-align: center;
-    font-size: 75px;
+    font-size: 65px;
 }
 
 .description{
@@ -31,19 +31,18 @@
 }
 
 .logoimg{
-    height: 20vh;
-    width: 45vw;
+    width: 40vw;
     padding: 20px;
 }
 
 .description h1{
   text-align: center;
-  font-size: 60px;
+  font-size: 45px;
 }
 
 .description p{
     text-align: center;
-    font-size: 30px;
+    font-size: 20px;
 }
 
 .contact{
@@ -57,27 +56,27 @@
 
 .desc h1{
     text-align: left;
-    font-size: 60px;
+    font-size: 45px;
 }
 
 .desc p{
     text-align: left;
-    font-size: 30px;
+    font-size: 20px;
     margin-bottom: 20px;
 }
 .img{
     padding: 10px;
     width: 45vw;
-    height: 35vh;
 }
 #contact-btn{
     background-color: #3F945A;
     border-radius: 10px;
     /* margin-right: -2vw; */
-    width: 10vw;
-    height: 4vh;
+    width: 20%;
+    height: 6vh;
     color: white;
-    font-size: 20px;
+    font-size: 15px;
+    text-align: center;
 }
 .desc-store{
     display: flex;
@@ -87,21 +86,21 @@
 }
 .desc-store h1{
     text-align: right;
-    font-size: 60px;
+    font-size: 45px;
 }
 
 .desc-store p{
     text-align: right;
-    font-size: 30px;
+    font-size: 20px;
     margin-bottom: 20px;
 }
 #store-btn{
     background-color: #3F945A;
     border-radius: 10px;
     /* margin-right: -2vw; */
-    width: 10vw;
-    height: 4vh;
+    width: 20%;
+    height: 6vh;
     color: white;
-    font-size: 20px;
+    font-size: 15px;
 }
 

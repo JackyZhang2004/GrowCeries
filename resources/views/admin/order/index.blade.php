@@ -116,7 +116,7 @@
                 <!-- Request Refund Orders Section -->
                 <button class="accordion">In Progress</button>
                 <div class="panel mt-3"
-                    style="display: none;justify-content: center;flex-direction: column;align-items: center;">
+                    style="display:none;justify-content: center;flex-direction: column;align-items: center;"> 
                     @if ($requestRefund != 0)
                         @foreach ($orders as $list)
                             @if ($list->orderStatus == 'Request Refund')

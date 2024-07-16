@@ -42,12 +42,17 @@ class addressController extends Controller
 
         $user = Auth::user();
 
+        $addressCount = Address::where('userId', $user->id)->count();
+
+        $status = $addressCount === 0 ? 'primary' : 'alternative';
+
         address::create([
             'userId' => $user->id,
             'receiverName' => $request->receiverName,
             'phoneNumber' => $request->phoneNumber,
             'addressName' => $request->addressName,
             'addressDetail' => $request->addressDetail,
+            'status' => $status,
         ]);
 
         return redirect()->route('address.index')->with('success', 'Address added successfully.');

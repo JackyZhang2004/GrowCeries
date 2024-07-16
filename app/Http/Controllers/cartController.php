@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\address;
 use App\Models\cart;
 use App\Models\cartList;
+use App\Models\product;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -12,10 +13,10 @@ use Illuminate\Support\Facades\Log;
 
 class cartController extends Controller
 {
-    public function index(){
+    public function index()
+    {
         $count = 0;
         $cartItems = collect();
-
 
         if (Auth::check()) {
             $user = Auth::user();
@@ -33,17 +34,14 @@ class cartController extends Controller
 
         $now = Carbon::now();
 
-        // Define delivery time slots
         $timeSlots = [
             ['start' => 6, 'end' => 9, 'label' => '06:00-09:00'],
             ['start' => 12, 'end' => 15, 'label' => '12:00-15:00'],
             ['start' => 18, 'end' => 21, 'label' => '18:00-21:00'],
         ];
 
-        // Create an array to store the delivery times
         $deliveryTimes = [];
 
-        // Check today's delivery times
         foreach ($timeSlots as $slot) {
             if ($now->hour < $slot['start']) {
                 $deliveryTimes[] = [
@@ -54,7 +52,6 @@ class cartController extends Controller
             }
         }
 
-        // Add tomorrow's and day after tomorrow's delivery times
         for ($i = 1; $i <= 2; $i++) {
             $date = $now->copy()->addDays($i);
             foreach ($timeSlots as $slot) {
@@ -66,10 +63,21 @@ class cartController extends Controller
             }
         }
 
+        foreach ($cartItems as $cartItem) {
+            $product = Product::where('productId', $cartItem->productId)->first();
+    
+            if ($product && $cartItem->quantity > $product->stock) {
+                $cartItem->quantity = $product->stock;
+                $cartItem->save();
+            }
+            
+        }
+
         return view('cart', compact('count', 'cartItems', 'deliveryTimes'));
     }
 
-    public function addCart($id){
+    public function addCart($id)
+    {
         $productId = $id;
         $user = Auth::user();
 
@@ -102,7 +110,8 @@ class cartController extends Controller
         return redirect()->back()->with('success', 'Product added to cart');
     }
 
-    public function incrementCart($id){
+    public function incrementCart($id)
+    {
         $user = Auth::user();
 
         if (is_null($user)) {
@@ -110,26 +119,38 @@ class cartController extends Controller
         }
 
         $userId = $user->id;
-        $cart = cart::firstOrCreate(['userId' => $userId]);
-        $cartItem = cartList::where('cartId', $cart->cartId)->where('productId', $id)->first();
+        $cart = Cart::firstOrCreate(['userId' => $userId]);
+        $cartItem = CartList::where('cartId', $cart->cartId)->where('productId', $id)->first();
+        $product = Product::find($id); // Assuming you have a Product model
+
+        if (!$product) {
+            return redirect()->back()->with('error', 'Product not found.');
+        }
 
         if ($cartItem) {
             // Ensure the retrieved CartList item belongs to the user's cart
             if ($cartItem->cartId === $cart->cartId) {
-                $cartItem->quantity += 1;
+                $newQuantity = $cartItem->quantity + 1;
 
-                // Use upsert to insert or update the cart item
-                cartList::upsert(
-                    [
-                        'cartId' => $cart->cartId,
-                        'productId' => $id,
-                        'quantity' => $cartItem->quantity
-                    ],
-                    ['cartId', 'productId'],
-                    ['quantity']
-                );
+                // Check if the new quantity does not exceed the stock
+                if ($newQuantity <= $product->stock) {
+                    $cartItem->quantity = $newQuantity;
 
-                return redirect()->back()->with('success', 'Product quantity increased');
+                    // Use upsert to insert or update the cart item
+                    CartList::upsert(
+                        [
+                            'cartId' => $cart->cartId,
+                            'productId' => $id,
+                            'quantity' => $cartItem->quantity
+                        ],
+                        ['cartId', 'productId'],
+                        ['quantity']
+                    );
+
+                    return redirect()->back()->with('success', 'Product quantity increased');
+                } else {
+                    return redirect()->back()->with('error', 'Cannot increase quantity, stock limit reached');
+                }
             } else {
                 return redirect()->route('login')->with('error', 'You are not logged in.');
             }
@@ -138,7 +159,9 @@ class cartController extends Controller
         }
     }
 
-    public function decrementCart($id){
+
+    public function decrementCart($id)
+    {
         $user = Auth::user();
 
         if (is_null($user)) {
@@ -166,11 +189,11 @@ class cartController extends Controller
             }
         } else {
             return redirect()->back()->with('error', 'Product not found in cart');
-
         }
     }
 
-    public function destroy($id){
+    public function destroy($id)
+    {
         $user = Auth::user();
 
         $userId = $user->id;
@@ -182,7 +205,8 @@ class cartController extends Controller
         return redirect()->route('cart')->with('success', 'cart item deleted successfully!');
     }
 
-     public function checkout(Request $request){
+    public function checkout(Request $request)
+    {
         $user = Auth::user();
 
         $addressId = $request->input('addressId');
@@ -197,18 +221,18 @@ class cartController extends Controller
         $cartItems = cartList::whereIn('productId', $selectedItems)->where('cartId', $cartId)->get();
 
         $selectedDeliveryTime = $request->input('selectedDeliveryTime');
-        if(str_contains($selectedDeliveryTime, 'Today') | str_contains($selectedDeliveryTime, 'Tomorrow')){
+        if (str_contains($selectedDeliveryTime, 'Today') | str_contains($selectedDeliveryTime, 'Tomorrow')) {
             $dateTimeParts = explode(' ', $selectedDeliveryTime);
             $selectedDate = $dateTimeParts[0] . ' ' . $dateTimeParts[1];
             $selectedTime = $dateTimeParts[3];
             $selectedDeliveryTime = $selectedDate . ' ' . $selectedTime;
-        }elseif(str_contains($selectedDeliveryTime, '2 more Days')){
+        } elseif (str_contains($selectedDeliveryTime, '2 more Days')) {
             $dateTimeParts = explode(' ', $selectedDeliveryTime);
             $selectedDate = $dateTimeParts[0] . ' ' . $dateTimeParts[1];
             $selectedTime = $dateTimeParts[5];
             $selectedDeliveryTime = $selectedDate . ' ' . $selectedTime;
         }
 
-        return view('checkout', compact('cartItems', 'addresses', 'firstAddress','selectedDeliveryTime'));
+        return view('checkout', compact('cartItems', 'addresses', 'firstAddress', 'selectedDeliveryTime'));
     }
 }

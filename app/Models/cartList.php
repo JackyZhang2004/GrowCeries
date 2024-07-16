@@ -12,6 +12,7 @@ class cartList extends Model
     protected $table = 'cartList';
     public $incrementing = false;
     protected $keyType = 'string';
+    protected $primaryKey = 'cartId';
 
     protected $fillable = [
         'cartId',

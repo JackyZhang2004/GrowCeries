@@ -18,7 +18,8 @@ class address extends Model
         'addressName',
         'addressDetail',
         'receiverName',
-        'phoneNumber'
+        'phoneNumber',
+        'status'
     ];
     public function user()
     {

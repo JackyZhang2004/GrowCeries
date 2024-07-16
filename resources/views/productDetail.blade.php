@@ -7,10 +7,6 @@
 @section('title', 'Product Detail')
 
 @section('content')
-    {{-- <p>tes product detail page</p> --}}
-    {{-- <p>{{$product}}</p>
-    <p>{{$product->productDetail}}</p> --}}
-
     <div class="container">
         <div class="product-detail">
             <div class="product-images">
@@ -27,8 +23,7 @@
                 @endif
                 <div class="price">Rp. {{ number_format($product->productPrice, 0, ',', '.') }}</div>
                 <p class="description">
-                    A quintessential taste of summer, watermelon is a vibrantly colored fruit that's both delicious and
-                    hydrating. Its smooth, deep red flesh is encased in a thick green rind ...
+                    {{ $product->productDetail->productDesc }}
                 </p>
                 @php
                     $cartItem = $cartItems->firstWhere('productId', $product->productId);

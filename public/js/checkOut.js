@@ -6,30 +6,33 @@ function calculateTotal() {
     document.querySelectorAll('.itemTotal').forEach(item => {
         total += parseFloat(item.textContent);
     });
-    document.getElementById('spendingSubtotal').textContent = 'Rp ' + total.toLocaleString('id-ID');
-    total = total+shippingCost+serviceFee+packagingCosts
-    document.getElementById('totalPayment').textContent = 'Rp ' + total.toLocaleString('id-ID');
+    document.getElementById('spendingSubtotal').textContent = 'Rp' + total.toLocaleString('id-ID');
+    total = total+shippingCost+serviceFee+packagingCosts;
+    document.getElementById('totalPayment').textContent = 'Rp' + total.toLocaleString('id-ID');
 }
-
 
 function validateForm(){
     const address = document.getElementById('address').innerText;
-    const selectedValue = document.getElementsByTagName('optionPayment');
+
     // alert('clicked');
+
+    let paymentOptions = document.getElementsByName('optionPayment');
+    let paymentSelected = false;
+            for (let option of paymentOptions) {
+                if (option.checked) {
+                    paymentSelected = true;
+                    break;
+                }
+            }
 
     if(address === 'No address found. Please add an address in your profile.'){
             window.scroll({
             top: 0, 
             left: 0, 
             behavior: 'smooth'});
-            alert("salah");
     }
-    else if (address !== 'No address found. Please add an address in your profile.' && selectedValue !== '' ){
-        // If option is selected, show success message
-        // document.getElementById('error-message-pay').style.display = 'none';
-        // document.getElementById('error-message-adr').style.display = 'none';
+    else if (address !== 'No address found. Please add an address in your profile.' && paymentSelected ){
         showPopup();
-        // alert("salah");
     }
 }
 

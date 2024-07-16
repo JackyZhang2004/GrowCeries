@@ -40,4 +40,11 @@ class product extends Model
         }
         return "https://api.multiavatar.com/{{ $this->productName }}.svg";
     }
+
+    public function getFormatToRupiah($quantity)
+    {
+        $value = $this->productPrice * $quantity;
+        $formatted = 'Rp' . number_format($value, 0, ',', '.');
+        return $formatted;
+    }
 }

@@ -9,8 +9,9 @@
 @section('content')
     <p class="addProductTitle">Edit Product</p>
     <div class="addProductContainer">
-        <form action="{{ route('admin.updateProduct', ['product' => $product->productId]) }}" method="POST">
+        <form action="{{ route('admin.updateProduct', ['product' => $product]) }}" method="POST">
             @csrf
+            @method('PUT')
             <input name="id" type="text" class="hidden" value="{{ $product->productId }}">
             <label for="productName" class="label">Product Name</label><br>
             <input class="inputNormal" name="productName" type="text" id="productName" value="{{ $product->productDetail->productName }}">

@@ -13,6 +13,7 @@ class productController extends Controller
     public function index()
     {
         $products = product::all();
+        // dump($products);
         return view('admin.products.crud', compact('products'));
     }
 
@@ -91,27 +92,27 @@ class productController extends Controller
         return view('admin.products.editProduct', compact('product', 'editing'));
     }
 
-    public function update(Request $request){
-        $targetProduct = product::where('productId', $request->id)->first();
-        if($request->productName != null){$targetProduct->productDetail->productName = $request->productName;}
-        if($request->productName != null){$targetProduct->productName = $request->productName;}
-        if($request->calories != null){$targetProduct->productDetail->calories = $request->calories;}
-        if($request->fat != null){$targetProduct->productDetail->fat = $request->fat;}
-        if($request->sugar != null){$targetProduct->productDetail->sugar = $request->sugar;}
-        if($request->carbohydrate != null){$targetProduct->productDetail->carbohydrate = $request->carbohydrate;}
-        if($request->protein != null){$targetProduct->productDetail->protein = $request->protein;}
-        if($request->shelfLife != null){$targetProduct->productDetail->shelfLife = $request->shelfLife;}
-        if($request->productCategory != null){$targetProduct->productDetail->productCategory = $request->productCategory;}
-        if($request->productDesc != null){$targetProduct->productDetail->productDesc = $request->productDesc;}
-        if($request->origin != null){$targetProduct->productDetail->origin = $request->origin;}
-        if($request->productPrice != null){$targetProduct->productPrice = $request->productPrice;}
-        if($request->stock != null){$targetProduct->stock = $request->stock;}
-        if($request->variant != null){$targetProduct->variant = $request->variant;}
-        if($request->image != null){$targetProduct->image = 'image/productImage/'.$request->image;}
+    public function update(product $product){
+        if($product->productName != null){$product->productDetail->productName = request()->productName;}
+        if($product->productName != null){$product->productName = request()->productName;}
+        if($product->calories != null){$product->productDetail->calories = request()->calories;}
+        if($product->fat != null){$product->productDetail->fat = request()->fat;}
+        if($product->sugar != null){$product->productDetail->sugar = request()->sugar;}
+        if($product->carbohydrate != null){$product->productDetail->carbohydrate = request()->carbohydrate;}
+        if($product->protein != null){$product->productDetail->protein = request()->protein;}
+        if($product->shelfLife != null){$product->productDetail->shelfLife = request()->shelfLife;}
+        if($product->productCategory != null){$product->productDetail->productCategory = request()->productCategory;}
+        if($product->productDesc != null){$product->productDetail->productDesc = request()->productDesc;}
+        if($product->origin != null){$product->productDetail->origin = request()->origin;}
+        if($product->productPrice != null){$product->productPrice = request()->productPrice;}
+        if($product->stock != null){$product->stock = request()->stock;}
+        if($product->variant != null){$product->variant = request()->variant;}
+        if($product->image != null){$product->image = 'image/productImage/'.request()->image;}
         
-        $targetProduct->save();
+        $product->productDetail->save();
+        $product->save();
 
-        return redirect()->route('admin.products', $targetProduct)->with('success', 'Product updated successfully!');
+        return redirect()->route('admin.products', $product)->with('success', 'Product updated successfully!');
     }
 
     public function search(){

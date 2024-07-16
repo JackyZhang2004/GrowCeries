@@ -67,21 +67,11 @@ Route::put('/address/{id}/update', [addressController::class, 'update'])->name('
 Route::get('/addresses', [addressController::class, 'index'])->name('address.index');
 Route::get('/addresses/create', [addressController::class, 'create'])->name('address.create');
 Route::post('/addresses/create', [addressController::class, 'store']);
-Route::delete('/addresses/{address}', [addressController::class, 'destroy'])->name('address.destroy');
+Route::get('/addresses/{address}', [addressController::class, 'destroy'])->name('address.destroy');
 
 // Route::get('/refund/{id}', [orderController::class, 'refund'])->name('order.refund');
 Route::post('/refund/store/{id}', [orderController::class, 'storerefund'])->name('order.storeRefund');
 Route::get('/profile', [profileController::class,'index'])->name('profile');
-
-
-// Route::middleware('auth')->group(function () {
-Route::get('/addresses', [addressController::class, 'index'])->name('address.index');
-Route::get('/addresses/create', [addressController::class, 'create'])->name('address.create');
-Route::post('/addresses/create', [addressController::class, 'store']);
-//     Route::get('/addresses/{address}/edit', [addressController::class, 'edit'])->name('addresses.edit');
-//     Route::put('/addresses/{address}', [addressController::class, 'update'])->name('addresses.update');
-Route::delete('/addresses/{address}', [addressController::class, 'destroy'])->name('address.destroy');
-// });
 
 
 
@@ -105,13 +95,10 @@ Route::group(['prefix' => 'admin'], function () {
         Route::get('addProducts', [adminProductController::class, 'addProduct'])->name('admin.addProduct');
         Route::get('product/{product}', [adminProductController::class, 'destroy'])->name('admin.delete');
         Route::get('product/{product}/edit', [adminProductController::class, 'edit'])->name('admin.editProduct');
-        Route::post('admin/product/{product}', [adminProductController::class, 'update'])->name('admin.updateProduct');
+        Route::put('admin/product/{product}', [adminProductController::class, 'update'])->name('admin.updateProduct');
 
         Route::get('orderAdmin', [adminOrderController::class, 'index'])->name('admin.orderAdmin');
-        // Route::get('profileAdmin',[ControllersAdminProfileController::class,'index' ]);
         Route::get('profileAdmin', [adminProfileController::class, 'index'])->name('admin.profileAdmin');
-        // Route::post('profileAdmin', [adminProfileController::class, 'index'])->name('admin.profileAdmin');
-        Route::put('product/{product}', [adminProductController::class, 'update'])->name('admin.updateProduct');
         Route::get('product/{product?}', [adminProductController::class, 'search'])->name('admin.searchProduct');
         Route::get('orderAdmin', [adminOrderController::class, 'index'])->name('admin.orderAdmin');
         Route::get('/orderAdmin/search', [adminOrderController::class, 'search'])->name('admin.searchOrder');

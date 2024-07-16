@@ -15,9 +15,9 @@ class addressController extends Controller
     {
         $user = Auth::user();
 
-        $addresses = $user->addresses ?? null;
+        $addresses = address::where('userId', $user->id)->get();
 
-        return view('addresses.index', compact('addresses'));
+        return view('addresses.myAddress', compact('addresses'));
     }
 
     public function create()

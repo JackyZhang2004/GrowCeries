@@ -18,6 +18,7 @@ return new class extends Migration
             $table->string('addressDetail', 200);
             $table->string('receiverName', 200)->nullable();
             $table->string('phoneNumber', 13)->nullable();
+            $table->string('status');
             $table->timestamps();
             $table->foreign('userId')->references('id')->on('users')->onUpdate('cascade')->onDelete('cascade');
         });

@@ -35,7 +35,7 @@
                 </div>
                 <div class="timeline-content">
                     <p class="timeline-title">Order Made</p>
-                    <p class="timeline-date">{{ $order->orderDate }} </p>
+                    <p class="timeline-date">{{ $order->created_at }} </p>
                     <br>
                 </div>
             </div>
@@ -46,7 +46,7 @@
                 </div>
                 <div class="timeline-content">
                     <p class="timeline-title">Packing Your Order</p>
-                    <p class="timeline-date">{{ $order->orderDate }}</p>
+                    <p class="timeline-date">{{ $order->created_at }}</p>
                     <br>
                 </div>
             </div>

@@ -58,10 +58,20 @@ img{
     font-size: 20px;
 }
 
+.orderButton:hover{
+    text-decoration: none;
+    color: #3F945A;
+}
+
+.orderButtonMark:hover{
+    text-decoration: none;
+    color: white;
+}
+
 .OrderTitle{
     width: 100%;
     text-align: center;
-    font-size: 35px;
+    font-size: 30px;
     margin: 5vh 0px 5vh 0px;
 }
 
@@ -126,7 +136,7 @@ img{
 }
 
 .button1{
-    width: 20%;
+    width: 25%;
     height: 50%;
     border: 2px;
     text-decoration: none;
@@ -139,8 +149,14 @@ img{
     text-align: center;
 }
 
+.button1:hover{
+    text-decoration: none;
+    color: white;
+    background-color: #3F945A;
+}
+
 .button2{
-    width: 20%;
+    width: 25%;
     height: 50%;
     border: 2px;
     text-decoration: none;
@@ -151,4 +167,10 @@ img{
     background-color: #C20202;
     font-size: 20px;
     text-align: center;
+}
+
+.button2:hover{
+    text-decoration: none;
+    background-color: white;
+    color: #C20202;
 }

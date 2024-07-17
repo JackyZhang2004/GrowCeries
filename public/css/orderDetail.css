@@ -18,41 +18,46 @@ body{
 
 .packing{
     width: 90vw;
-    height: 25vh;
+    height: 35vh;
     margin-left: 5vw;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-}
-
-.top{
-    height: 70%;
-    width: 100%;
+    margin-top: 3vh;
     display: flex;
     flex-direction: row;
     justify-content: center;
-    align-items: center;
+    align-items: first baseline;
 }
 
 .horizontalLineComplete{
-    width: 10%;
+    width: 20vw;
+    height: 10%;
     border-width: 5px;
     border-color: rgb(5, 255, 0);
+    display: flex;
+}
+
+.fullUnit{
+    width: 7vw;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: first baseline;
+    align-items: center;
 }
 
 .iconUnitComplete{
-    width: 60px;
-    height: 60px;
+    width: 7vw;
+    height: 25vh;
     background-color: rgb(5, 255, 0);
     border-radius: 100%;
     display: flex;
     flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
 
 .iconUnitComplete .iconComplete{
-    width: 60px;
-    height: 60px;
+    width: 70px;
+    height: 70px;
     padding: 10px;
     filter: brightness(0) invert(1);
     display: flex;
@@ -61,17 +66,21 @@ body{
 }
 
 .horizontalLine{
-    width: 17%;
+    width: 20vw;
+    height: 10%;
     border-width: 5px;
-    border-color: grey;
+    border-color: gray;
+    display: flex;
 }
 
 .iconUnit{
-    width: 70px;
-    height: 70px;
+    width: 7vw;
+    height: 15vh;
     background-color: grey;
     border-radius: 100%;
     display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .iconUnit .icon{
@@ -95,119 +104,19 @@ body{
     border-radius: 15px;
 }
 
-.bottom{
-    width: 100%;
-    height: 30%;
-    display: flex;
-    flex-direction: row;
-}
-
-.explainUnitPaid{
-    width: 20%;
+.explainUnit{
+    width: 180%;
     height: 100%;
     display: flex;
     flex-direction: column;
     justify-content: first baseline;
     align-items: center;
+    margin-top: 2vh;
 }
+
 
 .productName{
     font-size: 20px;
-}
-
-.explainUnitPacking{
-    width: 20%;
-    height: 100%;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    margin-left: 7%;
-}
-
-.explainUnitShipped{
-    width: 20%;
-    height: 100%;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    margin-left: 7%;
-}
-
-.explainUnitDone{
-    width: 15%;
-    height: 100%;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    margin-left: 9%;
-}
-
-.explainUnitPaid2{
-    width: 12%;
-    font-size:14px;
-    height: 100%;
-    display: flex;
-    flex-direction: column;
-    justify-content: first baseline;
-    align-items: center;
-    margin-left: 6%;
-}
-
-.explainUnitPacking2{
-    width: 12%;
-    font-size:14px;
-    height: 100%;
-    text-align: center;
-    margin-left: 4%;
-
-}
-
-.explainUnitShipped2{
-    width: 12%;
-    font-size:14px;
-    height: 100%;
-    display: flex;
-    flex-direction: column;
-    justify-content: first baseline;
-    align-items: last baseline;
-    margin-left: 7%;
-}
-
-.explainUnitDone2{
-    width: 12%;
-    font-size:14px;
-    height: 100%;
-    display: flex;
-    flex-direction: column;
-    justify-content: first baseline;
-    align-items: last baseline;
-    margin-left: 6%;
-}
-
-.explainUnitRequest2{
-    width: 12%;
-    font-size:14px;
-    height: 100%;
-    display: flex;
-    flex-direction: column;
-    align-items: last baseline;
-    justify-content: first baseline;
-    margin-left: 7%;
-}
-
-.explainUnitRefund2{
-    width: 12%;
-    font-size:14px;
-    height: 100%;
-    display: flex;
-    flex-direction: column;
-    align-items: last baseline;
-    text-align: right;
-    justify-content: first baseline;
-    margin-left: 5%;
 }
 
 .explanation{
@@ -216,8 +125,10 @@ body{
 }
 
 .left{
-    width: 12%;
+    width: 10%;
     height: 100%;
+    margin-right: 2%;
+    margin-left: 2%;
 }
 
 .productImage{

@@ -21,7 +21,7 @@ class ProductSeeder extends Seeder
                 'productPrice' => 4400,
                 'stock' => 15,
                 'variant' => 250,
-                'image' => '',
+                'image' => '/image/productImage/productbayamhijau.png',
                 'created_at' => Carbon::now(),
                 'updated_at' => Carbon::now()
             ],
@@ -31,7 +31,7 @@ class ProductSeeder extends Seeder
                 'productPrice' => 6500,
                 'stock' => 25,
                 'variant' => 250,
-                'image' => '',
+                'image' => '/image/productImage/productbayammerah.png',
                 'created_at' => Carbon::now(),
                 'updated_at' => Carbon::now()
             ],
@@ -41,7 +41,7 @@ class ProductSeeder extends Seeder
                 'productPrice' => 9900,
                 'stock' => 7,
                 'variant' => 100,
-                'image' => '',
+                'image' => '/image/productImage/productbawangmerah.png',
                 'created_at' => Carbon::now(),
                 'updated_at' => Carbon::now()
             ]

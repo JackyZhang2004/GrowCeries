@@ -44,7 +44,7 @@
                     @foreach ($orders as $list)
                         @if ($category == 'Current')
                             @if ($list->orderStatus == 'Packing')
-                                {{ $count += 1 }}
+                                <?php $count += 1; ?>
                                 <div class="OrderUnit">
                                     <div class="unitTop">
                                         <div class="topLeft">
@@ -68,7 +68,7 @@
                                     </div>
                                 </div>
                             @elseif($list->orderStatus == 'Shipped')
-                                {{ $count += 1 }}
+                                <?php $count += 1; ?>
                                 <div class="OrderUnit">
                                     <div class="unitTop">
                                         <div class="topLeft">
@@ -94,7 +94,7 @@
                             @endif
                         @elseif ($category == 'Done')
                             @if ($list->orderStatus == 'Done')
-                                {{ $count += 1 }}
+                                <?php $count += 1; ?>
                                 <div class="OrderUnit">
                                     <div class="unitTop">
                                         <div class="topLeft">
@@ -120,14 +120,14 @@
                             @endif
                         @endif
                     @endforeach
-                    @if (($count == 0 && $category == 'Current') || $category == 'Done')
+                    @if ($count == 0 && ($category == 'Current' || $category == 'Done'))
                         <img src="{{ asset('image/noOrder.png') }}" alt="">
                         <p>No orders found.</p>
                     @endif
                     @if ($category == 'Refund')
                         @foreach ($orders as $list)
                             @if ($list->orderStatus == 'Request Refund')
-                                {{ $count += 1 }}
+                                <?php $count += 1; ?>
                                 <div class="OrderUnit">
                                     <div class="unitTop">
                                         <div class="topLeft">
@@ -152,7 +152,7 @@
                         @endforeach
                         @foreach ($orders as $list)
                             @if ($list->orderStatus == 'Refunded')
-                                {{ $count += 1 }}
+                                <?php $count += 1; ?>
                                 <div class="OrderUnit">
                                     <div class="unitTop">
                                         <div class="topLeft">

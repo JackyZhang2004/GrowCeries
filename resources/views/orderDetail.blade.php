@@ -11,256 +11,285 @@
     <p class="orderId">Order Id : {{ $order->orderId }}</p>
     @if ($order->orderStatus == 'Packing')
         <div class="packing">
-            <div class="top">
+            <div class="fullUnit">
                 <div class="iconUnitComplete">
                     <div class="iconComplete">
                         <img src="{{asset('image/wallet.svg')}}" alt="">
                     </div>
                 </div>
-                <hr class="horizontalLineComplete">
+                <div class="explainUnit">
+                    <p>Order Paid at :</p>
+                    <p class="explanation"> {{$order->created_at}}</p>
+                </div>
+            </div>
+            <hr class="horizontalLineComplete">
+            <div class="fullUnit">
                 <div class="iconUnitComplete">
                     <div class="iconComplete">
                         <img src="{{asset('image/packing.svg')}}" alt="">
                     </div>
                 </div>
-                <hr class="horizontalLineComplete">
-                <div class="iconUnit">
-                    <div class="icon">
-                        <img src="{{asset('image/shipped.svg')}}" alt="">
-                    </div>
-                </div>
-                <hr class="horizontalLine">
-                <div class="iconUnit">
-                    <div class="icon">
-                        <img src="{{asset('image/completedBW.svg')}}" alt="">
-                    </div>
+                <div class="explainUnit">
+                    <p>Packing Your Order</p>
                 </div>
             </div>
-            <div class="bottom">
-                <div class="explainUnitPaid">
-                    <p>Order Paid at :</p>
-                    <p> {{$order->created_at}}</p>
+            <hr class="horizontalLineComplete">
+            <div class="iconUnit">
+                <div class="icon">
+                    <img src="{{asset('image/shipped.svg')}}" alt="">
                 </div>
-                <div class="explainUnitPacking">
-                    <p>Packing Your Order</p>
+            </div>
+            <hr class="horizontalLine">
+            <div class="iconUnit">
+                <div class="icon">
+                    <img src="{{asset('image/completedBW.svg')}}" alt="">
                 </div>
             </div>
         </div>
     @elseif($order->orderStatus == 'Shipped')
         <div class="packing">
-            <div class="top">
+            <div class="fullUnit">
                 <div class="iconUnitComplete">
                     <div class="iconComplete">
                         <img src="{{asset('image/wallet.svg')}}" alt="">
                     </div>
                 </div>
-                <hr class="horizontalLineComplete">
+                <div class="explainUnit">
+                    <p>Order Paid at :</p>
+                    <p class="explanation"> {{$order->created_at}}</p>
+                </div>
+            </div>
+            <hr class="horizontalLineComplete">
+            <div class="fullUnit">
                 <div class="iconUnitComplete">
                     <div class="iconComplete">
                         <img src="{{asset('image/packing.svg')}}" alt="">
                     </div>
                 </div>
-                <hr class="horizontalLineComplete">
+                <div class="explainUnit">
+                    <p class="statusTitle">Packing Your Order</p>
+                </div>
+            </div>
+            <hr class="horizontalLineComplete">
+            <div class="fullUnit">
                 <div class="iconUnitComplete">
                     <div class="iconComplete">
                         <img src="{{asset('image/shipped.svg')}}" alt="">
                     </div>
                 </div>
-                <hr class="horizontalLineComplete">
+                <div class="explainUnit">
+                    <p>Order Shipped</p>
+                    <p class="explanation"> {{$order->deliveryTime}}</p>
+                </div>
+            </div>
+            <hr class="horizontalLineComplete">
+            <div class="fullUnit">
                 <div class="iconUnit">
                     <div class="icon">
                         <img src="{{asset('image/completedBW.svg')}}" alt="">
                     </div>
-                </div>
-            </div>
-            <div class="bottom">
-                <div class="explainUnitPaid">
-                    <p>Order Paid at :</p>
-                    <p class="explanation"> {{$order->created_at}}</p>
-                </div>
-                <div class="explainUnitPacking">
-                    <p>Packing Your Order</p>
-                </div>
-                <div class="explainUnitShipped">
-                    <p>Order Shipped at :</p>
-                    <p class="explanation"> {{$order->deliveryTime}}</p>
                 </div>
             </div>
         </div>
     @elseif($order->orderStatus == 'Done')
         <div class="packing">
-            <div class="top">
+            <div class="fullUnit">
                 <div class="iconUnitComplete">
                     <div class="iconComplete">
                         <img src="{{asset('image/wallet.svg')}}" alt="">
                     </div>
                 </div>
-                <hr class="horizontalLineComplete">
+                <div class="explainUnit">
+                    <p>Order Paid at :</p>
+                    <p class="explanation"> {{$order->created_at}}</p>
+                </div>
+            </div>
+            <hr class="horizontalLineComplete">
+            <div class="fullUnit">
                 <div class="iconUnitComplete">
                     <div class="iconComplete">
                         <img src="{{asset('image/packing.svg')}}" alt="">
                     </div>
                 </div>
-                <hr class="horizontalLineComplete">
+                <div class="explainUnit">
+                    <p class="statusTitle">Packing Your Order</p>
+                </div>
+            </div>
+            <hr class="horizontalLineComplete">
+            <div class="fullUnit">
                 <div class="iconUnitComplete">
                     <div class="iconComplete">
                         <img src="{{asset('image/shipped.svg')}}" alt="">
                     </div>
                 </div>
-                <hr class="horizontalLineComplete">
-                <div class="iconUnitComplete">
-                    <div class="iconComplete">
-                        <img src="{{asset('image/completedBW.svg')}}" alt="">
-                    </div>
+                <div class="explainUnit">
+                    <p>Order Shipped</p>
+                    <p class="explanation"> {{$order->deliveryTime}}</p>
                 </div>
             </div>
-            <div class="bottom">
-                <div class="explainUnitPaid">
-                    <p>Order Paid at :</p>
-                    <p class="explanation"> {{$order->created_at}}</p>
+            <hr class="horizontalLineComplete">
+            <div class="fullUnit">
+                <div class="iconUnitComplete">
+                    <div class="iconComplete">
+                        <img src="{{asset('image/completed.svg')}}" alt="">
+                    </div>
                 </div>
-                <div class="explainUnitPacking">
-                    <p>Packing Your Order</p>
-                </div>
-                <div class="explainUnitShipped">
-                    <p>Order Shipped at :</p>
-                    <p class="explanation"> {{$order->deliveryTime}}</p>
-                </div>
-                <div class="explainUnitDone">
-                    <p>Order Completed</p>
-                    <p class="explanation"> {{$order->deliveryTime}}</p>
+                <div class="explainUnit">
+                    <p>Order is Arrived</p>
+                    <p class="explanation"> {{$order->droppeddatetime}}</p>
                 </div>
             </div>
         </div>
     @elseif($order->orderStatus == 'Request Refund')
         <div class="packing">
-            <div class="top">
+            <div class="fullUnit">
                 <div class="iconUnitComplete">
                     <div class="iconComplete">
                         <img src="{{asset('image/wallet.svg')}}" alt="">
                     </div>
                 </div>
-                <hr class="horizontalLineComplete">
+                <div class="explainUnit">
+                    <p>Order Paid at :</p>
+                    <p class="explanation"> {{$order->created_at}}</p>
+                </div>
+            </div>
+            <hr class="horizontalLineComplete">
+            <div class="fullUnit">
                 <div class="iconUnitComplete">
                     <div class="iconComplete">
                         <img src="{{asset('image/packing.svg')}}" alt="">
                     </div>
                 </div>
-                <hr class="horizontalLineComplete">
+                <div class="explainUnit">
+                    <p class="statusTitle">Packing Your Order</p>
+                </div>
+            </div>
+            <hr class="horizontalLineComplete">
+            <div class="fullUnit">
                 <div class="iconUnitComplete">
                     <div class="iconComplete">
                         <img src="{{asset('image/shipped.svg')}}" alt="">
                     </div>
                 </div>
-                <hr class="horizontalLineComplete">
+                <div class="explainUnit">
+                    <p>Order Shipped</p>
+                    <p class="explanation"> {{$order->deliveryTime}}</p>
+                </div>
+            </div>
+            <hr class="horizontalLineComplete">
+            <div class="fullUnit">
                 <div class="iconUnitComplete">
                     <div class="iconComplete">
-                        <img src="{{asset('image/completedBW.svg')}}" alt="">
+                        <img src="{{asset('image/completed.svg')}}" alt="">
                     </div>
                 </div>
-                <hr class="horizontalLineComplete">
+                <div class="explainUnit">
+                    <p>Order is Arrived</p>
+                    <p class="explanation"> {{$order->droppeddatetime}}</p>
+                </div>
+            </div>
+            <hr class="horizontalLineComplete">
+            <div class="fullUnit">
                 <div class="iconUnitComplete">
                     <div class="iconComplete">
                         <img src="{{asset('image/requestRefund.svg')}}" alt="">
                     </div>
                 </div>
-                <hr class="horizontalLineComplete">
-                <div class="iconUnit">
-                    <div class="icon">
-                        <img src="{{asset('image/refunded.svg')}}" alt="">
-                    </div>
-                </div>
-            </div>
-            <div class="bottom">
-                <div class="explainUnitPaid2">
-                    <p>Order Paid at :</p>
-                    <p class="explanation"> {{$order->created_at}}</p>
-                </div>
-                <div class="explainUnitPacking2">
-                    <p>Packing Your Order</p>
-                </div>
-                <div class="explainUnitShipped2">
-                    <p>Order Shipped at :</p>
+                <div class="explainUnit">
+                    <p>Refund in Progress</p>
                     <p class="explanation"> {{$order->deliveryTime}}</p>
                 </div>
-                <div class="explainUnitDone2">
-                    <p>Order Completed</p>
-                    <p class="explanation"> {{$order->droppeddatetime}}</p>
-                </div>
-                <div class="explainUnitRequest2">
-                    <p>Refund In-Progress</p>
+            </div>
+            <hr class="horizontalLineComplete">
+            <div class="fullUnit">
+                <div class="iconUnit">
+                    <div class="icon">
+                        <img src="{{asset('image/completed.svg')}}" alt="">
+                    </div>
                 </div>
             </div>
         </div>
     @elseif($order->orderStatus == 'Refunded' || $order->orderStatus == 'Rejected')
         <div class="packing">
-            <div class="top">
+            <div class="fullUnit">
                 <div class="iconUnitComplete">
                     <div class="iconComplete">
                         <img src="{{asset('image/wallet.svg')}}" alt="">
                     </div>
                 </div>
-                <hr class="horizontalLineComplete">
+                <div class="explainUnit">
+                    <p>Order Paid at :</p>
+                    <p class="explanation"> {{$order->created_at}}</p>
+                </div>
+            </div>
+            <hr class="horizontalLineComplete">
+            <div class="fullUnit">
                 <div class="iconUnitComplete">
                     <div class="iconComplete">
                         <img src="{{asset('image/packing.svg')}}" alt="">
                     </div>
                 </div>
-                <hr class="horizontalLineComplete">
+                <div class="explainUnit">
+                    <p class="statusTitle">Packing Your Order</p>
+                </div>
+            </div>
+            <hr class="horizontalLineComplete">
+            <div class="fullUnit">
                 <div class="iconUnitComplete">
                     <div class="iconComplete">
                         <img src="{{asset('image/shipped.svg')}}" alt="">
                     </div>
                 </div>
-                <hr class="horizontalLineComplete">
+                <div class="explainUnit">
+                    <p>Order Shipped</p>
+                    <p class="explanation"> {{$order->deliveryTime}}</p>
+                </div>
+            </div>
+            <hr class="horizontalLineComplete">
+            <div class="fullUnit">
                 <div class="iconUnitComplete">
                     <div class="iconComplete">
-                        <img src="{{asset('image/completedBW.svg')}}" alt="">
+                        <img src="{{asset('image/completed.svg')}}" alt="">
                     </div>
                 </div>
-                <hr class="horizontalLineComplete">
+                <div class="explainUnit">
+                    <p>Order is Arrived</p>
+                    <p class="explanation"> {{$order->droppeddatetime}}</p>
+                </div>
+            </div>
+            <hr class="horizontalLineComplete">
+            <div class="fullUnit">
                 <div class="iconUnitComplete">
                     <div class="iconComplete">
                         <img src="{{asset('image/requestRefund.svg')}}" alt="">
                     </div>
                 </div>
-                <hr class="horizontalLineComplete">
-                <div class="iconUnitComplete">
-                    <div class="iconComplete">
-                        @if ($order->orderStatus == 'Refunded')
-                            <img src="{{asset('image/refunded.svg')}}" alt="">
-                        @elseif($order->orderStatus == 'Rejected')
-                            <img src="{{asset('image/rejected.svg')}}" alt="">
-                        @endif
-                    </div>
-                </div>
-            </div>
-            <div class="bottom">
-                <div class="explainUnitPaid2">
-                    <p>Order Paid at :</p>
-                    <p class="explanation"> {{$order->created_at}}</p>
-                </div>
-                <div class="explainUnitPacking2">
-                    <p>Packing Your Order</p>
-                </div>
-                <div class="explainUnitShipped2">
-                    <p>Order Shipped at :</p>
+                <div class="explainUnit">
+                    <p>Refund in Progress</p>
                     <p class="explanation"> {{$order->deliveryTime}}</p>
                 </div>
-                <div class="explainUnitDone2">
-                    <p>Order Completed</p>
-                    <p class="explanation"> {{$order->droppeddatetime}}</p>
-                </div>
-                <div class="explainUnitRequest2">
-                    <p>Refund In Progress</p>
-                </div>
-                <div class="explainUnitRefund2">
-                    @if ($order->orderStatus == 'Refunded')
+            </div>
+            <hr class="horizontalLineComplete">
+            <div class="fullUnit">
+                @if ($order->orderStatus == 'Refunded')
+                    <div class="iconUnitComplete">
+                        <div class="iconComplete">
+                            <img src="{{asset('image/refunded.svg')}}" alt="">
+                        </div>
+                    </div>
+                    <div class="explainUnit">
                         <p>Refunded</p>
-                    @elseif($order->orderStatus == 'Rejected')
-                        <p>Rejected</p>
-                    @endif
-                </div>
+                    </div>
+                @elseif ($order->orderStatus == 'Rejected')
+                    <div class="iconUnitComplete">
+                        <div class="iconComplete">
+                            <img src="{{asset('image/rejected.svg')}}" alt="">
+                        </div>
+                    </div>
+                    <div class="explainUnit">
+                        <p>Request Rejected</p>
+                    </div>
+                @endif
             </div>
         </div>
     @endif
@@ -270,7 +299,7 @@
         @foreach ($orderDetail as $detail)
             <div class="unit">
                 <div class="left">
-                    <img src="{{ asset('image/apel.png') }}" alt="" class="productImage">
+                    <img src="{{ $detail->product->getImageURL() }}" alt="" class="productImage">
                 </div>
                 <div class="mid">
                     <p class="productName">{{ $detail->product->productName }}</p>

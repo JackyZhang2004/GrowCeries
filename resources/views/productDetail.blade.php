@@ -51,7 +51,7 @@
             </div>
         </div>
         <div class="details">
-            <button class="accordion">Details</button>
+            <button class="accordion" style="font-size:1.5rem;font-weight:bold">Details</button>
             <div class="panel">
                 <div class="row">
                     <div class="col-sm">
@@ -71,7 +71,7 @@
                 </div>
             </div>
 
-            <button class="accordion">Nutrition Information</button>
+            <button class="accordion" style="font-size:1.5rem;font-weight:bold">Nutrition Information</button>
             <div class="panel">
                 <div class="row">
                     <div class="col-sm">

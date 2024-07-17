@@ -16,6 +16,7 @@ return new class extends Migration
             $table->unsignedBigInteger('orderId');
             $table->string('content', 255);
             $table->string('image', 255);
+            $table->timestamp('refundedtime')->nullable();
             $table->timestamps();
             $table->foreign('orderId')->references('orderId')->on('transactionHeader')->onUpdate('cascade')->onDelete('cascade');
         });

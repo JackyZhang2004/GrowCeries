@@ -5,6 +5,7 @@ namespace App\Http\Controllers\admin;
 use App\Http\Controllers\Controller;
 use App\Models\order;
 use App\Models\orderList;
+use App\Models\Refund;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -45,6 +46,10 @@ class OrderController extends Controller
 
         $order->orderStatus = 'Refunded';
         $order->save();
+        
+        $refund = Refund::where('orderId', $id)->first();
+        $refund->refundedtime = Carbon::now();
+        $refund->save();
 
         return redirect()->route('admin.home');
 
@@ -55,6 +60,10 @@ class OrderController extends Controller
 
         $order->orderStatus = 'Rejected';
         $order->save();
+
+        $refund = Refund::where('orderId', $id)->first();
+        $refund->refundedtime = Carbon::now();
+        $refund->save();
 
         return redirect()->route('admin.home');
 

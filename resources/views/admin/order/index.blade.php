@@ -60,7 +60,7 @@
                                     <div class="topMid">
                                         <p class="status">Order Id : {{ $list->orderId }} </p>
                                         <p class="status">Order is being {{ $list->orderStatus }}</p>
-                                        <p class="purchaseDate">Purchased at {{ $list->orderDate }}</p>
+                                        <p class="purchaseDate">Purchased at {{ $list->created_at }}</p>
                                         <p class="productPurchased mb-1">Item Buyed : {{ $list->orderList->count() }}</p>
                                     </div>
                                     <div class="topRight">
@@ -92,7 +92,7 @@
                                     <div class="topMid">
                                         <p class="status">Order Id : {{ $list->orderId }} </p>
                                         <p class="status">Order is Arrived</p>
-                                        <p class="purchaseDate">Purchased at {{ $list->orderDate }}</p>
+                                        <p class="purchaseDate">Purchased at {{ $list->created_at }}</p>
                                         <p class="productPurchased mb-1">Item Buyed : {{ $list->orderList->count() }}</p>
                                     </div>
                                     <div class="topRight">
@@ -128,7 +128,7 @@
                                         <div class="topMid">
                                             <p class="status">Order Id : {{ $list->orderId }} </p>
                                             <p class="status">Refund Have Been Requested</p>
-                                            <p class="purchaseDate">Purchased at {{ $list->orderDate }}</p>
+                                            <p class="purchaseDate">Purchased at {{ $list->created_at }}</p>
                                             <p class="productPurchased mb-1">Item Buyed : {{ $list->orderList->count() }}
                                             </p>
                                         </div>
@@ -165,7 +165,7 @@
                                         <div class="topMid">
                                             <p class="status">Order Id : {{ $list->orderId }} </p>
                                             <p class="status">Refund Have Already Been Refunded</p>
-                                            <p class="purchaseDate">Purchased at {{ $list->orderDate }}</p>
+                                            <p class="purchaseDate">Purchased at {{ $list->created_at }}</p>
                                             <p class="productPurchased mb-1">Item Buyed : {{ $list->orderList->count() }}
                                             </p>
                                         </div>
@@ -188,7 +188,7 @@
                                         <div class="topMid">
                                             <p class="status">Order Id : {{ $list->orderId }} </p>
                                             <p class="status">Refund is Rejected</p>
-                                            <p class="purchaseDate">Purchased at {{ $list->orderDate }}</p>
+                                            <p class="purchaseDate">Purchased at {{ $list->created_at }}</p>
                                             <p class="productPurchased mb-1">Item Buyed : {{ $list->orderList->count() }}
                                             </p>
                                         </div>

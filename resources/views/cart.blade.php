@@ -73,9 +73,11 @@
                                             <button type="button" class="btn btn-outline-success quantityBtn">+</button>
                                         </p> --}}
                                     </div>
-                                    <p>
-                                        <button class="deleteButton" type="button"> Delete </button>
-                                    </p>
+                                    <form method="POST" action="{{ route('cart.destroy',$cartItem->product->productId) }}">
+                                        @csrf
+                                        @method('delete')
+                                        <button class="deleteButton"> Delete </button>
+                                    </form>
                                 </div>
                             </div>   
                         @else

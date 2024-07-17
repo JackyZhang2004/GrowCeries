@@ -16,14 +16,14 @@ function validateForm(){
 
     // alert('clicked');
 
-    let paymentOptions = document.getElementsByName('optionPayment');
-    let paymentSelected = false;
-            for (let option of paymentOptions) {
-                if (option.checked) {
-                    paymentSelected = true;
-                    break;
-                }
-            }
+    // let paymentOptions = document.getElementsByName('optionPayment');
+    // let paymentSelected = false;
+    //         for (let option of paymentOptions) {
+    //             if (option.checked) {
+    //                 paymentSelected = true;
+    //                 break;
+    //             }
+    //         }
 
     if(address === 'No address found. Please add an address in your profile.'){
             window.scroll({
@@ -31,20 +31,20 @@ function validateForm(){
             left: 0, 
             behavior: 'smooth'});
     }
-    else if (address !== 'No address found. Please add an address in your profile.' && paymentSelected ){
-        showPopup();
-    }
+    // else if (address !== 'No address found. Please add an address in your profile.' && paymentSelected ){
+    //     showPopup();
+    // }
 }
 
-function showPopup() {
-    document.getElementById('popup-overlay').style.display = 'block';
-    document.getElementById('popup').style.display = 'block';
-}
+// function showPopup() {
+//     document.getElementById('popup-overlay').style.display = 'block';
+//     document.getElementById('popup').style.display = 'block';
+// }
 
-function closePopup() {
-    document.getElementById('popup-overlay').style.display = 'none';
-    document.getElementById('popup').style.display = 'none';
-}
+// function closePopup() {
+//     document.getElementById('popup-overlay').style.display = 'none';
+//     document.getElementById('popup').style.display = 'none';
+// }
 
 // Calculate total on page load
 document.addEventListener('DOMContentLoaded', calculateTotal);

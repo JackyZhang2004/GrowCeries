@@ -63,14 +63,20 @@ class cartController extends Controller
             }
         }
 
+        $countitemdikurangin = 0;
+
         foreach ($cartItems as $cartItem) {
             $product = Product::where('productId', $cartItem->productId)->first();
     
-            if ($product && $cartItem->quantity > $product->stock) {
+            if ($product && $cartItem->quantity > $product->stock && $product->stock > 0) {
                 $cartItem->quantity = $product->stock;
                 $cartItem->save();
+                $countitemdikurangin++;
             }
-            
+        }
+
+        if ($countitemdikurangin > 0) {
+            return redirect()->route('cart')->with('success', 'Some products in your cart have been updated due to stock changes');
         }
 
         return view('cart', compact('count', 'cartItems', 'deliveryTimes'));
@@ -87,17 +93,23 @@ class cartController extends Controller
 
         $userId = $user->id;
 
-        // Ensure the user has a cart
+        $product = Product::where('productId', $productId)->first();
+    
+        if (!$product) {
+            return redirect()->back()->with('error', 'Product not found.');
+        }
+    
+        if ($product->stock <= 0) {
+            return redirect()->back()->with('error', 'Product is out of stock.');
+        }
+
         $cart = cart::firstOrCreate(['userId' => $userId]);
 
-        // Check if the product already exists in the user's cart
         $cartItem = cartList::where('cartId', $cart->cartId)->where('productId', $productId)->first();
 
         if ($cartItem) {
-            // If the product exists, increment the quantity
             $cartItem->quantity += 1;
         } else {
-            // If the product does not exist, create a new cart entry
             $cartItem = new cartList([
                 'cartId' => $cart->cartId,
                 'productId' => $productId,
@@ -121,7 +133,7 @@ class cartController extends Controller
         $userId = $user->id;
         $cart = Cart::firstOrCreate(['userId' => $userId]);
         $cartItem = CartList::where('cartId', $cart->cartId)->where('productId', $id)->first();
-        $product = Product::find($id); // Assuming you have a Product model
+        $product = Product::where('productId', $id)->first(); 
 
         if (!$product) {
             return redirect()->back()->with('error', 'Product not found.');

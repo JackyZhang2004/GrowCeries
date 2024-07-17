@@ -59,11 +59,11 @@
 
                     <div class="priceDetail">
                         <span>Packaging Costs</span>
-                        <span id="packagingCosts">Rp {{ number_format(1000, 0, ',', '.') }}</span>
+                        <span id="packagingCosts" style="margin-right: 15px">Rp {{ number_format(1000, 0, ',', '.') }}</span>
                     </div>
                     <div class="priceDetail">
                         <span>Total Price</span>
-                        <span id="totalPayment" style="color: red;font-size:1.6rem">Rp
+                        <span id="totalPayment" style="color: red;font-size:1.3rem;margin-right: 15px">Rp
                             {{ number_format($totalPayment, 0, ',', '.') }}</span>
                     </div>
                 </div>
@@ -87,7 +87,7 @@
                 <span class="error text-danger">{{ $message }}</span> <br>
             @enderror
 
-            <button type="submit"> Click</button>
+            <button type="submit" class="submitButton">Submit Refund</button>
         </form>
 
     </div>

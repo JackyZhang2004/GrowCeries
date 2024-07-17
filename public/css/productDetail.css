@@ -169,3 +169,38 @@
     width: 100%;
     height: auto;
 }
+
+
+.details .row .col-sm p {
+    display: flex;
+    justify-content: start;
+    align-items: center;
+}
+
+.details .row .col-sm p .label {
+    min-width: 120px; /* Adjust this value as needed */
+    display: inline-block;
+    text-align: left;
+    margin-right: 5px;
+}
+
+.details .row .col-sm p .colon {
+    width: 10px; /* Adjust this value as needed */
+    text-align: center;
+    margin-right: 5px;
+}
+
+.details .row .col-sm p .value {
+    flex: 1;
+    text-align: left;
+    margin-right: 5px;
+}
+
+.details .row .col-sm p .unit {
+    width: 30px; /* Adjust this value as needed */
+    text-align: left;
+}
+
+.details .row .col-sm {
+    padding: 5px 15px;
+}

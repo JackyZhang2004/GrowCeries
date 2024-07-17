@@ -91,7 +91,6 @@ class checkOutController extends Controller
          );
 
       };
-      return redirect()->route('home');
-
+      return redirect()->route('home')->with('success', 'Succesfully placed your order. Your order is in the process of being packed');
    }
 }

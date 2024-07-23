@@ -7,36 +7,119 @@
 @section('title', 'Profile Page')
 
 @section('content')
-    <div class="banner-faq">
-        <div class="banner">
+    <div class="banner-prof">
+        <div class="picture-container">
             <img src="{{ $user->image() }}" alt="PROFILE PICTURE" class="full-img">
+            <img class="editClick cursor" id="editPict" src="../image/editIcon.png" alt="" onclick="openModal()">
         </div>
     </div>
-
+    <form action="{{ route('picture.updatePicture') }}" method="POST">
+        <div id="myModal" class="modal">
+            <div class="modal-content">
+                <div class="top" id="top">
+                    <p class="head2">Profile Picture</p>
+                    <span class="close cursor" onclick="closeModal()"
+                        style="font-family: Arial, Helvetica, sans-serif">x</span>
+                </div>
+                <input name="image"type="file" class="form-controlx">
+                @error('image')
+                    <p style="color: red; font-size: 1vw">Please choose your new profile picture!</p>
+                @enderror
+                <button type="submit" class="btn btn-secondary" style="background-color: green">Change Profile
+                    Picture</button>
+            </div>
+        </div>
+    </form>
     <br>
     <div class="personalData">
-        <h1>Personal Data</h1>
-        <span class="data" id="name">
-            <p>{{ $user->name }}</p>
-            <a href=""><img src="" alt=""></a>
-        </span>
-        <br>
-        @if ($user->gender)
-            <span class="data" id="gender">{{ $user->gender }}</span>
+        @if ($editingPersonalData ?? false)
+            <form action="{{ route('picture.updatePicture') }}" method="POST">
+                <div class="top">
+                    <p class="head2">Personal Data</p>
+                    <a class="editClick" href="{{ route('profile') }}"><img src="../image/cancelEditIcon.png"
+                            alt=""></a>
+                </div>
+
+                <p class="head3E">Name</p>
+                <input class="dataE" name="name" value="{{ $user->name }}" type="text">
+                @error('name')
+                    <p style="color: red; font-size: 1vw">Please input your name!</p>
+                @enderror
+
+                <p class="head3E">Gender</p>
+                <select class ="dataE" name="gender" id="gender">
+                    @if ($user->gender)
+                        <option value="{{ $user->gender }}" disabled selected hidden>{{ $user->gender }}</option>
+                    @else
+                        <option value="" disabled selected hidden>Not set yet</option>
+                    @endif
+                    <option value="Laki - Laki">Laki - Laki</option>
+                    <option value="Perempuan">Perempuan</option>
+                </select>
+
+                <p class="head3E">Phone Number</p>
+                <input class="dataE" name="phone" value="{{ $user->phoneNumber }}"type="text">
+                @error('phone')
+                    <p style="color: red; font-size: 1vw">Please input your phone number!</p>
+                @enderror
+
+                <p class="head3E">E-mail</p>
+                <input class="dataE" name="email" value="{{ $user->email }}"type="text">
+                @error('email')
+                    <p style="color: red; font-size: 1vw">Please input your e-mail!</p>
+                @enderror
+
+                <button type="submit" class="btn btn-secondary" style="background-color: green">Save Changes</button>
+            </form>
         @else
-            <span class="data" id="gender">not set yet</span>
+            <div class="top">
+                <p class="head2">Personal Data</p>
+                <a class="editClick" href="{{ route('profile.editPersonalData') }}"><img src="../image/editIcon.png"
+                        alt=""></a>
+            </div>
+
+            <p class="head3">Name</p>
+            <span class="data">
+                <p>{{ $user->name }}</p>
+            </span>
+
+            <p class="head3">Gender</p>
+            @if ($user->gender)
+                <span class="data">{{ $user->gender }}</span>
+            @else
+                <span class="data">not set yet</span>
+            @endif
+
+            <p class="head3">Phone Number</p>
+            <span class="data">{{ $user->phoneNumber }}</span>
+            
+            <p class="head3">E-mail</p>
+            <span class="data">{{ $user->email }}</span>
         @endif
-        <br>
-        <span class="data" id="phone">{{ $user->phoneNumber }}</span>
-        <br>
-        <span class="data" id="phone">{{ $user->email }}</span>
     </div>
+    <br>
     <div class="address">
-        <h1>Address</h1>
-        <span class="data" id="phone"></span>
+        <div class="top">
+            <p class="head2">Address</p>
+            <a class="editClick" href="{{ route('profile.editPersonalData') }}"><img src="../image/editIcon.png"
+                    alt=""></a>
+        </div>
+        <p class="head3">Main Address</p>
+        <span class="data" id="address">{{ $user->addresses->first()->addressName }},
+            {{ $user->addresses->first()->addressDetail }}</span>
     </div>
+    <br>
 @endsection
 
 @section('script')
+    {{-- <script>
+        function openModal() {
+            document.getElementById("myModal").style.display = "block";
+        }
 
+        function closeModal() {
+            document.getElementById("myModal").style.display = "none";
+        }
+    </script> --}}
+    <script src="{{ asset('js/profile.js') }}"></script>
 @endsection

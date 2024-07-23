@@ -42,6 +42,7 @@ Route::get('discover', [discoverController::class, 'index'])->name('discover');
 
 Route::get('contact-us', function () {return view('contactUs');})->name('contactUs');
 
+
 Route::get('order/{category?}', [orderController::class, 'index', ($category = "Current")])->name('order');
 Route::get('orderdetail/{id}}', [orderController::class, 'detail'])->name('orderDetail');
 Route::get('deleteOrder/{id}}', [orderController::class, 'delete'])->name('deleteOrder');
@@ -71,7 +72,11 @@ Route::get('/addresses/{address}', [addressController::class, 'destroy'])->name(
 
 // Route::get('/refund/{id}', [orderController::class, 'refund'])->name('order.refund');
 Route::post('/refund/store/{id}', [orderController::class, 'storerefund'])->name('order.storeRefund');
+
 Route::get('/profile', [profileController::class,'index'])->name('profile');
+Route::get('/profile/edit', [profileController::class,'editPersonalData'])->name('profile.editPersonalData');
+Route::get('/profile/update', [profileController::class,'updatePicture'])->name('profile.updatePicture');
+Route::get('/profile/update', [profileController::class,'updatePersonalData'])->name('profile.updatePersonalData');
 
 
 

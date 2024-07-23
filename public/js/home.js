@@ -50,7 +50,7 @@ function filterFunction() {
 
     // Display "not found" message if no items are found
     if (foundCount === 0 && filter.length > 0) {
-        div.innerHTML = '<p class="m-2" style="color: #050505;">No matching results found.</p>';
+        div.innerHTML = '<p class="m-2" style="color: #050505;margin:0px; background-color: "white";">No matching results found.</p>';
     }
 }
 

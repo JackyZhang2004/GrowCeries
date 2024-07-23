@@ -12,8 +12,8 @@
       <a href="{{ route('productDetail', ['id'=>$product->productId]) }}" class="productDetailButton">
         <p class="card-title h5">{{$product->productDetail->productName}}</p>
       </a>
-      <a href="{{ route('productDetail', ['id'=>$product->productId]) }}" class="productDetailButton">
-        <p class="text-muted card-text varianttext">{{$product->productDetail->variant}}</p>
+      <a href="{{ route('productDetail', ['id'=>$product->productDetailId]) }}" class="productDetailButton">
+        <p class="text-muted card-text varianttext">{{$product->variant}}gr</p>
       </a>
       <a href="{{ route('productDetail', ['id'=>$product->productId]) }}" class="productDetailButton">
         <p class="card-text productPrice">Rp {{$product->productPrice}}</p>

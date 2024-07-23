@@ -4,7 +4,7 @@
     flex-direction: row;
     justify-content: center;
     align-items: center;
-
+    height: 7vh;
 }
 .search_container{
     width: 53%;
@@ -20,7 +20,7 @@
     width: 65%;
     height: 100%;
     border: none;
-    font-size: 22px;
+    font-size: 18px;
 }
 input:focus{
     outline: none;
@@ -30,19 +30,19 @@ input:focus{
 
 #magnifying{
   margin-right: 1vw;
-  font-size: 30px;
+  font-size: 24px;
 }
 .searchButton{
     background-color: green;
     color: aliceblue;
-    width: 20%;
-    height: 80%;
+    width: 14%;
+    height: 70%;
     margin-left: 2vw;
     border-radius: 22px;
-    font-size: 22px;
+    font-size: 17px;
 }
 .result_box{
-    width: 100vw;
+    width: 100%;
     /* background-color: bisque; */
     /* height: 20vh; */
     display: flex;
@@ -94,6 +94,10 @@ padding-left: 1vw;
     border-right: 1px black solid;
     padding-top: 1vh;
     overflow: hidden;
+    width: 42vw;
+}
+.result_field p{
+    font-size: 20px;
 }
 .dropdown-content{
     display: none;
@@ -120,4 +124,35 @@ padding-left: 1vw;
 
 .separator{
     padding: 7px;
+}
+.m-2{
+    margin: 0px !important;
+    background-color: white;
+    border-radius: 0px 0px 24px 24px;
+    width: 42vw;
+    /* height: 5vh; */
+    font-size: 16px;
+    padding: 1.4vh 1.8vw;
+    border: 1.5px solid black;
+    border-top: none;
+}
+
+.bi-search {
+    /* margin-right: 1vw; */
+
+    margin-left: 0.5vw;
+    font-size: 20px;
+    font-weight: 10;
+    padding-top: 6px;
+    margin-right: 0.5vw;
+}
+.media{
+    padding: 4px 0px;
+}
+a:hover{
+    text-decoration: none !important;
+    color: black;
+}
+.bi-search:hover{
+    color: black;
 }

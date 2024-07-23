@@ -305,7 +305,7 @@ html{
     display: flex;
     width: 100%;
     align-items: center;
-    padding: 5px;
+    /* padding: 5px; */
     position: absolute;
 }
 
@@ -313,30 +313,42 @@ html{
     flex-grow: 1; /* Allow the input to take available space */
     height: 100%;
     border: none;
-    font-size: 25px;
+    font-size: 19px;
     padding-left: 10px; /* Padding for better alignment */
     box-sizing: border-box; /* Include padding in width */
+    width: 20%;
 }
 
 
 .bi-search {
     /* margin-right: 1vw; */
+
     margin-left: 1vw;
-    font-size: 30px;
+    font-size: 22px;
+    font-weight: 10;
+}
+.bi-search:hover{
+    color: bl;
+}
+#magnifying2{
+    /* margin-right: 1vw; */
+    margin-left: 1vw;
+    font-size: 19px;
     font-weight: 10;
 }
 
 .search_button {
-    width: 30%;
+    width: 20%;
     border-radius: 24px;
     background-color: rgba(136,148,63,255);
-    font-size: 1.4rem;
+    font-size: 18px;
     color: white;
     cursor: pointer; /* Pointer cursor on hover */
     height: 100%; /* Make the button the same height as the input */
     display: flex;
     align-items: center;
     justify-content: center;
+    margin-right: 1.2vw;
 }
 
 .result_box {
@@ -356,12 +368,15 @@ html{
     width: 25.5vw;
     border-radius: 0 0 24px 24px;
     background-color: white;
-    border: 1px solid black;
+    /* border: 1px solid black; */
     border-top: 0;
     padding-top: 1vh;
     overflow: hidden;
 }
-
+.result_field p{
+    margin-left: 0.8vw;
+    font-size: 18px;
+}
 .centered_box {
     width: 85%;
     height: 65%;
@@ -393,18 +408,41 @@ input:focus {
     font-size: 24px;
     cursor: pointer;
 }
-    
+
 .percontent:hover{
     background-color: rgb(158, 222, 158);
 }
 
-.form-control::placeholder{
-    font-size: 18px;    
-}
 
+.form-control{
+    padding: 0px;
+}
+.form-control::placeholder{
+    font-size: 17px;
+}
 .form-control:focus {
     border-color: #ced4da; /* default B5 color or set your own color*/
     border: none !important; /* if you want to remove borders at all*/
     outline: none !important;
     box-shadow: none !important;
+}
+.m-2{
+    margin: 0px !important;
+    background-color: white;
+    border-radius: 0px 0px 24px 24px;
+    width: 25.5vw;
+    /* height: 5vh; */
+    font-size: 16px;
+    padding: 1.4vh 1.8vw;
+}
+
+.media{
+    padding: 2px 0px;
+}
+a:hover{
+    text-decoration: none !important;
+    color: black;
+}
+.bi-search:hover{
+    color: black;
 }

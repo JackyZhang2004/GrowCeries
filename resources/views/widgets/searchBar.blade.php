@@ -21,14 +21,14 @@
                 <div id="myDropdown" class="dropdown-content">
                     <div class="result_field">
                         @foreach ($products_all as $product)
-                        <div name="search_Input" class="percontent">
-                            <a href="">
+                        <a href="{{ route('productDetail', ['id'=>$product->productDetailId]) }}">
+                            <div name="search_Input" class="percontent">
                                 <div id="result_field" class="media flex-wrap w-100 align-items-centerr">
                                     <i class="bi bi-search" id="magnifying2" style="color: #050505 solid"></i>
-                                    <p class="ml-23" style="color: #050505">{{ $product->productDetail->productName }}</p>
+                                    <p class="ml-23" style="color: #050505">{{ $product->productDetail->productName }} {{$product->variant}}gr</p>
                                 </div>
-                            </a>
-                        </div>
+                            </div>
+                        </a>
                         @endforeach
                     </div>
                 </div>

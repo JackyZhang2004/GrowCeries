@@ -100,12 +100,17 @@
 
 .categorylist{
     margin-top: 20px;
-    width: 8vw;
+    width: 10vw;
 }
 
 .categorylist label{
     display: block;
-    padding: 2px 0px;
+    text-align: left;
+    /* padding: 2px 0px 2px 0px; */
+    /* padding-left: 0.5vw; */
+}
+.category_label input{
+ margin-right: 0.6vw;
 }
 
 .offcanvas-header h1{

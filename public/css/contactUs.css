@@ -182,3 +182,37 @@
     width: calc(100%-10vw);
     margin-right: 8.5vw;
 }
+
+.faq-box .question
+{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 15px;
+    padding-bottom: 10px;
+    font-size: 15px;
+}
+
+.answer{
+    max-height: 0px;
+    overflow: hidden;
+    transition: max-height 1.4s ease;
+}
+
+.plus{
+    transition: 1.4s;
+}
+
+.faq-box p{
+    font-size: 15px;
+    transition: max-height 1.4s ease;
+}
+
+.faq-box .question svg{
+    cursor: pointer;
+}
+
+
+.faq-box hr{
+    border: 1px solid;
+}

@@ -14,6 +14,7 @@ use App\Http\Controllers\admin\ProfileController as adminProfileController;
 use App\Http\Controllers\authController;
 use App\Http\Controllers\cartController;
 use App\Http\Controllers\checkOutController;
+use App\Http\Controllers\contactUsController;
 use App\Http\Controllers\discoverController;
 use App\Http\Controllers\orderController;
 use App\Http\Controllers\productController;
@@ -40,7 +41,8 @@ Route::get('product/{id}', [productController::class, 'productDetails'])->name('
 
 Route::get('discover', [discoverController::class, 'index'])->name('discover');
 
-Route::get('contact-us', function () {return view('contactUs');})->name('contactUs');
+Route::get('contactUs', [contactUsController::class, 'contactUs'])->name('contactUs');
+Route::post('submit-form', [contactUsController::class, 'submitForm'])->name('submitForm');
 
 
 Route::get('order/{category?}', [orderController::class, 'index', ($category = "Current")])->name('order');

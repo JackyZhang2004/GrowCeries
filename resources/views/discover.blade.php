@@ -37,10 +37,10 @@
                 <div class="filterbox">
                     <h2>Category</h2>
                     <div class="categorylist">
-                        <label name='sayur'  for="category-sayur">
+                        <label name='sayur' class="category_label"  for="category-sayur">
                             <input type="checkbox" name="sayur" id="category-sayur">Vegetable
                         </label>
-                        <label name='buah' for="category-buah">
+                        <label name='buah' class="category_label" for="category-buah">
                             <input type="checkbox" name="buah" id="category-buah">Fruit
                         </label>
                     </div>

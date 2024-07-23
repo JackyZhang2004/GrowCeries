@@ -9,8 +9,13 @@ use Illuminate\Http\Request;
 class userController extends Controller
 {
     public function index(){
-        $users = User::orderBy('created_at', 'asc')->paginate(4);
+        $users = User::where('userType', 'Customer');
         return view('admin.users.index', compact('users'));
     }
     
+    public function banUsers($id){
+        $user = User::where($id, 'userId')->get();
+        $user->delete();
+        redirect(route('admin.users'));
+    }
 }

@@ -90,6 +90,7 @@ Route::group(['prefix' => 'admin'], function () {
         Route::get('home', [adminHomeController::class, 'index'])->name('admin.home');
         Route::post('logout', [adminLoginController::class, 'logout'])->name('admin.logout');
         Route::get('users', [adminUserController::class, 'index'])->name('admin.users');
+        Route::get('banUsers/{userId}', [adminUserController::class, 'banUser'])->name('admin.banUsers');
         Route::get('products', [adminProductController::class, 'index'])->name('admin.products');
         Route::post('addProducts', [adminProductController::class, 'store'])->name('admin.addProduct');
         Route::get('addProducts', [adminProductController::class, 'addProduct'])->name('admin.addProduct');

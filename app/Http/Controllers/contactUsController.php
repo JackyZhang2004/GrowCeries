@@ -14,11 +14,14 @@ class contactUsController extends Controller
 
     public function submitForm(Request $request)
     {
+        dd($request);
         // Kirim data ke FormSubmit.co
-        $response = Http::asForm()->post('https://formsubmit.co/jackyzhng2004@gmail.com', [
-            'email' => $request->input('email'),
-            'message' => $request->input('message'),
-        ]);
+        // $response = Http::asForm()->post('https://formsubmit.co/jackyzhng2004@gmail.com', [
+        //     'email' => request()->input('email'),
+        //     'message' => request()->input('message'),
+        // ]);
+
+        
 
 
         // Set notifikasi sukses ke session

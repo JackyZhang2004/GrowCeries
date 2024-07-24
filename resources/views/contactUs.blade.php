@@ -93,7 +93,7 @@
         </h1>
     </div>
     <div class="message">
-        <form class="feedback-form" action="https://formsubmit.co/jackyzhng2004@gmail.com" method="POST">
+        <form class="feedback-form" action="{{route('submitForm')}}" method="POST">
             <div class="field1">
                 <input type="email" style="padding: 15px;" name = "email" class="email" placeholder="Your Email" required>
             </div>

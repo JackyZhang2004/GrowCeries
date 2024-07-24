@@ -77,8 +77,8 @@ Route::post('/refund/store/{id}', [orderController::class, 'storerefund'])->name
 
 Route::get('/profile', [profileController::class,'index'])->name('profile');
 Route::get('/profile/edit', [profileController::class,'editPersonalData'])->name('profile.editPersonalData');
-Route::get('/profile/update', [profileController::class,'updatePicture'])->name('profile.updatePicture');
-Route::get('/profile/update', [profileController::class,'updatePersonalData'])->name('profile.updatePersonalData');
+Route::post('/profile/updatePicture', [profileController::class,'updatePicture'])->name('profile.updatePicture');
+Route::post('/profile/updatePersonalData', [profileController::class,'updatePersonalData'])->name('profile.updatePersonalData');
 
 
 
@@ -97,7 +97,7 @@ Route::group(['prefix' => 'admin'], function () {
         Route::get('home', [adminHomeController::class, 'index'])->name('admin.home');
         Route::post('logout', [adminLoginController::class, 'logout'])->name('admin.logout');
         Route::get('users', [adminUserController::class, 'index'])->name('admin.users');
-        Route::get('banUsers/{userId}', [adminUserController::class, 'banUser'])->name('admin.banUsers');
+        Route::get('banUsers/{userId}', [adminUserController::class, 'banUsers'])->name('admin.banUsers');
         Route::get('products', [adminProductController::class, 'index'])->name('admin.products');
         Route::post('addProducts', [adminProductController::class, 'store'])->name('admin.addProduct');
         Route::get('addProducts', [adminProductController::class, 'addProduct'])->name('admin.addProduct');

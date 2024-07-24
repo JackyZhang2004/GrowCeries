@@ -11,8 +11,9 @@
     @if ($count == 0)
         <div class="emptyCartMessage">
             <h1 class="h1">Shopping Cart</h1>
+            <img src="{{ asset('image/cartKosong.jpg') }}" alt="" style="width: 20%">
             <h2>Well, your basket is empty</h2>
-            <p>Let's shop now</p>
+            <h2>Let's shop now</h2>
             <a href="{{ route('home') }}" class="btn btn-primary">Shop Now</a>
         </div>
     @else

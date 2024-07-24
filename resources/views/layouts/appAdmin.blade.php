@@ -25,7 +25,12 @@
 
 </head>
 <body>
-    @include('navigation.admin.nav'	)
+    @if (Route::currentRouteName() == 'admin.products')
+        @include('navigation.admin.nav'	)
+    @else
+        @include('navigation.admin.defaultNav')
+    @endif
+    
     @include('widgets.errorMessage')
     @include('widgets.successMessage')
 

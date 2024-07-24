@@ -13,7 +13,7 @@
             <img class="editClick cursor" id="editPict" src="../image/editIcon.png" alt="" onclick="openModal()">
         </div>
     </div>
-    <form action="{{ route('picture.updatePicture') }}" method="POST">
+    <form action="{{ route('profile.updatePicture') }}" method="POST">
         <div id="myModal" class="modal">
             <div class="modal-content">
                 <div class="top" id="top">
@@ -33,7 +33,7 @@
     <br>
     <div class="personalData">
         @if ($editingPersonalData ?? false)
-            <form action="{{ route('picture.updatePicture') }}" method="POST">
+            <form action="{{ route('profile.updatePicture') }}" method="POST">
                 <div class="top">
                     <p class="head2">Personal Data</p>
                     <a class="editClick" href="{{ route('profile') }}"><img src="../image/cancelEditIcon.png"
@@ -92,7 +92,7 @@
 
             <p class="head3">Phone Number</p>
             <span class="data">{{ $user->phoneNumber }}</span>
-            
+
             <p class="head3">E-mail</p>
             <span class="data">{{ $user->email }}</span>
         @endif

@@ -1,6 +1,7 @@
 .banner-prof
 {
     background-image: url("../image/profileBackground.png");
+    background-position: center;
     padding: 0;
     margin: 0;
     display: flex;

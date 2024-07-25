@@ -8,14 +8,25 @@
 
 @section('content')
     <h1 class="title">My Address</h1>
-    <a href="{{route('address.create')}}" class="addAddressButton">Add New Address</a>
     <div class="container">
         @if ($addresses->count() == 0)
-            
+            <div class="alert">
+                <img class="noAddress" src="{{asset('image/noAddress.svg')}}" alt="">
+                <p class="noAddressExp">You don't have any address in this application</p>
+                <a href="{{route('address.create')}}" class="addZeroAddress">Add New Address</a>
+            </div>
         @else
+            <a href="{{route('address.create')}}" class="addAddressButton">Add New Address</a>
             @foreach ($addresses as $address)
                 <div class="addressUnit">
                     <div class="left">
+                        @if ($address->status == "primary")
+                            <img class="addressImage" src="{{asset('image/primary.svg')}}" alt="">
+                        @elseif($address->status == "alternative")
+                            <img class="addressImage" src="{{asset('image/notPrimary.svg')}}" alt="">    
+                        @endif
+                    </div>
+                    <div class="mid">
                         <div class="unitTop">
                             <p class="identity">{{$address->receiverName}}</p>
                             <p class="horiLine">|</p>

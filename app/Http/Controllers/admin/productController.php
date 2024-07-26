@@ -18,7 +18,7 @@ class productController extends Controller
     }
 
     public function addProduct()
-    {   
+    {
         return view('admin.products.addProduct');
     }
 
@@ -108,19 +108,28 @@ class productController extends Controller
         if($product->stock != null){$product->stock = request()->stock;}
         if($product->variant != null){$product->variant = request()->variant;}
         if($product->image != null){$product->image = 'image/productImage/'.request()->image;}
-        
+
         $product->productDetail->save();
         $product->save();
 
         return redirect()->route('admin.products', $product)->with('success', 'Product updated successfully!');
     }
 
-    public function search(){
-        // dd(request());
-        // dd('1');
-        // dd($product);
-        // $search = ProductDetail::where('productName', $product)->get();
-        // dd($search);
+    public function search(Request $request){
+
+        $search = $request->input('search');
+
+        if ($request->has('search')) {
+            $products = product::where('productId', 'LIKE', $request->search)->get();
+        }
+        else{
+            $products = product::all(); 
+        }
+        $searchResult = $products->first() ?: null; // Assuming only one result for simplicity
+
+        // dd($searchResult && $searchResult->productStatus == 'Done');
+
+        return view('admin.products.crud', compact('products', 'searchResult', 'search'));
     }
 
 }

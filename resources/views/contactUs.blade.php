@@ -104,7 +104,7 @@
             <div class="separator"></div>
             <input type="hidden" name="_captcha" value="false">
             {{-- <input type="hidden" name="_cc" value="jackyzhng2004@gmail.com"> --}}
-            <input type="hidden" name="_next" value="http://127.0.0.1:8000/contactUs">
+            <input type="hidden" name="_next" value="http://127.0.0.1:8000/contactUs_r">
             <input type="hidden" name="_template" value="table">
             <div class="button">
                 <button id = "message-btn" type="submit">Send Message</button>

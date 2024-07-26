@@ -8,6 +8,8 @@ use App\Models\orderList;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
+use function Laravel\Prompts\search;
+
 // class HomeController extends Controller
 // {
 //     public function index()
@@ -51,12 +53,24 @@ class HomeController extends Controller
 {
     public function index()
     {
-        $orders1 = Order::where('orderStatus', 'Packing')->get();
-        $orders2 = Order::where('orderStatus', 'Shipped')->get();
-        $orders3 = Order::where('orderStatus', 'Done')->get();
+        // $orders1 = Order::where('orderStatus', 'Packing')->get();
+        // $orders2 = Order::where('orderStatus', 'Shipped')->get();
+        // $orders3 = Order::where('orderStatus', 'Done')->get();
+        $orders = order::all();
         $orderDetail = orderList::all();
-        return view('courier.home', compact('orders1', 'orders2','orders3', 'orderDetail'));
+        return view('courier.home', compact('orders', 'orderDetail'));
     }
+    public function cari()
+    {
+        $search = request()->input('search_Input');
+        $orders = Order::where('orderId','LIKE', $search)->get();
+        $orderDetail = orderList::all();
+        // dd($search);
+        return view('courier.home', compact('orders','orderDetail'));
+        // return redirect()->route('courier.home')->with(compact('orders1', 'orders2', 'orders3', 'orderDetail'));
+    }
+
+
 
     public function update($orderId)
     {
@@ -69,12 +83,9 @@ class HomeController extends Controller
                 $uporder->orderStatus = "Done";
             }
             $uporder->save();
-
-            // Re-fetch the updated lists
-            $orders1 = Order::where('orderStatus', 'Packing')->get();
-            $orders2 = Order::where('orderStatus', 'Shipped')->get();
-            $orders3 = Order::where('orderStatus', 'Done')->get();
-            return view('courier.home', compact('orders1', 'orders2','orders3', 'uporder'));
+            $orders = order::all();
+            $orderDetail = orderList::all();
+            return view('courier.home', compact('orders', 'orderDetail'));
         } else {
             return redirect()->route('courier.home')->with('error', 'Order not found');
         }

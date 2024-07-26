@@ -10,9 +10,14 @@
 
 <div class="container">
     <div class="searchContainer">
-        <p class="searchTitle">Find Our Product Here ...</p>
+        <form method="GET" action="{{ route('admin.searchProduct') }}" style="width: 100%;text-align:center;">
+            <p class="searchTitle">Find product Here ...</p>
+            <input type="text" name="search" placeholder="Input product id here..." class="searchField"
+                id="searchField" value="{{ isset($search) ? $search : '' }}">
+        </form>
+        {{-- <p class="searchTitle">Find Our Product Here ...</p> --}}
         {{-- <form action="{{route('admin.searchProduct')}}" method="GET"> --}}
-            <input type="text" placeholder="Input product code here..." class="searchField" id ="searchField" oninput=searchFunction($product)>
+            {{-- <input type="text" placeholder="Input product code here..." class="searchField" id ="searchField" oninput=searchFunction($product)> --}}
         {{-- </form> --}}
     </div>
     <div class="productListContainer">
@@ -44,10 +49,10 @@
                     <div class="productInformation">
                         <p class="productInformationTitle">Nutrition Details</p>
                         <p> : </p>
-                        <p class="productInformationDesc">Calories ({{$product->productDetail->calories}} gr), 
-                            Fat ({{$product->productDetail->fat}} gr), 
-                            Sugar ({{$product->productDetail->sugar}} gr), 
-                            Carbohydrate ({{$product->productDetail->carbohydrate}} gr), 
+                        <p class="productInformationDesc">Calories ({{$product->productDetail->calories}} gr),
+                            Fat ({{$product->productDetail->fat}} gr),
+                            Sugar ({{$product->productDetail->sugar}} gr),
+                            Carbohydrate ({{$product->productDetail->carbohydrate}} gr),
                             {{-- {{-- Protein ({{$product->productDetail->protein}} gr) --}}
                         </p>
                     </div>

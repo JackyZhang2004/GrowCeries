@@ -58,9 +58,12 @@ class User extends Authenticatable
     {
         return $this->hasMany(address::class, 'userId', 'id');
     }
-
+    
     public function image()
     {
+        if ($this->image) {
+            return url($this->image);
+        }
         return "https://avatar.iran.liara.run/public/boy?username=[{{$this->name}}]";
     }
 

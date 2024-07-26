@@ -24,40 +24,41 @@
         <img src="{{ asset('image/GrowceriesLogo.svg') }}" class="logoGrow" alt="" srcset="">
         <div class="header">
             <div class="title">Order List</div>
-            <form action="{{route('courier.home')}}" method="GET" id="search" data-aos="fade-right" data-aos-delay="200"
-        data-aos-duration="1000">
+            <form action="{{route('courier.find')}}" method="GET" id="search" data-aos="fade-right" data-aos-delay="200"
+            data-aos-duration="1000" value="{{ isset($search) ? $search : '' }}>
 
-        <div class="input-group">
-          <div class="search_container">
-            <i class="bi bi-search" id="magnifying" style="color: #050505 solid"></i>
-            <input name="search_Input" type="text" autocomplete="off" placeholder="Search your daily Growceries"
-              id="myInput" oninput="filterFunction()" class="form-control">
-            <button class="search_button">Search</button>
-          </div>
-        </div>
-        <div class="result_box">
-          <div id="dropdown_m0" class="dropdown m-0">
-            <div id="myDropdown" class="dropdown-content">
-              <div class="result_field">
-                {{-- @foreach ($products as $product)
-                <div name="search_Input" class="percontent">
-                  <a href="">
-                    <div id="result_field" class="media flex-wrap w-100 align-items-centerr">
-                      <i class="bi bi-search" id="magnifying2" style="color: #050505 solid"></i>
-                      <p class="ml-23" style="color: #050505">{{ $product->productDetail->productName }}</p>
+                    <div class="input-group">
+                    <div class="search_container">
+                        <i class="bi bi-search" id="magnifying" style="color: #050505 solid"></i>
+                        <input name="search_Input" type="text" autocomplete="off" placeholder="Search your daily Growceries"
+                        id="myInput" oninput="filterFunction()" class="form-control">
+                        <button class="search_button">Search</button>
                     </div>
-                  </a>
-                </div>
-                @endforeach --}}
-              </div>
+                    </div>
+                    <div class="result_box">
+                    <div id="dropdown_m0" class="dropdown m-0">
+                        <div id="myDropdown" class="dropdown-content">
+                        <div class="result_field">
+                            {{-- @foreach ($products as $product)
+                            <div name="search_Input" class="percontent">
+                            <a href="">
+                                <div id="result_field" class="media flex-wrap w-100 align-items-centerr">
+                                <i class="bi bi-search" id="magnifying2" style="color: #050505 solid"></i>
+                                <p class="ml-23" style="color: #050505">{{ $product->productDetail->productName }}</p>
+                                </div>
+                            </a>
+                            </div>
+                            @endforeach --}}
+                        </div>
 
-            </div>
-          </div>
+                        </div>
+                    </div>
+                    </div>
+
+            </form>
         </div>
 
-      </form>
-        </div>
-
+    </div>
         <div class="option">
             <div id="pick"  class="option_sub">
                 <p onclick="hideShow(1)"   class="option_title">Pick Up Order</p>
@@ -74,9 +75,14 @@
         @endphp --}}
         <div id="list_pack" class="listfield">
 
-                @foreach ($orders1 as $order)
+                @foreach ($orders as $order)
+
+                    @if ($order->orderStatus != "Packing")
+                        @continue
+                    @endif
                     <?php
                         $totalPrice = 0;
+
                     ?>
                     @foreach ($order->orderList as $orderr)
                         @if ($orderr->orderId == $order->orderId)
@@ -94,7 +100,7 @@
                                             <img src="{{ asset('image/shipped.svg') }}" alt="">
                                         </div>
                                         <div class="topMid">
-                                            <p class="status">Order is being Packing</p>
+                                            <p class="status">Order {{$order->orderId}} is being Packing</p>
                                             <p class="purchaseDate">Purchased at {{ $order->orderDate }}</p>
                                             <p class="productPurchased mb-1">Item Bought : {{ $order->orderList->count() }}
                                             </p>
@@ -111,7 +117,10 @@
             @endforeach
         </div>
         <div id="list_ship" class="listfield">
-            @foreach ($orders2 as $order)
+            @foreach ($orders as $order)
+                @if ($order->orderStatus != "Shipped")
+                    @continue
+                @endif
                 <?php
                     $totalPrice = 0;
                 ?>
@@ -130,7 +139,7 @@
                                         <img src="{{ asset('image/shipped.svg') }}" alt="">
                                     </div>
                                     <div class="topMid">
-                                        <p class="status">Order is being Shipped</p>
+                                        <p class="status">Order {{$order->orderId}} is being Shipped</p>
                                         <p class="purchaseDate">Purchased at {{ $order->orderDate }}</p>
                                         <p class="productPurchased mb-1">Item Bought : {{ $order->orderList->count() }}
                                         </p>
@@ -146,7 +155,7 @@
                     </form>
             @endforeach
         </div>
-    </div>
+    {{-- </div> --}}
 <script src="{{ asset('js/admin/courier/home.js') }}"></script>
 {{-- href="{{ asset('js/admin/courier/home.js') }}" --}}
     {{-- <p class="h1">Welcome Courier</p>

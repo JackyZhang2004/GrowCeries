@@ -51,7 +51,7 @@ input:focus{
     /* z-index: 0; */
 }
 #dropdown_m0{
-    width: 88%;
+    width: 100%;
 
 }
 .dropdown-content{
@@ -94,7 +94,7 @@ padding-left: 1vw;
     border-right: 1px black solid;
     padding-top: 1vh;
     overflow: hidden;
-    width: 42vw;
+    width: 48vw;
 }
 .result_field p{
     font-size: 20px;

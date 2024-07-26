@@ -11,6 +11,7 @@ use App\Http\Controllers\admin\homeController as adminHomeController;
 use App\Http\Controllers\admin\productController as adminProductController;
 use App\Http\Controllers\admin\OrderController as adminOrderController;
 use App\Http\Controllers\admin\ProfileController as adminProfileController;
+// use App\Http\Controllers\admin\userController as adminUserController;
 use App\Http\Controllers\authController;
 use App\Http\Controllers\cartController;
 use App\Http\Controllers\checkOutController;
@@ -42,6 +43,7 @@ Route::get('product/{id}', [productController::class, 'productDetails'])->name('
 Route::get('discover', [discoverController::class, 'index'])->name('discover');
 
 Route::get('contactUs', [contactUsController::class, 'contactUs'])->name('contactUs');
+Route::get('contactUs_r', [contactUsController::class, 'contactUs_r'])->name('contactUs_r');
 Route::post('submit-form', [contactUsController::class, 'submitForm'])->name('submitForm');
 
 
@@ -104,16 +106,15 @@ Route::group(['prefix' => 'admin'], function () {
         Route::get('product/{product}', [adminProductController::class, 'destroy'])->name('admin.delete');
         Route::get('product/{product}/edit', [adminProductController::class, 'edit'])->name('admin.editProduct');
         Route::put('admin/product/{product}', [adminProductController::class, 'update'])->name('admin.updateProduct');
-
         Route::get('orderAdmin', [adminOrderController::class, 'index'])->name('admin.orderAdmin');
         Route::get('profileAdmin', [adminProfileController::class, 'index'])->name('admin.profileAdmin');
         Route::get('product/{product?}', [adminProductController::class, 'search'])->name('admin.searchProduct');
+        Route::get('users/search', [adminUserController::class, 'search'])->name('admin.searchUsers');
         Route::get('orderAdmin', [adminOrderController::class, 'index'])->name('admin.orderAdmin');
         Route::get('/orderAdmin/search', [adminOrderController::class, 'search'])->name('admin.searchOrder');
         Route::get('orderAdmin/{id?}', [adminOrderController::class, 'detail'])->name('admin.orderDetail');
         Route::get('orderAdmin/{id?}/acc', [adminOrderController::class, 'accRefund'])->name('admin.accRefund');
         Route::get('orderAdmin/{id?}/rej', [adminOrderController::class, 'rejRefund'])->name('admin.rejRefund');
-
     });
 });
 
@@ -131,6 +132,7 @@ Route::group(['prefix' => 'courier'], function(){
     Route::group(['middleware' => 'courier.auth'], function(){
         Route::get('home', [courierHomeController::class, 'index'])->name('courier.home');
         Route::get('home/update/{id?}', [courierHomeController::class, 'update'])->name('courier.update');
+        Route::get('home/find', [courierHomeController::class, 'cari'])->name('courier.find');
         Route::post('logout', [courierLoginController::class, 'logout'])->name('courier.logout');
     });
 });

@@ -13,27 +13,29 @@
             <img class="editClick cursor" id="editPict" src="../image/editIcon.png" alt="" onclick="openModal()">
         </div>
     </div>
-    <form action="{{ route('profile.updatePicture') }}" method="POST">
-        <div id="myModal" class="modal">
-            <div class="modal-content">
+    <div id="myModal" class="modal">
+        <div class="modal-content">
+            <form action="{{ route('profile.updatePicture') }}" method="POST">
+                @csrf
                 <div class="top" id="top">
                     <p class="head2">Profile Picture</p>
                     <span class="close cursor" onclick="closeModal()"
                         style="font-family: Arial, Helvetica, sans-serif">x</span>
                 </div>
-                <input name="image"type="file" class="form-controlx">
+                <input name="image" type="file" class="form-controlx">
                 @error('image')
                     <p style="color: red; font-size: 1vw">Please choose your new profile picture!</p>
                 @enderror
                 <button type="submit" class="btn btn-secondary" style="background-color: green">Change Profile
                     Picture</button>
-            </div>
+            </form>
         </div>
-    </form>
+    </div>
     <br>
     <div class="personalData">
         @if ($editingPersonalData ?? false)
-            <form action="{{ route('profile.updatePicture') }}" method="POST">
+            <form action="{{ route('profile.updatePersonalData') }}" method="POST">
+                @csrf
                 <div class="top">
                     <p class="head2">Personal Data</p>
                     <a class="editClick" href="{{ route('profile') }}"><img src="../image/cancelEditIcon.png"
@@ -101,7 +103,7 @@
     <div class="address">
         <div class="top">
             <p class="head2">Address</p>
-            <a class="editClick" href="{{ route('profile.editPersonalData') }}"><img src="../image/editIcon.png"
+            <a class="editClick" href="{{ route('address.index') }}"><img src="../image/editIcon.png"
                     alt=""></a>
         </div>
         <p class="head3">Main Address</p>
@@ -112,14 +114,5 @@
 @endsection
 
 @section('script')
-    {{-- <script>
-        function openModal() {
-            document.getElementById("myModal").style.display = "block";
-        }
-
-        function closeModal() {
-            document.getElementById("myModal").style.display = "none";
-        }
-    </script> --}}
     <script src="{{ asset('js/profile.js') }}"></script>
 @endsection

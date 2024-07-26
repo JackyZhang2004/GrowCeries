@@ -23,15 +23,15 @@ class profileController extends Controller
     {
         $user = Auth::user();
         $userId = $user->id;
-
-        $request->validate([
+        
+        $validated = $request->validate([
             'image' => 'required'
         ]);
 
         $user = user::where('id', $userId)->first();
 
-        if($request->file('image')){
-            $validated['image'] = $request->file('image')->store('refund');
+        if($request->has('image')){
+            $validated['image'] = $request->file('image')->store('users', 'public');
         }
 
         User::updateOrInsert(
@@ -59,19 +59,19 @@ class profileController extends Controller
 
         User::updateOrInsert(
             ['id' => $userId],
-            ['image' => $nameReq]
+            ['name' => $nameReq]
         );
         User::updateOrInsert(
             ['id' => $userId],
-            ['image' => $genderReq]
+            ['gender' => $genderReq]
         );
         User::updateOrInsert(
             ['id' => $userId],
-            ['image' => $phoneReq]
+            ['phoneNumber' => $phoneReq]
         );
         User::updateOrInsert(
             ['id' => $userId],
-            ['image' => $emailReq]
+            ['email' => $emailReq]
         );
         return redirect()->route('profile')->with('success', 'Succesfully change your personal data');
     }

@@ -59,7 +59,7 @@ class OrderController extends Controller
         ]);
 
         if($request->file('image')){
-            $validated['image'] = $request->file('image')->store('refund');
+            $validated['image'] = $request->file('image')->store('users');
         }
 
 

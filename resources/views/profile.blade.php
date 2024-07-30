@@ -15,7 +15,7 @@
     </div>
     <div id="myModal" class="modal">
         <div class="modal-content">
-            <form action="{{ route('profile.updatePicture') }}" method="POST">
+            <form action="{{ route('profile.updatePicture') }}" method="POST" enctype="multipart/form-data">
                 @csrf
                 <div class="top" id="top">
                     <p class="head2">Profile Picture</p>

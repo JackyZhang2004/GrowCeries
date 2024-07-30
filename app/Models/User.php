@@ -62,7 +62,7 @@ class User extends Authenticatable
     public function image()
     {
         if ($this->image) {
-            return url($this->image);
+            return url('image/'. $this->image);
         }
         return "https://avatar.iran.liara.run/public/boy?username=[{{$this->name}}]";
     }

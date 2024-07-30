@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Storage;
 
 class profileController extends Controller
 {
@@ -25,13 +26,14 @@ class profileController extends Controller
         $userId = $user->id;
         
         $validated = $request->validate([
-            'image' => 'required'
+            'image' => 'required|image|file|max:10240'
         ]);
 
         $user = user::where('id', $userId)->first();
 
         if($request->has('image')){
-            $validated['image'] = $request->file('image')->store('users', 'public');
+            $validated['image'] = $request->file('image')->store('users');
+            Storage::disk('public')->delete($user->image);
         }
 
         User::updateOrInsert(

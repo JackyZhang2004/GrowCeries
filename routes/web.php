@@ -70,6 +70,7 @@ Route::get('/add-address', function () {
 Route::put('/address/{id}/update', [addressController::class, 'update'])->name('address.update');
 
 Route::get('/addresses', [addressController::class, 'index'])->name('address.index');
+Route::get('/addresses/primary/{id}', [addressController::class, 'setPrimary'])->name('address.primary');
 Route::get('/addresses/create', [addressController::class, 'create'])->name('address.create');
 Route::post('/addresses/create', [addressController::class, 'store']);
 Route::get('/addresses/{address}', [addressController::class, 'destroy'])->name('address.destroy');

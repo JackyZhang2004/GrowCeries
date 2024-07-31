@@ -103,12 +103,17 @@
     <div class="address">
         <div class="top">
             <p class="head2">Address</p>
-            <a class="editClick" href="{{ route('address.index') }}"><img src="../image/editIcon.png"
-                    alt=""></a>
+            <a class="editClick" href="{{ route('address.index') }}"><img src="../image/editIcon.png" alt=""></a>
         </div>
         <p class="head3">Main Address</p>
-        <span class="data" id="address">{{ $user->addresses->first()->addressName }},
-            {{ $user->addresses->first()->addressDetail }}</span>
+        <span class="data" id="address">
+            @if (!$user->addresses->first())
+                Not set yet
+            @else
+                {{ $user->addresses->first()->addressName }},
+                {{ $user->addresses->first()->addressDetail }}
+        </span>
+        @endif
     </div>
     <br>
 @endsection

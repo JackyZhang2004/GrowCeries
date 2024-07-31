@@ -21,7 +21,9 @@
 <div class="description">
     <h1>What Is Growceries?</h1>
     <img src="image/logoGrowceries.png" alt="" class="logoimg">
-    <p>"Growceries" is an innovative application specifically designed to facilitate the process of selling vegetables and fruit online. With existing features, Growceries allows consumers to buy fresh products directly from the source. With a user-friendly interface and secure payment system, Growceries is an ideal solution for those who value quality and sustainability in meeting their vegetable and fruit needs.</p>
+    <p>"Growceries" is an innovative application specifically designed to facilitate the process of selling vegetables and fruit online. 
+        With existing features, Growceries allows consumers to buy fresh products directly from the source. With a user-friendly interface 
+        and secure payment system, Growceries is an ideal solution for those who value quality and sustainability in meeting their vegetable and fruit needs.</p>
 </div>
 <div class="contact">
     <div class="desc">

@@ -49,7 +49,7 @@
     border-style: solid;
     border-width: 0.5px;
     border-color: lightgray;
-    box-shadow: 0px 5px 5px lightgray;
+    box-shadow: 0px 2px 5px lightgray;
     margin-bottom: 5px;
 }
 .dataE{
@@ -64,7 +64,7 @@
     border-style: solid;
     border-width: 0.5px;
     border-color: lightgray;
-    box-shadow: 0px 5px 5px lightgray;
+    box-shadow: 0px 2px 5px lightgray;
     margin-bottom: 5px;
 }
 #gender{

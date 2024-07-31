@@ -3,6 +3,7 @@ body{
     display: flex;
     flex-direction: column;
     justify-content: center;
+    overflow-x: hidden;
 }
 
 .title{
@@ -57,14 +58,18 @@ body{
     color: gray;
 }
 
+.input{
+    width: 10%;
+}
+
 .addressUnit{
     width: 100%;
     border: 1px solid grey;
     display: flex;
-    flex-direction: row;
     margin-top: 3vh;
     padding: 20px;
     border-radius: 20px;
+    flex-direction: row;
 }
 
 .left{

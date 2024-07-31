@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\address;
 use App\Models\cartList;
+use Illuminate\Auth\Middleware\RedirectIfAuthenticated;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Validator;
@@ -116,5 +117,22 @@ class addressController extends Controller
             return redirect()->route('home');
         }
 
+    }
+
+    public function setPrimary($id){
+        $user = Auth::user();
+
+        $address = Address::where('userId', $user->id)->get();
+
+        foreach ($address as $value) {
+            if ($value->addressId == $id) {
+                $value->status = "primary";
+            }
+            else{
+                $address->status = "alternative";
+            }
+        }
+
+        return redirect()->route('addresses.myAddress')->with('success', 'address primary updated');
     }
 }

@@ -119,20 +119,24 @@ class addressController extends Controller
 
     }
 
-    public function setPrimary($id){
+    public function setPrimary(){
         $user = Auth::user();
 
-        $address = Address::where('userId', $user->id)->get();
+        $addressId = request()->input("addressId");
 
-        foreach ($address as $value) {
-            if ($value->addressId == $id) {
+        $address = Address::where('addressId', $addressId)->first();
+        $allAddress = Address::all();  
+
+        foreach ($allAddress as $value) {
+            if ($value->addressId == $address->addressId) {
                 $value->status = "primary";
             }
             else{
-                $address->status = "alternative";
+                $value->status = "alternative";
             }
+            $value->save();
         }
 
-        return redirect()->route('addresses.myAddress')->with('success', 'address primary updated');
+        return redirect()->route('address.index')->with('success', 'address primary updated');
     }
 }

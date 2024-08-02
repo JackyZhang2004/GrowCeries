@@ -48,8 +48,14 @@ class authController extends Controller
             'password' => 'required'
         ]);
 
+
         if(auth()->attempt($validated)){
             request()->session()->regenerate();
+
+            $user = auth()->user();
+            if($user->utype == 'admin' || $user->utype == 'courier'){
+                return back()->with('error', 'You are not authorized to access this page');
+            }
 
             return redirect()->route('home')->with('success', 'Logged in successfully!');
         }
@@ -60,7 +66,6 @@ class authController extends Controller
                 'password' => 'invalid credential'
             ]
         );
-
     }
 
     public function logout(){

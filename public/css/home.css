@@ -340,7 +340,7 @@ html{
 .search_button {
     width: 20%;
     border-radius: 24px;
-    background-color: rgba(136,148,63,255);
+    background-color: #3F945A;
     font-size: 18px;
     color: white;
     cursor: pointer; /* Pointer cursor on hover */

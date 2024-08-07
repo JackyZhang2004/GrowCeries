@@ -17,39 +17,41 @@
             </div>
         @else
             <a href="{{ route('address.create') }}" class="addAddressButton">Add New Address</a>
-            <form action="{{route('address.primary')}}", method="GET" class="formm">
-                @foreach ($addresses as $address)
-                    <div class="addressUnit">
-                        <input type="radio" id={{ $address->addressId }}>
-                        <input name="addressId" type="hidden" value={{ $address->addressId }}>
-                        <div class="left">
-                            @if ($address->status == 'primary')
-                                <img class="addressImage" src="{{ asset('image/primary.svg') }}" alt="">
-                            @elseif($address->status == 'alternative')
-                                <img class="addressImage" src="{{ asset('image/notPrimary.svg') }}" alt="">
-                            @endif
+            @foreach ($addresses as $address)
+                <div class="addressUnit">
+                    <div class="left">
+                        @if ($address->status == 'primary')
+                            <img class="addressImage" src="{{ asset('image/primary.svg') }}" alt="">
+                        @elseif($address->status == 'alternative')
+                            <img class="addressImage" src="{{ asset('image/notPrimary.svg') }}" alt="">
+                        @endif
+                    </div>
+                    <div class="mid">
+                        <div class="unitTop">
+                            <p class="identity">{{ $address->receiverName }}</p>
+                            <p class="horiLine">|</p>
+                            <p class="phone">{{ $address->phoneNumber }}</p>
                         </div>
-                        <div class="mid">
-                            <div class="unitTop">
-                                <p class="identity">{{ $address->receiverName }}</p>
-                                <p class="horiLine">|</p>
-                                <p class="phone">{{ $address->phoneNumber }}</p>
-                            </div>
-                            <div class="unitBottom">
-                                <p class="addressDetail">{{ $address->addressName }}, </p>
-                                <p class="addressDetail"> {{ $address->addressDetail }}</p>
-                            </div>
+                        <div class="unitBottom">
+                            <p class="addressDetail">{{ $address->addressName }}, {{ $address->addressDetail }}</p>
                         </div>
-                        <div class="right">
+                    </div>
+                    <div class="right">
+                        @if ($address->status == 'alternative')
+                            <a href="{{ route('address.edit', ['id' => $address->addressId]) }}"
+                                class="addressDetailButton2">Edit Address</a>
+                            <a href="{{ route('address.destroy', ['address' => $address]) }}"
+                                class="addressDeleteButton2">Delete</a>
+                            <a href="{{ route('address.primary', ['id' => $address->addressId]) }}" class="setPrimaryButton">Primary</a>
+                        @else
                             <a href="{{ route('address.edit', ['id' => $address->addressId]) }}"
                                 class="addressDetailButton">Edit Address</a>
                             <a href="{{ route('address.destroy', ['address' => $address]) }}"
                                 class="addressDeleteButton">Delete</a>
-                        </div>
+                        @endif
                     </div>
-                @endforeach
-                <button class="setPrimaryButton" type="submit">Set Primary Address</button>
-            </form>
+                </div>
+            @endforeach
         @endif
     </div>
 @endsection

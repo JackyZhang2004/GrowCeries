@@ -12,7 +12,8 @@ use Illuminate\Support\Facades\Auth;
 class homeController extends Controller
 {
     public function index(){
-        $products = Product::with('productDetail')->get();
+        $products = Product::with('productDetail')->take(8)->get();
+
         $user = Auth::user();
 
         $userId = auth()?->user()?->id;

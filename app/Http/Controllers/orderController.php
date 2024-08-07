@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\CartList;
 use App\Models\order;
 use App\Models\orderList;
+use App\Models\product;
 use App\Models\Refund;
 use Carbon\Carbon;
 use Illuminate\Support\Facades\Auth;
@@ -38,7 +39,15 @@ class OrderController extends Controller
 
     public function delete($id){
         $order = Order::find($id);
+        $orderDetail = orderList::where('orderId', $order->orderId)->get();
         $order->delete();
+
+        foreach ($orderDetail as $value) {
+            $product = product::where('productId', $value->productId)->first();
+            $product->stock += $value->quantity;
+            $product->save();
+        }
+       
         return redirect()->route('order');
     }
 

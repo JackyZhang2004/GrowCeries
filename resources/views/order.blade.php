@@ -44,7 +44,9 @@
                     @foreach ($orders as $list)
                         @if ($category == 'Current')
                             @if ($list->orderStatus == 'Packing')
-                                <?php $count += 1; ?>
+                                <?php
+                                    $count += 1;
+                                ?>
                                 <div class="OrderUnit">
                                     <div class="unitTop">
                                         <div class="topLeft">
@@ -68,7 +70,9 @@
                                     </div>
                                 </div>
                             @elseif($list->orderStatus == 'Shipped')
-                                <?php $count += 1; ?>
+                                <?php
+                                    $count += 1;
+                                ?>
                                 <div class="OrderUnit">
                                     <div class="unitTop">
                                         <div class="topLeft">
@@ -94,7 +98,9 @@
                             @endif
                         @elseif ($category == 'Done')
                             @if ($list->orderStatus == 'Done')
-                                <?php $count += 1; ?>
+                                <?php
+                                    $count += 1;
+                                ?>
                                 <div class="OrderUnit">
                                     <div class="unitTop">
                                         <div class="topLeft">
@@ -127,7 +133,9 @@
                     @if ($category == 'Refund')
                         @foreach ($orders as $list)
                             @if ($list->orderStatus == 'Request Refund')
-                                <?php $count += 1; ?>
+                                <?php
+                                    $count += 1;
+                                ?>
                                 <div class="OrderUnit">
                                     <div class="unitTop">
                                         <div class="topLeft">
@@ -152,7 +160,9 @@
                         @endforeach
                         @foreach ($orders as $list)
                             @if ($list->orderStatus == 'Refunded')
-                                <?php $count += 1; ?>
+                                <?php
+                                    $count += 1;
+                                ?>
                                 <div class="OrderUnit">
                                     <div class="unitTop">
                                         <div class="topLeft">

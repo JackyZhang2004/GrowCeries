@@ -61,7 +61,13 @@ class addressController extends Controller
 
     public function destroy(Address $address)
     {
-        $address->delete();
+        if($address->status == "primary"){
+            $newPrimary = address::where('addressId', '!=', $address->addressId)->first();
+            
+            $address->delete();
+            $newPrimary->status = "primary";
+            $newPrimary->save();
+        }
 
         return redirect()->route('address.index')->with('success', 'Address deleted successfully.');
     }
@@ -119,12 +125,10 @@ class addressController extends Controller
 
     }
 
-    public function setPrimary(){
+    public function setPrimary($id){
         $user = Auth::user();
 
-        $addressId = request()->input("addressId");
-
-        $address = Address::where('addressId', $addressId)->first();
+        $address = Address::where('addressId', $id)->first();
         $allAddress = Address::all();  
 
         foreach ($allAddress as $value) {

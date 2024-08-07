@@ -44,7 +44,7 @@
             </div>
             <input type="hidden" name="previous_page" value="{{ url()->previous() }}">
             <div class="button">
-                <button type="submit" class="submitButton">Save Changes</button>
+                <button type="submit" class="submitButton">Submit</button>
             </div>
         </form>
     </div>

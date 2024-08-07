@@ -46,17 +46,17 @@ class discoverController extends Controller
         if ($isSayurSelected && $isBuahSelected) {
             // Jika keduanya dipilih, tampilkan kedua kategori
             $productsQuery->whereHas('productDetail', function ($query) {
-                $query->whereIn('productCategory', ['sayur', 'buah']);
+                $query->whereIn('productCategory', ['Vegetable', 'Fruit']);
             });
         } elseif ($isSayurSelected) {
             // Jika hanya sayur yang dipilih
             $productsQuery->whereHas('productDetail', function ($query) {
-                $query->where('productCategory', 'sayur');
+                $query->where('productCategory', 'Vegetable');
             });
         } elseif ($isBuahSelected) {
             // Jika hanya buah yang dipilih
             $productsQuery->whereHas('productDetail', function ($query) {
-                $query->where('productCategory', 'buah');
+                $query->where('productCategory', 'Fruit');
             });
         }
 

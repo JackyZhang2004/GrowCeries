@@ -33,7 +33,9 @@ class profileController extends Controller
 
         if($request->has('image')){
             $validated['image'] = $request->file('image')->store('users');
-            Storage::disk('public')->delete($user->image);
+            if($user->image != null){
+                Storage::disk('public')->delete($user->image);
+            }
         }
 
         User::updateOrInsert(

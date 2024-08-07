@@ -9,12 +9,6 @@
 @section('title', 'Admin | Users Page')
 
 @section('content')
-    <div class="successMessage">
-      @include('widgets.successMessage')
-    </div>
-    <div class="errorMessage">
-        @include('widgets.errorMessage')
-    </div>
     <div class="container">
         <div class="searchContainer">
             <form method="GET" action="{{ route('admin.searchUsers') }}" style="width: 100%;text-align:center;">
@@ -41,7 +35,7 @@
                     <div class="productUnit">
                         <div class="unitTop">
                             <div class="topLeft">
-                                <img src={{asset($user->image )}} alt="">
+                                <img src={{$user->image()}} alt="">
                             </div>
                             <div class="topMid">
                                 <p class="productName">{{$user->name}}</p>

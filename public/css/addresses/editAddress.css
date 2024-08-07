@@ -42,5 +42,12 @@
     color: white;
     background-color: #3F945A;
     border-radius: 10px;
-    
+}
+
+
+.submitButton:hover{
+    text-decoration: none;
+    color: #3F945A;
+    border: 1px solid #3F945A;
+    background-color: white;
 }

@@ -50,7 +50,6 @@
                             </div>
                             @endforeach --}}
                         </div>
-
                         </div>
                     </div>
                     </div>
@@ -60,11 +59,11 @@
 
     </div>
         <div class="option">
-            <div id="pick"  class="option_sub">
-                <p onclick="hideShow(1)"   class="option_title">Pick Up Order</p>
+            <div onclick="hideShow(1)" id="pick"  class="option_sub">
+                <p    class="option_title">Pick Up Order</p>
             </div>
-            <div id="ship" class="option_sub">
-                <p onclick="hideShow(2)" class="option_title">Shipped Order</p>
+            <div onclick="hideShow(2)" id="ship" class="option_sub">
+                <p  class="option_title">Shipped Order</p>
             </div>
             {{-- <div id="done" class="option_sub">
                 <p class="option_title">Order History</p>
@@ -73,6 +72,9 @@
         {{-- @php
             dump($uporder->orderId)
         @endphp --}}
+        <?php
+        $totalPrice = 0;
+        ?>
         <div id="list_pack" class="listfield">
 
                 @foreach ($orders as $order)
@@ -115,6 +117,10 @@
                                 </div>
                         </form>
             @endforeach
+            @if ($totalPrice == 0)
+                <img src="{{ asset('image/noOrder.png') }}" alt="">
+                <p>There is no order to pick up</p>
+            @endif
         </div>
         <div id="list_ship" class="listfield">
             @foreach ($orders as $order)
@@ -123,6 +129,7 @@
                 @endif
                 <?php
                     $totalPrice = 0;
+
                 ?>
                 @foreach ($order->orderList as $orderr)
                     @if ($orderr->orderId == $order->orderId)
@@ -153,7 +160,12 @@
                                 </div>
                             </div>
                     </form>
+
             @endforeach
+            @if ($totalPrice == 0)
+                <img src="{{ asset('image/noOrder.png') }}" alt="">
+                <p>There is No order to ship</p>
+            @endif
         </div>
     {{-- </div> --}}
 <script src="{{ asset('js/admin/courier/home.js') }}"></script>
